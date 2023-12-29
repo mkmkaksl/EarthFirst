@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="{% block metaDescription %}{% endblock %}">
+    <meta name="keywords" content="{% block metaKeywords %}{% endblock %}">
+    <meta name="author" content="Manoj Kumar, Avinav Emmadi, Ayush Sharma, Vedik Reddy, Abhijay Bitra">
+    <title>Green Clean</title>
+    <link rel="stylesheet" href="{% static 'greenClean/styles.css' %}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'greenClean/images/logo-nobg.png' %}" alt="Green Clean logo">
+            </a>
+        </div>
+        <nav class="flex-center">
+            <ul>
+                <li class="nav-items"><a href="" class="nav-links">Home</a></li>
+                <li class="nav-items"><a href="" class="nav-links">Energy Tips</a></li>
+                <li class="nav-items"><a href="" class="nav-links">Carbon Footprint</a></li>
+                <li class="nav-items"><a href="" class="nav-links">Energy Usage</a></li>
+                <li class="nav-items"><a href="" class="nav-links">More...</a></li>
+            </ul>
+        </nav>
+        <div class="loginBtn flex-center">
+            <!-- Will Depend on the cur state -->
+            <button>Login</button>
+        </div>
+    </header>
+
+    {% block body %}
+
+    {% endblock %}
+    
+    <footer>
+
+    </footer>
+
+</body>
+</html>

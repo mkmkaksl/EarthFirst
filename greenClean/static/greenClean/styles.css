@@ -1,0 +1,62 @@
+
+*, *::before, *::after {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+/*Body*/
+body { 
+    margin: 0;
+}
+
+/* Reseting Properties Globally */
+a {
+    text-decoration: none !important;
+}
+
+/* Header */
+header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: grid;
+    grid-template-columns: 0.5fr 5fr 1fr;
+    gap: 1em;
+    margin: 0;
+    padding: 1em;
+}
+
+header .logo img {
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 0.5em;
+}
+.nav-items {
+    list-style: none;
+}
+.nav-links {
+    text-decoration: none;
+    color: black;
+}
+
+header .loginBtn button {
+    border: none;
+    border-radius: 10px;
+    background-color: #89DD7B;
+    padding: 0.7em 2em;
+    /* font-size: 1rem; */
+    transition: background-color 300ms;
+}
+header .loginBtn button:hover {
+    background-color: #1dbe00;
+}
+
+/* General Classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
