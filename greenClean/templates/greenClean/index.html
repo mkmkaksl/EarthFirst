@@ -4,6 +4,12 @@
 {% block metaKeywords %}Sustainability, Green Energy, Global Warming, Initiatives, Startup{% endblock %}
 
 {% block body %}
-<p> Hello World </p>
-<h1>Testing</h1>
+
+    {% if map %}
+        {{ map | safe }}
+    {% else %}
+        <h1>Hello</h1>
+        <p>World</p>
+    {% endif %}
+
 {% endblock %}
