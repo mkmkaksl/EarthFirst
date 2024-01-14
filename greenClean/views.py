@@ -37,8 +37,8 @@ categories = [
 ]
 
 class MapForm(forms.Form):
-    year = forms.IntegerField(label="Year", required=True, initial=maxYear, min_value=minYear, max_value=maxYear)
-    category = forms.CharField(widget=forms.Select(choices=categories))
+    year = forms.IntegerField(label="Year", required=True, initial=maxYear, min_value=minYear, max_value=maxYear, widget=forms.TextInput(attrs={"class": "form-control"}))
+    category = forms.CharField(widget=forms.Select(choices=categories, attrs={"class": "form-select"}))
 
 # Create your views here.
 def index(request):
