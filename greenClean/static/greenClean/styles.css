@@ -47,7 +47,7 @@ header {
     justify-content: center;
     align-items: center;
  }
- .nav-btn{
+ .nav-btn .btn {
     color: black;
     background-color: transparent;
     border-color: transparent;
