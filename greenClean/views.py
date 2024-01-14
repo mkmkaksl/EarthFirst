@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.staticfiles import finders
 from django.conf import settings
+from django import forms
+
 # for map visualization
 import numpy as np
 import pandas as pd
@@ -23,14 +25,35 @@ world_csv = world_csv.drop('population', axis=1) #remove population column
 
 country_sorted = world_csv.groupby(['country', 'year']).sum().reset_index().sort_values('year', ascending=False)
 
+maxYear = max(country_sorted["year"])
+minYear = min(country_sorted["year"])
+
+# Mapping choice to it's visual text for select field
+categories = [
+    ('biofuel_consumption', 'Primary energy consumption from biofuels(terawatt-hours)'),
+    ('biofuel_electricity', 'Electricity generation from bioenergy(terawatt-hours)'),
+    ('biofuel_share_elec', 'Share of electricity that comes from bioenergy(percentage of total electricity)'),
+    ('coal_cons_per_capita', 'Coal consumption per capita(kilowatt-hours per person)')
+]
+
+class MapForm(forms.Form):
+    year = forms.IntegerField(label="Year", required=True, initial=maxYear, min_value=minYear, max_value=maxYear)
+    category = forms.CharField(widget=forms.Select(choices=categories))
+
 # Create your views here.
 def index(request):
     return render(request, "greenClean/index.html")
 
-def map(request, year):
+def mapForm(request):
 
-    maxYear = max(country_sorted["year"])
-    minYear = 1985 #because our data doesn't have very accurate data from before this
+    form = MapForm()
+
+    return render(request, "greenClean/map.html", {
+        "form": form,
+    })
+
+def mapView(request, year):
+
     if year > maxYear or year < minYear:
         print("Out of bounds")
         return HttpResponseRedirect(reverse("index"))
@@ -38,52 +61,51 @@ def map(request, year):
     col = "coal_electricity"
 
     mask = country_sorted["year"].astype(int) == year
-    # year_countries = (country_sorted.loc[mask])
-    # year_countries = year_countries.dropna(subset=[col])
-    # year_countries = year_countries[year_countries.iso_code != 0]
+    year_countries = (country_sorted.loc[mask]) # get all rows with year equal to inputted year
+    year_countries = year_countries.dropna(subset=[col]) # Drop all country rows where the value is null, so they will be gray in the visualization
 
     col_countries = country_sorted.dropna(subset=[col])
     col_countries = col_countries[col_countries.iso_code != 0].sort_values(by="year")
 
-    # fig = go.Figure(
-    #     data=go.Choropleth(
-    #         locations=year_countries["country"], 
-    #         locationmode="country names",
-    #         z=year_countries[col],
-    #         colorscale = 'Greens',
-    #         marker_line_color = 'black',
-    #         marker_line_width = 1
-    #     )
-    # )
-
-    # fig.update_layout(
-    #     title_text = col.title() + " From " + str(year),
-    #     title_x = 0.5,
-    #     geo=dict(
-    #         showframe = False,
-    #         showcoastlines = False,
-    #         projection_type = 'equirectangular'
-    #     )
-    # )
-
-    #Creating the visualization
-    fig = px.choropleth(col_countries,
-        locations="country",
-        locationmode = "country names",
-        color=col,
-        hover_name="country",
-        animation_frame="year"
+    fig = go.Figure(
+        data=go.Choropleth(
+            locations=year_countries["country"], 
+            locationmode="country names",
+            z=year_countries[col],
+            colorscale = 'Greens',
+            marker_line_color = 'black',
+            marker_line_width = 1
+        )
     )
 
     fig.update_layout(
-        title_text = col.title() + " Change",
+        title_text = col.title() + " From " + str(year),
         title_x = 0.5,
         geo=dict(
             showframe = False,
             showcoastlines = False,
+            projection_type = 'equirectangular'
         )
     )
 
-    return render(request, "greenClean/index.html", {
+    #Creating the visualization timelapse, we use px
+    # fig = px.choropleth(col_countries,
+    #     locations="country",
+    #     locationmode = "country names",
+    #     color=col,
+    #     hover_name="country",
+    #     animation_frame="year"
+    # )
+
+    # fig.update_layout(
+    #     title_text = col.title() + " Change",
+    #     title_x = 0.5,
+    #     geo=dict(
+    #         showframe = False,
+    #         showcoastlines = False,
+    #     )
+    # )
+
+    return render(request, "greenClean/map.html", {
         "map": fig.to_html(full_html=False),
     })

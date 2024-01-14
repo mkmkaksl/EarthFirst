@@ -9,38 +9,47 @@
     <meta name="description" content="{% block metaDescription %}{% endblock %}">
     <meta name="keywords" content="{% block metaKeywords %}{% endblock %}">
     <meta name="author" content="Manoj Kumar, Avinav Emmadi, Ayush Sharma, Vedik Reddy, Abhijay Bitra">
-    <title>Green Clean: {% block title %}Home{% endblock %}</title>
+    <title>Green Clean: {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'greenClean/styles.css' %}">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}" defer></script>
 </head>
 <body>
-
+    <a id="top"></a>
     <header>
-        <div class="logo">
-            <a href="{% url 'index' %}">
-                <img src="{% static 'greenClean/images/logo-nobg.png' %}" alt="Green Clean logo">
-            </a>
-        </div>
-        <nav class="flex-center">
-            <ul>
-                <li class="nav-items"><a href="" class="nav-links">Home</a></li>
-                <li class="nav-items"><a href="" class="nav-links">Energy Tips</a></li>
-                <li class="nav-items"><a href="" class="nav-links">Carbon Footprint</a></li>
-                <li class="nav-items"><a href="" class="nav-links">Energy Usage</a></li>
-                <li class="nav-items"><a href="" class="nav-links">More...</a></li>
-            </ul>
-        </nav>
-        <div class="loginBtn flex-center">
-            <!-- Will Depend on the cur state -->
-            <button>Login</button>
+        <div class="navbar">
+            <div id="nav-l">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'greenClean/images/logo-nobg.png' %}" alt="Green Clean logo">
+                </a>
+            </div>
+
+            <div id="nav-m">
+                <div class="nav-m-container">
+                    <button class="nav-btn"><a href="">Incentives & Costs</a></button>
+                    <button class="nav-btn"><a href="">Your Carbon Footprint</a></button>
+                    <button class="nav-btn"><a href="/map">World Energy Usage</a></button>
+                    <button class="nav-btn"><a href="">Become Eco-Smart</a></button>
+                </div>
+            </div>
+
+            <div id="nav-r">
+                <!-- We might change this to the login button later depending on how much time we have left-->
+                <button class="nav-btn nav-contact">Contact</button>
+            </div>
         </div>
     </header>
 
     {% block body %}
 
     {% endblock %}
-    
     <footer>
-
+        <div id="upBtn">
+            <button>
+                <a href="#top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </button>
+        </div>
     </footer>
 
 </body>

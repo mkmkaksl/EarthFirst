@@ -1,0 +1,19 @@
+{% extends "greenClean/layout.html" %}
+
+{% block title %}Map{% endblock %}
+{% block metaDescription %}Energy Usage Around the World{% endblock %}
+{% block metaKeywords %}{% endblock %}
+
+{% block body %}
+
+    <form action="/map/2022" method="POST" class="mapForm">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if map %}
+        {{ map | safe }}
+    {% endif %}
+
+{% endblock %}

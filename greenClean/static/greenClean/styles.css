@@ -3,10 +3,16 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
 }
-/*Body*/
-body { 
-    margin: 0;
+
+:root {
+    --nav-height: 6em;
 }
+/*Body*/
+body{
+    background-color:rgb(224, 234, 241);
+    color: black;
+    margin: 0;
+ }
 
 /* Reseting Properties Globally */
 a {
@@ -16,44 +22,94 @@ a {
 /* Header */
 header {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: grid;
-    grid-template-columns: 0.5fr 5fr 1fr;
-    gap: 1em;
     margin: 0;
     padding: 1em;
 }
 
-header .logo img {
+/* Nav Bar */
+.navbar{
+    /* display: flex;
+    align-self: flex-start;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    place-items: center;
+    border-radius: 5px;
+    max-height: var(--nav-height);
+    /* margin-top:10px; */
+ }
+ #nav-m, #nav-r, #nav-l {
+    max-height: var(--nav-height);
     width: 100%;
-}
-
-header nav ul {
+ }
+ #nav-m{
     display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .nav-btn{
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 3px;
+    font-family:monospace;
+    font-size: 0.9rem;
+
+    transition: 100ms ease-in-out;
+ }
+ .nav-btn:hover{
+    color:#50a144;
+ }
+ #nav-r{
+    display:flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
-    gap: 0.5em;
-}
-.nav-items {
-    list-style: none;
-}
-.nav-links {
-    text-decoration: none;
-    color: black;
+ }
+ .nav-contact{
+    font-family:monospace;
+    padding:10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color:#84cb77;
+    border-radius: 5px;
+ }
+ .nav-contact:hover{
+    background-color:#50a144;
+    color:black;
+ }
+ #nav-l{
+    display:flex;
+    justify-content: center;
+ }
+#nav-l img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-header .loginBtn button {
-    border: none;
-    border-radius: 10px;
-    background-color: #89DD7B;
-    padding: 0.7em 2em;
-    /* font-size: 1rem; */
-    transition: background-color 300ms;
-}
-header .loginBtn button:hover {
-    background-color: #1dbe00;
-}
+ .nav-m-container{
+    width: 75%;
+    display:flex;
+    justify-content: space-evenly;
+    height:30px;
+ }
 
+ 
+#upBtn {
+   aspect-ratio: 1;
+   width: 50px;
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+}
+#upBtn button {
+   width: 100%;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   border: none;
+   background-color: rgba(255, 255, 255, 0.8);
+   color: white;
+}
+ 
 /* General Classes */
 .flex-center {
     display: flex;
