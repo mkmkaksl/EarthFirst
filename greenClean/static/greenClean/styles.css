@@ -12,6 +12,7 @@ body{
     background-color:rgb(224, 234, 241);
     color: black;
     margin: 0;
+    max-width: 100dvw;
  }
 
 /* Reseting Properties Globally */
@@ -36,6 +37,7 @@ header {
     place-items: center;
     border-radius: 5px;
     max-height: var(--nav-height);
+    border: 1px solid black;
     /* margin-top:10px; */
  }
  #nav-m, #nav-r, #nav-l {
@@ -47,7 +49,7 @@ header {
     justify-content: center;
     align-items: center;
  }
- .nav-btn .btn {
+ .nav-btn, .btn {
     color: black;
     background-color: transparent;
     border-color: transparent;
