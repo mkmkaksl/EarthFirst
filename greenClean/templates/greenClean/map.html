@@ -6,14 +6,21 @@
 
 {% block body %}
 
-    <form action="/map/2022" method="POST" class="mapForm">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Submit</button>
-    </form>
 
     {% if map %}
         {{ map | safe }}
+        <a href="{% url 'mapForm' %}">Back</a>
+    {% else %}
+        <form action="/map/2022" method="POST" class="mapForm">
+            {% csrf_token %}
+            <!-- This just adds a class to the label item nothing else -->
+            {% for field in form %}
+                <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+                {{ field }}
+                <br>
+            {% endfor %}
+                <button class="btn btn-success" type="submit">Submit</button>
+        </form>
     {% endif %}
 
 {% endblock %}
