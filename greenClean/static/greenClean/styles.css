@@ -28,18 +28,16 @@ header {
 }
 
 /* Nav Bar */
-/*.navbar{
+.navbar{
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     place-items: center;
     border-radius: 5px;
     max-height: var(--nav-height);
-<<<<<<< Updated upstream
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* margin-top:10px; */
-=======
->>>>>>> Stashed changes
- }
+}
+
  #nav-m, #nav-r, #nav-l {
     max-height: var(--nav-height);
     width: 100%;
