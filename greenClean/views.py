@@ -109,3 +109,6 @@ def mapView(request, year):
     return render(request, "greenClean/map.html", {
         "map": fig.to_html(full_html=False),
     })
+
+def tips(request):
+    return render(request, "greenClean/tips.html")
