@@ -15,6 +15,7 @@ body{
     color: black;
     margin: 0;
     max-width: 100dvw;
+    overflow-x: hidden;
  }
 
 /* Reseting Properties Globally */
@@ -30,14 +31,13 @@ header {
 }
 
 /* Nav Bar */
-.navbar{
+/* the nav styles affect the mobile version of the navbar so i commented it out */
+/* .navbar{
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     place-items: center;
     border-radius: 5px;
     max-height: var(--nav-height);
-    /* border: 1px solid black; */
-    /* margin-top:10px; */
 }
 
  #nav-m, #nav-r, #nav-l {
@@ -88,16 +88,16 @@ header {
     max-height: 100%;
 }
 
-.nav-m-container{
-   width: 75%;
-   display:flex;
-   justify-content: space-evenly;
-   height:30px;
-}
+ .nav-m-container{
+    width: 75%;
+    display:flex;
+    justify-content: space-evenly;
+    height:30px;
+ }
  
 #upBtn {
-   width: 50px;
    aspect-ratio: 1;
+   width: 50px;
    position: fixed;
    bottom: 30px;
    right: 30px;
@@ -161,4 +161,36 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*custom nav tab style */
+.nav-pills > .nav-link {
+   border-radius: 60px !important;
+   width: 120px !important; 
+   height: 120px !important; 
+   padding: 6px 0px !important; 
+}
+.nav-pills > .nav-link.active {
+   background-color: #198754 !important;
+}
+.nav-pills > .nav-link:not(.active) {
+   color: #212529 !important;
+}
+
+/*footer*/
+#body-container {
+   height: 100vh;
+}
+
+#footer {
+   height: 20vh;
+   width: 100vw;
+   text-align: center;
+}
+
+#footer > a {
+   color: #198754;
+   display: inline-block;
+   margin: 0 auto;
+   text-align: center;
 }
