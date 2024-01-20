@@ -32,7 +32,8 @@ header {
 
 /* Nav Bar */
 /* the nav styles affect the mobile version of the navbar so i commented it out */
-/* .navbar{
+/*
+.navbar{
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     place-items: center;
@@ -88,13 +89,13 @@ header {
     max-height: 100%;
 }
 
- .nav-m-container{
-    width: 75%;
-    display:flex;
-    justify-content: space-evenly;
-    height:30px;
- }
- 
+.nav-m-container{
+   width: 75%;
+   display:flex;
+   justify-content: space-evenly;
+   height:30px;
+}
+*/
 #upBtn {
    aspect-ratio: 1;
    width: 50px;
