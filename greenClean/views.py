@@ -33,7 +33,29 @@ categories = [
     ('biofuel_consumption', 'Primary energy consumption from biofuels(terawatt-hours)'),
     ('biofuel_electricity', 'Electricity generation from bioenergy(terawatt-hours)'),
     ('biofuel_share_elec', 'Share of electricity that comes from bioenergy(percentage of total electricity)'),
-    ('coal_cons_per_capita', 'Coal consumption per capita(kilowatt-hours per person)')
+    ('coal_cons_per_capita', 'Coal consumption per capita(kilowatt-hours per person)'),
+    ('coal_consumption', 'Primary energy consumption fomr coal(terawatt-hours)'),
+    ('coal_elec_per_capita', 'Electricity generation from coal per person(kilowatt-hours per person)'),
+    ('coal_electricity', 'Electricity generation from coal(terawatt-hours)'),
+    ('coal_production', 'Coal production(terwatt-hours)'),
+    ('electricity_demand', 'Electricity demand(terawatt-hours)'),
+    ('electricity_generation', 'Total electricity generation(terawatt-hours)'),
+    ('energy_per_capita', 'Primary energy consumption per capita(kilowatt-hours per person)'),
+    ('fossil_elec_per_capita', 'Electricity generation from fossil fuels per person(kilowatt-hours per person)'),
+    ('fossil_electricity', 'Electricity generation from fossil fuels(terawatt-hours)'),
+    ('fossil_fuel_consumption', 'Primary energy consumption from fossil fuels(terawatt-hours)'),
+    ('gas_consumption', 'Primary energy consumption from gas(terawatt-hours)'),
+    ('gas_elec_per_capita', 'Electricity generation from gas per person(kilowatt-hours per person)'),
+    ('gas_electricity', 'Electricity generation from gas(terawatt-hours)'),
+    ('greenhouse_gas_emissions', "Emissions from electricity generation(megatonnes of CO2 equivalents)"),
+    ('hydro_consumption', 'Primary energy consumption from hydropower(terawatt-hours, using substitution method)'),
+    ('hydro_electricity', 'Electricity generation from hydropower(terawatt-hours)'),
+    ("low_carbon_electricity", "Electricity generation from low-carbon sources(terawatt-hours)"),
+    ('nuclear_electricity', 'Electricity generation from nuclear power(terawatt-hours)'),
+    ('oil_electricity', 'Electricity generation from oil(terawatt-hours)'),
+    ('renewables_electricity', 'Electricity generation from renewables(terawatt-hours)'),
+    ('solar_electricity', 'Electricity generation from solar power(terawatt-hours)'),
+    ('wind_electricity', 'Electricity generation from wind power(terawatt-hours)')
 ]
 
 class MapForm(forms.Form):
@@ -44,21 +66,25 @@ class MapForm(forms.Form):
 def index(request):
     return render(request, "greenClean/index.html")
 
-def mapForm(request):
+# def mapForm(request):
 
-    form = MapForm()
+#     form = MapForm()
 
-    return render(request, "greenClean/map.html", {
-        "form": form,
-    })
+#     return render(request, "greenClean/map.html", {
+#         "form": form,
+#     })
 
-def mapView(request, year):
-
-    if year > maxYear or year < minYear:
-        print("Out of bounds")
-        return HttpResponseRedirect(reverse("index"))
-    
-    col = "coal_electricity"
+def map(request):
+    if request.method == "POST":
+        form = MapForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            col = data["category"]
+            year = data["year"]
+    else:
+        form = MapForm()
+        col = "biofuel_consumption"
+        year = 2022
 
     mask = country_sorted["year"].astype(int) == year
     year_countries = (country_sorted.loc[mask]) # get all rows with year equal to inputted year
@@ -78,14 +104,18 @@ def mapView(request, year):
         )
     )
 
+    new_col = " ".join((col.split("_"))).title()
+    title_text = new_col + " From " + str(year)
+
     fig.update_layout(
-        title_text = col.title() + " From " + str(year),
+        title_text = title_text,
         title_x = 0.5,
         geo=dict(
             showframe = False,
             showcoastlines = False,
             projection_type = 'equirectangular'
-        )
+        ),
+        geo_bgcolor="#FFF"
     )
 
     #Creating the visualization timelapse, we use px
@@ -106,8 +136,12 @@ def mapView(request, year):
     #     )
     # )
 
+
     return render(request, "greenClean/map.html", {
         "map": fig.to_html(full_html=False),
+        "form": form,
+        "col": new_col,
+        "year": year,
     })
 
 def tips(request):

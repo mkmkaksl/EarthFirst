@@ -2,14 +2,16 @@
 *, *::before, *::after {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
+    background: none;
 }
 
 :root {
     --nav-height: 6em;
+    --body-bg: rgb(255, 255, 255);
 }
-/*Body*/
+/*Body (1 Important Tag)*/
 body{
-    background-color:rgb(224, 234, 241);
+    background-color: var(--body-bg) !important;
     color: black;
     margin: 0;
     max-width: 100dvw;
@@ -86,17 +88,16 @@ header {
     max-height: 100%;
 }
 
- .nav-m-container{
-    width: 75%;
-    display:flex;
-    justify-content: space-evenly;
-    height:30px;
- }
-*/
+.nav-m-container{
+   width: 75%;
+   display:flex;
+   justify-content: space-evenly;
+   height:30px;
+}
  
 #upBtn {
-   aspect-ratio: 1;
    width: 50px;
+   aspect-ratio: 1;
    position: fixed;
    bottom: 30px;
    right: 30px;
@@ -109,6 +110,51 @@ header {
    background-color: rgba(255, 255, 255, 0.8);
    color: white;
 }
+
+
+/* Map Page (1 important) */
+.mapContainer {
+   background-color: var(--body-bg);
+   margin: 3em 0.5em;
+   padding: 1em;
+   border-radius: 20px;
+}
+
+.map svg:nth-child(1) {
+   background-color: rgba(235, 235, 235, 0.2) !important;
+   border: 2px solid lightblue;
+   border-radius: 20px 20px 0 0;
+}
+.map .details {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   border: 2px solid lightblue;
+   margin: -2px 0 0.5em 0;
+   padding: 0.5em;
+   border-radius: 0 0 20px 20px;
+
+}
+
+.map .details .col {
+   font-size: 1.2rem;
+   font-variant: small-caps;
+   font-weight: bold;
+   margin: auto 0;
+}
+.map .details .year {
+   font-size: 0.7rem;
+   margin: auto 0;
+}
+
+.mapContainer form {
+   display: grid;
+   grid-template-columns: 1fr 4fr 0.8fr;
+   gap: 1em;
+   place-items: end;
+}
+
  
 /* General Classes */
 .flex-center {

@@ -1,4 +1,3 @@
-fontawesomefree==6.5.1
 django
 numpy
 plotly
