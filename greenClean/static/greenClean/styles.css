@@ -28,14 +28,13 @@ header {
 }
 
 /* Nav Bar */
-.navbar{
+/* the nav styles affect the mobile version of the navbar so i commented it out */
+/* .navbar{
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     place-items: center;
     border-radius: 5px;
     max-height: var(--nav-height);
-    /* border: 1px solid black; */
-    /* margin-top:10px; */
 }
 
  #nav-m, #nav-r, #nav-l {
@@ -91,23 +90,29 @@ header {
     display:flex;
     justify-content: space-evenly;
     height:30px;
- }
-*/
- 
-#upBtn {
-   aspect-ratio: 1;
-   width: 50px;
-   position: fixed;
-   bottom: 30px;
-   right: 30px;
+ } */
+/*footer*/
+
+body {
+   overflow-x: hidden;
+   max-width: 100%;
 }
-#upBtn button {
-   width: 100%;
-   aspect-ratio: 1;
-   border-radius: 50%;
-   border: none;
-   background-color: rgba(255, 255, 255, 0.8);
-   color: white;
+
+#body-container {
+   height: 100vh;
+}
+
+#footer {
+   height: 20vh;
+   width: 100vw;
+   text-align: center;
+}
+
+#footer > a {
+   color: #198754;
+   display: inline-block;
+   margin: 0 auto;
+   text-align: center;
 }
  
 /* General Classes */
