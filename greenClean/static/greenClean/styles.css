@@ -121,3 +121,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/*custom nav tab style */
+.nav-pills > .nav-link.active {
+   background-color: #198754 !important;
+}
+.nav-pills > .nav-link:not(.active) {
+   color: #212529 !important;
+}

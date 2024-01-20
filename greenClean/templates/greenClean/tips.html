@@ -5,71 +5,20 @@
 {% block metaKeywords %}Eco-friendly tips{% endblock %}
 
 {% block body %}
-<div class="accordion" id="accordionExample">
-    <!-- Tip #1-->
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Tip #1
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            #1
-        </div>
-      </div>
-    </div>
-    <!-- Tip #2 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Tip #2
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            #2
-        </div>
-      </div>
-    </div>
-    <!-- Tip #3 -->
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Tip #3
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            #3
-        </div>
-      </div>
-    </div>
-    <!-- Tip #4 -->
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              Tip #4
-          </button>
-        </h2>
-        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-              #4
-          </div>
-        </div>
-    </div>
-    <!-- Tip #5 -->
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              Tip #5
-          </button>
-        </h2>
-        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-              #5
-          </div>
-        </div>
-    </div>
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active" id="v-pills-tip1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip1" type="button" role="tab" aria-controls="v-pills-tip1" aria-selected="true">Tip #1</button>
+    <button class="nav-link" id="v-pills-tip2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip2" type="button" role="tab" aria-controls="v-pills-tip2" aria-selected="false">Tip #2</button>
+    <button class="nav-link" id="v-pills-tip3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip3" type="button" role="tab" aria-controls="v-pills-tip3" aria-selected="false">Tip #3</button>
+    <button class="nav-link" id="v-pills-tip4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip4" type="button" role="tab" aria-controls="v-pills-tip4" aria-selected="false">Tip #4</button>
+    <button class="nav-link" id="v-pills-tip5-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip5" type="button" role="tab" aria-controls="v-pills-tip5" aria-selected="false">Tip #5</button>
+  </div>
+  <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="v-pills-tip1" role="tabpanel" aria-labelledby="v-pills-tip1-tab" tabindex="0">...#1</div>
+    <div class="tab-pane fade" id="v-pills-tip2" role="tabpanel" aria-labelledby="v-pills-tip2-tab" tabindex="0">...#2</div>
+    <div class="tab-pane fade" id="v-pills-tip3" role="tabpanel" aria-labelledby="v-pills-tip3-tab" tabindex="0">...#3</div>
+    <div class="tab-pane fade" id="v-pills-tip4" role="tabpanel" aria-labelledby="v-pills-tip4-tab" tabindex="0">...#4</div>
+    <div class="tab-pane fade" id="v-pills-tip5" role="tabpanel" aria-labelledby="v-pills-tip5-tab" tabindex="0">...#5</div>
+  </div>
 </div>
 {% endblock %}
