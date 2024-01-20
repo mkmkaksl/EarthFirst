@@ -123,6 +123,12 @@ body {
 }
 
 /*custom nav tab style */
+.nav-pills > .nav-link {
+   border-radius: 60px !important;
+   width: 120px !important; 
+   height: 120px !important; 
+   padding: 6px 0px !important; 
+}
 .nav-pills > .nav-link.active {
    background-color: #198754 !important;
 }
