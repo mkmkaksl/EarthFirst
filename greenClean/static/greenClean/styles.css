@@ -96,18 +96,9 @@ header {
    height:30px;
 }
 */
-<<<<<<< Updated upstream
-#upBtn {
-   aspect-ratio: 1;
-   width: 50px;
-   position: fixed;
-   bottom: 30px;
-   right: 30px;
-=======
 
 #body-container {
    height: 100vh;
->>>>>>> Stashed changes
 }
 
 #footer {
