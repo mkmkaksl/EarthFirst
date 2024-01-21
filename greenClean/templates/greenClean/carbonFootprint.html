@@ -1,4 +1,5 @@
 {% extends 'greenClean/layout.html' %}
+{% load static %}
 
 {% block title %}Your Carbon Footprint{% endblock %}
 {% block metaDescription %}Calculate your carbon footprint using our calculator!{% endblock %}
@@ -19,7 +20,16 @@
         <div class="active-header"></div>
         
         <div class="form-section">
-            <h3 class="form-header">Energy:</h3>
+            <!-- Tool Tip-->
+            <h3 class="form-header flex-center">
+                <div class="my-tooltip">
+                    <button type="button" class="tooltip-parent"><i class="fa-solid fa-exclamation"></i></button>
+                    <p class="tooltip-child flex-center">This calculation is based on data collected from 2022
+                    </p>
+                </div>
+                Energy:
+            </h3>
+            
             <div class="form-field-container">
                 {% for field in energyForm %}
                         <div class="form-field">
@@ -27,7 +37,7 @@
                             {{ field }}
                         </div>
                 {% endfor %}
-                <div class="carbon-footprint" id="energy_co2"></div>
+                <div class="carbon-footprint" id="energy_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
             </div>
         </div>
 
@@ -40,6 +50,7 @@
                             {{ field }}
                         </div>
                 {% endfor %}
+                <div class="carbon-footprint" id="transport_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
             </div>
         </div>
 
@@ -53,6 +64,7 @@
                             {{ field }}
                         </div>
                 {% endfor %}
+                <div class="carbon-footprint" id="flight_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
             </div>
         </div>
 
@@ -66,70 +78,20 @@
                             {{ field }}
                         </div>
                 {% endfor %}
+                <div class="carbon-footprint" id="car_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
 
-            </div>
-        </div>
-
-
-        <div class="form-section">
-            <h3 class="form-header">Fuel Used:</h3>
-            <div class="form-field-container">
-                {% for field in fuelForm %}
-                        <div class="form-field">
-                            <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
-                            {{ field }}
-                        </div>
-                {% endfor %}
             </div>
         </div>
 
         <div class="submit-btn">
-            <button class="btn btn-success" type="submit">Calculate <i class="fa-solid fa-caret-right"></i></button>
+            <button class="btn btn-success" type="submit">Calculate Total <i class="fa-solid fa-caret-right"></i></button>
         </div>
     </form>
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            let allFormSections = document.querySelectorAll(".form-section");
-            let allFormHeaders = document.querySelectorAll(".form-header")
-            let activeHeader = document.querySelector(".active-header")
-            
-            let carbonFootprints = document.querySelector(".carbon-footprint")
-            const elec_country = document.querySelector("#id_location")
-            const elec_usage = document.querySelector("#id_energy")
-            const elec_carbon_footprint = document.querySelector("#energy_co2")
-            
-            let carbonIntensities = '{{ elec_intensities | safe }}';
-            let carbonIntensitiesObject = JSON.parse(carbonIntensities);
-
-            let emissionFactor = carbonIntensitiesObject[elec_country.value]
-
-            elec_country.addEventListener('change', () => {
-                emissionFactor = carbonIntensitiesObject[elec_country.value];
-                if (elec_usage.value != 0) {
-                    elec_carbon_footprint.innerHTML = (emissionFactor * elec_usage.value) + " gCO<sub>2</sub>"
-                }
-            })
-            elec_usage.addEventListener("input", () => {
-                elec_carbon_footprint.innerHTML = (emissionFactor * elec_usage.value) + " gCO<sub>2</sub>"
-            })
-
-
-            allFormSections.forEach((x, idx) => {
-                x.addEventListener("focusin", () => {
-                    activeHeader.style.height = allFormHeaders[idx].offsetHeight + "px";
-                    activeHeader.style.top = allFormHeaders[idx].offsetTop + "px";
-                })
-                x.addEventListener("focusout", () => {
-                    activeHeader.style.height = 0;
-                })
-
-
-            })
-
-        })
-        
+        let carbonIntensities = '{{ elec_intensities | safe }}';
     </script>
+    <script src="{% static 'greenClean/calculator.js' %}"></script>
 
 {% endblock %}

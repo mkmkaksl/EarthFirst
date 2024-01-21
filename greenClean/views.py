@@ -40,8 +40,6 @@ elec_intensities_dict = pd.Series(elec_intensity["carbon_intensity_elec"].values
 
 elec_intensities_str = str(elec_intensities_dict).replace("'", '\"')
 
-print(elec_intensities_str)
-
 # Mapping choice to it's visual text for select field
 categories = [
     ('biofuel_consumption', 'Primary energy consumption from biofuels(terawatt-hours)'),
@@ -77,55 +75,44 @@ class MapForm(forms.Form):
     category = forms.CharField(widget=forms.Select(choices=categories, attrs={"class": "form-select"}))
 
 class EnergyForm(forms.Form):
-    #Energy Section
-    # locations = [
-    #     ("USA", "USA"),
-    #     ("Canada", "Canada"),
-    #     ("UK", "United Kingdom"),
-    #     ("Europe", "Europe"),
-    #     ("Africa", "Africa"),
-    #     ("LatinAmerica", "Latin America"),
-    #     ("MiddleEast", "Middle East"),
-    #     ("OtherCountry", "Other")
-    # ]
     countries = elec_intensity["country"]
     locations = [(country, country) for country in countries]
 
     location = forms.CharField(widget=forms.Select(choices=locations))
-    energy = forms.FloatField(label="Average Weekly Energy Used(Kilowatt hours): ")
+    energy = forms.FloatField(label="Average Weekly Energy Used(Kilowatt hours): ", min_value=0)
 
 class TransportationForm(forms.Form):
     #Public Transportation
     transport_types = [
         ("Taxi", "Taxi"),
-        ("ClassicBus", "Bus"),
+        ("Bus", "Bus"),
         ("Coach", "Coach"),
-        ("Subway", "Train"),
-        ("LightRail", "LightRail")
+        ("Subway", "Subway"),
+        ("Light Rail", "Light Rail"),
+        ("National Train", "National Train")
     ]
     transport_type = forms.CharField(widget=forms.Select(choices=transport_types), label="Transportation Type: ")
-    distance = forms.FloatField(label="Distance Traveled in KM: ")
+    distance = forms.FloatField(label="Average Weekly Distance Traveled(Kilometers): ")
 
 class FlightForm(forms.Form):
     #Flight
     flight_types = [
-        ("DomesticFlight", "Domestic Flight"),
-        ("ShortEconomyClassFlight", "Short Economy Class Flight"),
-        ("ShortBusinessClassFlight", "Short Business Class Flight"),
-        ("LongEconomyClassFlight", "Long Economy Class Flight"),
-        ("LongBusinessClassFlight", "Long Business Class Flight"),
+        ("Domestic Flight", "Domestic Flight"),
+        ("Short Economy Class Flight", "Short Economy Class Flight"),
+        ("Short Business Class Flight", "Short Business Class Flight"),
+        ("Long Economy Class Flight", "Long Economy Class Flight"),
+        ("Long Business Class Flight", "Long Business Class Flight"),
     ]
     flight_type = forms.CharField(widget=forms.Select(choices=flight_types), label="Flight Type: ")
-    flight_dist = forms.FloatField(label="Distance Traveled in KM: ")
+    flight_dist = forms.FloatField(label="Average Yearly Distance Traveled(Kilometers): ")
 
 class CarForm(forms.Form):
     #Car
-    car_dist = forms.FloatField(label="Distance Travelled in KM: ")
+    cars = "Diesel Car,Petrol Car,Hybrid Car,Petrol Van,Diesel Van".split(",")
+    carOptions = [(car, car) for car in cars]
 
-class FuelForm(forms.Form):
-    #Fuel
-    fuel_type = forms.CharField(widget=forms.Select(choices=[("Petrol", "Petrol"), ("Diesel", "Diesel")]), label="Fuel Type: ")
-    fuel_amount = forms.FloatField(label="Litres of fuel: ")
+    car_type = forms.CharField(widget=forms.Select(choices=carOptions), label="Car Type: ")
+    car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ")
 
 
 
@@ -209,14 +196,12 @@ def footprintCalculator(request):
     transportForm = TransportationForm()
     flightForm = FlightForm()
     carForm = CarForm()
-    fuelForm = FuelForm()
 
     return render(request, "greenClean/carbonFootprint.html", {
         "energyForm": energyForm,
         "transportForm": transportForm,
         "flightForm": flightForm,
         "carForm": carForm,
-        "fuelForm": fuelForm,
         "elec_intensities": elec_intensities_str
     })
 
