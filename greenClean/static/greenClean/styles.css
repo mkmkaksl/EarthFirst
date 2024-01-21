@@ -156,6 +156,32 @@ header {
    place-items: end;
 }
 
+/* Calculator Page */
+
+form {
+   position: relative;
+}
+
+.form-section {
+   margin: 0.3em 0 2em 0;
+}
+.form-header {
+   font-size: 1.2rem;
+   border-bottom: 3px solid gray;
+   font-weight: bold;
+   padding: 0.3em;
+   text-align: center;
+}
+
+form .active-header {
+   background-color: rgba(97, 255, 97, 0.8);
+   border-radius: 10px 10px 0 0;
+   width: 100%;
+   position: absolute;
+   z-index: -1;
+   transition: top linear 50ms;
+}
+
  
 /* General Classes */
 .flex-center {
@@ -180,7 +206,7 @@ header {
 
 /*footer*/
 #body-container {
-   height: 100vh;
+   height: 100dvh;
 }
 
 #footer {

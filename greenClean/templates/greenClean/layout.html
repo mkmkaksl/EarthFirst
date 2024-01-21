@@ -12,7 +12,8 @@
     <title>Green Clean: {% block title %}{% endblock %}</title>
     <link rel="icon" href="{% static 'greenClean/images/logo-nobg.png' %}">
     <link rel="stylesheet" href="{% static 'greenClean/styles.css' %}">
-    <script src="{% static 'fontawesomefree/js/all.min.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'greenClean/fontawesome/css/all.min.css' %}">
+    <script src="{% static 'greenClean/fontawesome/js/all.min.js' %}" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -30,7 +31,7 @@
                         <a class="nav-link" href="">Incentives & Costs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Your Carbon Footprint</a>
+                        <a class="nav-link" href="/footprint">Your Carbon Footprint</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="/map">World Energy Usage</a>
