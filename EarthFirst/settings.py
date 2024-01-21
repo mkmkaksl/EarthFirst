@@ -24,11 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i=way&j-q(_^2)es@vx^40ktv)$%7diqmvw08!(o$+ig6kl^eh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'manojk.pythonanywhere.com',
-    "127.0.0.1"
 ]
 
 
@@ -36,7 +35,6 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'greenClean',
-    'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'root')
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Media files
 MEDIA_URL = '/media/'

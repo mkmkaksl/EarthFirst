@@ -2229,7 +2229,8 @@ readers do not read off random characters that represent icons */
   content: "\f6c8"; }
 
 .fa-caret-up::before {
-  content: "\f0d8"; }
+  content: "\f0d8";
+}
 
 .fa-screwdriver::before {
   content: "\f54a"; }
