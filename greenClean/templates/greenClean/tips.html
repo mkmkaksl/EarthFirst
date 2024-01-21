@@ -1,24 +1,59 @@
 {% extends "greenClean/layout.html" %}
+{% load static %}
 
 {% block title %}Tips{% endblock %}
 {% block metaDescription %}Tips to be eco-smart{% endblock %}
 {% block metaKeywords %}Eco-friendly tips{% endblock %}
 
 {% block body %}
-<div class="d-flex align-items-center">
-  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <button class="nav-link active" id="v-pills-tip1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip1" type="button" role="tab" aria-controls="v-pills-tip1" aria-selected="true">Tip #1</button>
-    <button class="nav-link" id="v-pills-tip2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip2" type="button" role="tab" aria-controls="v-pills-tip2" aria-selected="false">Tip #2</button>
-    <button class="nav-link" id="v-pills-tip3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip3" type="button" role="tab" aria-controls="v-pills-tip3" aria-selected="false">Tip #3</button>
-    <button class="nav-link" id="v-pills-tip4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip4" type="button" role="tab" aria-controls="v-pills-tip4" aria-selected="false">Tip #4</button>
-    <button class="nav-link" id="v-pills-tip5-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tip5" type="button" role="tab" aria-controls="v-pills-tip5" aria-selected="false">Tip #5</button>
-  </div>
-  <div class="tab-content" id="v-pills-tabContent">
-    <div class="tab-pane fade show active" id="v-pills-tip1" role="tabpanel" aria-labelledby="v-pills-tip1-tab" tabindex="0">...#1</div>
-    <div class="tab-pane fade" id="v-pills-tip2" role="tabpanel" aria-labelledby="v-pills-tip2-tab" tabindex="0">...#2</div>
-    <div class="tab-pane fade" id="v-pills-tip3" role="tabpanel" aria-labelledby="v-pills-tip3-tab" tabindex="0">...#3</div>
-    <div class="tab-pane fade" id="v-pills-tip4" role="tabpanel" aria-labelledby="v-pills-tip4-tab" tabindex="0">...#4</div>
-    <div class="tab-pane fade" id="v-pills-tip5" role="tabpanel" aria-labelledby="v-pills-tip5-tab" tabindex="0">...#5</div>
-  </div>
+
+<div id="carouselExample" class="carousel carousel-dark slide">
+    <div class="carousel-inner">
+        <!--Carousel Items-->
+        <div class="carousel-item active">
+            <img src="https://picsum.photos/1920/1080" class="d-block w-75 mx-auto" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-light">
+                <h5 class="fw-bold">Tip #1</h5>
+                <p class="col-md">Lorem ipsum...1</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://picsum.photos/1920/1080" class="d-block w-75 mx-auto" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-light">
+                <h5 class="fw-bold">Tip #2</h5>
+                <p class="col-md">Lorem ipsum...2</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://picsum.photos/1920/1080" class="d-block w-75 mx-auto" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-light">
+                <h5 class="fw-bold">Tip #3</h5>
+                <p class="col-md">Lorem ipsum...3</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://picsum.photos/1920/1080" class="d-block w-75 mx-auto" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-light">
+                <h5 class="fw-bold">Tip #4</h5>
+                <p class="col-md">Lorem ipsum...4</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://picsum.photos/1920/1080" class="d-block w-75 mx-auto" alt="...">
+            <div class="carousel-caption d-none d-md-block bg-light">
+                <h5 class="fw-bold">Tip #5</h5>
+                <p class="col-md">Lorem ipsum...5</p>
+            </div>
+        </div>
+        <!---->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 {% endblock %}
