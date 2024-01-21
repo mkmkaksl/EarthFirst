@@ -1,8 +1,14 @@
 from django.shortcuts import render
+
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse
 # from django.contrib.staticfiles import finders
 # from django.conf import settings
+
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.staticfiles import finders
+from django.conf import settings
 from django.core.files.storage import default_storage
 from django import forms
 
@@ -25,6 +31,13 @@ worldData = default_storage.path("energyData.csv")
 # world_csv = pd.read_csv(StringIO(worldData))
 world_csv = pd.read_csv(worldData)
 
+<<<<<<< HEAD
+=======
+
+worldData = default_storage.path("energyData.csv")
+# world_csv = pd.read_csv(StringIO(worldData))
+world_csv = pd.read_csv(worldData)
+>>>>>>> 7a6452bceb689ec71d7a035e220f56fa502029f3
 #data cleaning
 world_csv = world_csv.drop('gdp', axis=1) #remove gdp column
 world_csv = world_csv.drop('population', axis=1) #remove population column
@@ -35,6 +48,17 @@ country_sorted = world_csv.groupby(['country', 'year']).sum().reset_index().sort
 # minYear = min(country_sorted["year"])
 maxYear = 2022
 minYear = 1986
+
+mask = world_csv["year"].astype(int) == 2022 # world_csv is not sorted by year so i'm using that rather than country_sorted
+latestCountries = (world_csv.loc[mask])
+elec_intensity = latestCountries.dropna(subset=['carbon_intensity_elec'])
+
+# Mapping every country to it's carbon intensity of electricity value
+elec_intensities_dict = pd.Series(elec_intensity["carbon_intensity_elec"].values, index=elec_intensity["country"]).to_dict()
+
+elec_intensities_str = str(elec_intensities_dict).replace("'", '\"')
+
+print(elec_intensities_str)
 
 # Mapping choice to it's visual text for select field
 categories = [
@@ -70,17 +94,62 @@ class MapForm(forms.Form):
     year = forms.IntegerField(label="Year", required=True, initial=maxYear, min_value=minYear, max_value=maxYear, widget=forms.TextInput(attrs={"class": "form-control"}))
     category = forms.CharField(widget=forms.Select(choices=categories, attrs={"class": "form-select"}))
 
+class EnergyForm(forms.Form):
+    #Energy Section
+    # locations = [
+    #     ("USA", "USA"),
+    #     ("Canada", "Canada"),
+    #     ("UK", "United Kingdom"),
+    #     ("Europe", "Europe"),
+    #     ("Africa", "Africa"),
+    #     ("LatinAmerica", "Latin America"),
+    #     ("MiddleEast", "Middle East"),
+    #     ("OtherCountry", "Other")
+    # ]
+    countries = elec_intensity["country"]
+    locations = [(country, country) for country in countries]
+
+    location = forms.CharField(widget=forms.Select(choices=locations))
+    energy = forms.FloatField(label="Average Weekly Energy Used(Kilowatt hours): ")
+
+class TransportationForm(forms.Form):
+    #Public Transportation
+    transport_types = [
+        ("Taxi", "Taxi"),
+        ("ClassicBus", "Bus"),
+        ("Coach", "Coach"),
+        ("Subway", "Train"),
+        ("LightRail", "LightRail")
+    ]
+    transport_type = forms.CharField(widget=forms.Select(choices=transport_types), label="Transportation Type: ")
+    distance = forms.FloatField(label="Distance Traveled in KM: ")
+
+class FlightForm(forms.Form):
+    #Flight
+    flight_types = [
+        ("DomesticFlight", "Domestic Flight"),
+        ("ShortEconomyClassFlight", "Short Economy Class Flight"),
+        ("ShortBusinessClassFlight", "Short Business Class Flight"),
+        ("LongEconomyClassFlight", "Long Economy Class Flight"),
+        ("LongBusinessClassFlight", "Long Business Class Flight"),
+    ]
+    flight_type = forms.CharField(widget=forms.Select(choices=flight_types), label="Flight Type: ")
+    flight_dist = forms.FloatField(label="Distance Traveled in KM: ")
+
+class CarForm(forms.Form):
+    #Car
+    car_dist = forms.FloatField(label="Distance Travelled in KM: ")
+
+class FuelForm(forms.Form):
+    #Fuel
+    fuel_type = forms.CharField(widget=forms.Select(choices=[("Petrol", "Petrol"), ("Diesel", "Diesel")]), label="Fuel Type: ")
+    fuel_amount = forms.FloatField(label="Litres of fuel: ")
+
+
+
 # Create your views here.
 def index(request):
     return render(request, "greenClean/index.html")
-
-# def mapForm(request):
-
-#     form = MapForm()
-
-#     return render(request, "greenClean/map.html", {
-#         "form": form,
-#     })
 
 def map(request):
     if request.method == "POST":
@@ -150,6 +219,23 @@ def map(request):
         "form": form,
         "col": new_col,
         "year": year,
+    })
+
+def footprintCalculator(request):
+
+    energyForm = EnergyForm()
+    transportForm = TransportationForm()
+    flightForm = FlightForm()
+    carForm = CarForm()
+    fuelForm = FuelForm()
+
+    return render(request, "greenClean/carbonFootprint.html", {
+        "energyForm": energyForm,
+        "transportForm": transportForm,
+        "flightForm": flightForm,
+        "carForm": carForm,
+        "fuelForm": fuelForm,
+        "elec_intensities": elec_intensities_str
     })
 
 def tips(request):

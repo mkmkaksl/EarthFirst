@@ -28,6 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'manojk.pythonanywhere.com',
+    '127.0.0.1'
 ]
 
 
