@@ -5,7 +5,53 @@
 {% block metaKeywords %}Sustainability, Green Energy, Global Warming, Initiatives, Startup{% endblock %}
 
 {% block body %}
-    <h1>Hello</h1>
-    <p>World TO the home page</p>
+
+
+    <div class="home">
+        <div class="home-content">
+            <div class="home-img">
+                <img src="https://www.svgrepo.com//show/227814/planet-earth-global.svg" height="350px" width="350px">
+            </div>
+            <div class="home-title-box">
+                <div class="title">
+                    <div id="cont-1"><b>EARTH&ensp;</div>
+                    <div id="cont-2">FIRST</b></div>
+                </div>
+                <div class="sub-title">
+                    <span id="type-ani-txt">&ensp;</span>
+                </div>
+                <button class="home-btn">
+                    Learn more
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Add your own texts here
+        const textsToType = ["","Discover your <b>carbon footprint</b>.", "Unlock <b>eco-friendly</b> habits.","Explore the <b>costs</b> of a <b>renewable future</b>.","Learn about <b>global energy</b> usage."];
+     
+        // Initialize Typed.js
+        const options = {
+          strings: textsToType,
+          backSpeed: 40,
+          backDelay: 1000,
+          typeSpeed: 50,
+          showCursor: true,
+          cursorChar: '',
+          loop: true
+        };
+     
+        const typed = new Typed('#type-ani-txt', options);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var height = window.innerHeight;
+            var b = document.querySelector("body");
+            b.style["min-height"] = height;
+        } )
+    </script>
 
 {% endblock %}
