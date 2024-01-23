@@ -66,20 +66,18 @@
             </div>
             <div id="nav-m">
                 <div class="nav-m-container">
-                    <button class="g nav-btn"><a href="">Solutions</a></button>
-                    <button class="g nav-btn"><a href="/footprint">Your Carbon Footprint</a></button>
-                    <button class="b nav-btn"><a href="/map">World Energy Usage</a></button>
-                    <button class="b nav-btn"><a href="">More Resources</a></button>
+                    <a href=""><button class="g nav-btn">Solutions</button></a>
+                    <a href="/footprint"><button class="g nav-btn">Your Carbon Footprint</button></a>
+                    <a href="/map"><button class="b nav-btn">World Energy Usage</button></a>
+                    <a href=""><button class="b nav-btn">More Resources</button></a>
                 </div>
             </div>
             <div id="nav-r">
-                <button class="nav-btn nav-contact">Contact</button>
+                <button class="nav-btn nav-contact"><a href="/contact">Contact</a></button>
             </div>
         </div>
 
         {% block body %}{% endblock %}
-
-        <div class="home-wave"></div> 
 
         <div id="footer">
             <a id="upBtn" href="#top">
@@ -87,7 +85,7 @@
                     <i class="fa-solid fa-arrow-up"></i>
                 </button>
             </a>
-            <a>FAQ</a>
+            <a href="/contact">FAQ</a>
         </div>
     </div>
 </body>
