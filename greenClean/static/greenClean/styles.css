@@ -1,6 +1,5 @@
 
 *, *::before, *::after {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
     background: none;
 }
@@ -15,6 +14,9 @@ body{
    color: black;
    margin: 0;
    max-width: 100dvw;
+   min-height: 100dvh;
+   display: flex;
+   flex-direction: column;
    overflow-x: hidden;
 }
 
@@ -25,9 +27,7 @@ body{
    justify-content: flex-start;
    flex-direction:column;
    align-items: center;
-   border-style: solid;
    height: 100dvh;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
@@ -132,22 +132,6 @@ header {
 }
 
 
-/* Up Button */
-#upBtn {
-   aspect-ratio: 1;
-   width: 50px;
-   position: fixed;
-   bottom: 30px;
-   right: 30px;
-}
-#upBtn button {
-   width: 100%;
-   aspect-ratio: 1;
-   border-radius: 50%;
-   border: none;
-   background-color: rgba(255, 255, 255, 0.8);
-   color: white;
-}
 
 
 /* Home -- Avinav */
@@ -341,9 +325,12 @@ form .carbon-footprint {
 }
 
 #footer {
-   height: 20vh;
-   width: 100vw;
+   width: 100dvw;
    text-align: center;
+   margin-top: auto;
+   min-height: 5em;
+   display: grid;
+   place-items: center;
 }
 
 #footer > a {
@@ -352,6 +339,24 @@ form .carbon-footprint {
    margin: 0 auto;
    text-align: center;
 }
+
+/* Up Button */
+#upBtn {
+   aspect-ratio: 1;
+   width: 50px;
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+}
+#upBtn button {
+   width: 100%;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   border: none;
+   background-color: rgba(0, 0, 0, 0.6) !important;
+   color: white;
+}
+
 
 
 
