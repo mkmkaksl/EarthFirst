@@ -1,21 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Tooltip Child
-    // const tooltipChild = document.querySelectorAll(".tooltip-child");
-    // const tooltipParent = document.querySelectorAll(".tooltip-parent");
-    // // tooltipChild.forEach((x, idx) => {
-    // //     x.style.display = "inline-flex";
-    // //     const height = x.offsetHeight;
-    // //     x.style.display = "none";
-    // //     console.log((tooltipParent[idx].offsetTop));
-    // //     x.style.top = (tooltipParent[idx].offsetTop - height) + "px";
-    // // })
-
     let allFormSections = document.querySelectorAll(".form-section");
     let allFormHeaders = document.querySelectorAll(".form-header")
     let activeHeader = document.querySelector(".active-header")
-    
-    let carbonFootprints = document.querySelector(".carbon-footprint")
 
     // Electricity Carbon Footprint
     const elec_country = document.querySelector("#id_location")
