@@ -11,6 +11,8 @@ from django.contrib.staticfiles import finders
 from django.conf import settings
 from django.core.files.storage import default_storage
 from django import forms
+from django.utils.html import strip_tags
+from django.core.mail import EmailMessage, get_connection, EmailMultiAlternatives
 
 # for map visualization
 # import numpy as np
@@ -121,44 +123,6 @@ class CarForm(forms.Form):
     car_type = forms.CharField(widget=forms.Select(choices=carOptions), label="Car Type: ")
     car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ")
 
-class allFootprintForms(forms.Form):
-    # Energy
-    countries = elec_intensity["country"]
-    locations = [(country, country) for country in countries]
-
-    location = forms.CharField(widget=forms.Select(choices=locations))
-    energy = forms.FloatField(label="Average Weekly Energy Used(Kilowatt hours): ", min_value=0)
-
-    #Transit
-    transport_types = [
-        ("Taxi", "Taxi"),
-        ("Bus", "Bus"),
-        ("Coach", "Coach"),
-        ("Subway", "Subway"),
-        ("Light Rail", "Light Rail"),
-        ("National Train", "National Train")
-    ]
-    transport_type = forms.CharField(widget=forms.Select(choices=transport_types), label="Transportation Type: ")
-    distance = forms.FloatField(label="Average Weekly Distance Traveled(Kilometers): ")
-
-    #Flight
-    flight_types = [
-        ("Domestic Flight", "Domestic Flight"),
-        ("Short Economy Class Flight", "Short Economy Class Flight"),
-        ("Short Business Class Flight", "Short Business Class Flight"),
-        ("Long Economy Class Flight", "Long Economy Class Flight"),
-        ("Long Business Class Flight", "Long Business Class Flight"),
-    ]
-    flight_type = forms.CharField(widget=forms.Select(choices=flight_types), label="Flight Type: ")
-    flight_dist = forms.FloatField(label="Average Yearly Distance Traveled(Kilometers): ")
-
-    #Car
-    cars = "Diesel Car,Petrol Car,Hybrid Car,Petrol Van,Diesel Van".split(",")
-    carOptions = [(car, car) for car in cars]
-
-    car_type = forms.CharField(widget=forms.Select(choices=carOptions), label="Car Type: ")
-    car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ")
-
 
 # Create your views here.
 def index(request):
@@ -200,12 +164,14 @@ def map(request):
     fig.update_layout(
         title_text = title_text,
         title_x = 0.5,
+
         geo=dict(
             showframe = False,
             showcoastlines = False,
             projection_type = 'equirectangular'
         ),
-        geo_bgcolor="#FFF"
+        geo_bgcolor="#FFF",
+        autosize=False
     )
 
     #Creating the visualization timelapse, we use px
@@ -288,4 +254,48 @@ def tips(request):
     return render(request, "greenClean/tips.html")
 
 def contact(request):
+    if request.method == "POST":
+            data = request.POST
+            print(data)
+            try:
+                fName = data["fName"]
+                lName = data["lName"]
+                sender = data["sender"]
+                subject = data["subject"]
+                body = data["mail-body"]
+            except KeyError:
+                return render(request, "greenClean/contact.html", {
+                                    "message": "Please make sure to fill out all the fields!"
+                                })
+
+            if not "@" in sender:
+                return render(request, "greenClean/contact.html", {
+                                    "message": "Input a valid email!"
+                                })
+
+            name = fName.title() + " " + lName.title()
+
+            with get_connection(host=settings.EMAIL_HOST, port=settings.EMAIL_PORT,
+                username=settings.EMAIL_HOST_USER,
+                password=settings.EMAIL_HOST_PASSWORD,
+                use_tls=settings.EMAIL_USE_TLS
+            ) as connection:
+                html_message = f"""
+<html>
+<body>
+<h4 style='font-size: 1.2rem;'> Dear {name}, </h4>
+<p> Thank you for contacting us through the form on our website. We will evaluate & respond to your concerns within 2-3 business days. Thank you for your time.</p>
+<p>Sincerely,</p>
+<p>The Earth First Team.</p>
+</body>
+</html>
+                """
+                message = strip_tags(html_message)
+                recipients = [sender]
+                email = EmailMultiAlternatives("Thank you for reaching out to us", message, settings.EMAIL_HOST_USER, recipients, connection=connection)
+                email.attach_alternative(html_message, "text/html")
+                email.send()
+
+                email = EmailMessage(subject, f"By {name},\n" + body, sender, [settings.EMAIL_HOST_USER], connection=connection).send()
+
     return render(request, "greenClean/contact.html")

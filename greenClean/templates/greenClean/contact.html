@@ -9,14 +9,61 @@
 
     {% comment %} FAQ {% endcomment %}
 
-
     {% comment %} Contact {% endcomment %}
-    <form action="">
+    <form action="/contact" method="POST" class="mail-form">
         {% csrf_token %}
-        {{ contact_form }}
+
+        <div class="form-section">
+            <h3 class="form-header">Contact Form:</h3>
+            <div class="form-field-container">
+                <!-- {% for field in contact_form %}
+                        <div class="mail-field">
+                            <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+                            <div class="{{ field.auto_id }}">{{ field }}</div>
+                        </div>
+                {% endfor %} -->
+
+                <div class="mail-flex">
+                    <div class="mail-field">
+                        <label for="fName" class="form-label">First Name: </label>
+                        <div class="fName"><input type="text" name="fName" id="fName" class="mail-fName" required></div>
+                    </div>
+    
+                    <div class="mail-field">
+                        <label for="lName" class="form-label">Last Name: </label>
+                        <div class="lName"><input type="text" name="lName" id="lName" class="mail-lName" required></div>
+                    </div>
+                </div>
+
+                <div class="mail-flex">
+                    <div class="mail-field">
+                        <label for="sender" class="form-label">Your Email: </label>
+                        <div class="sender"><input type="email" name="sender" id="sender" class="mail-sender" required></div>
+                    </div>
+    
+                    <div class="mail-field">
+                        <label for="subject" class="form-label">Subject: </label>
+                        <div class="subject"><input type="text" name="subject" id="subject" class="mail-subject" required></div>
+                    </div>
+                </div>
+
+                <div class="mail-field">
+                    <label for="mail-body" class="form-label">Mail Body: </label>
+                    <div class="mail-body"><textarea name="mail-body" id="mail-body" class="mail-body" required></textarea></div>
+                </div>
+                
+
+            </div>
+        </div>
+
         <div class="submit-btn">
             <button class="btn btn-success" type="submit">Send <i class="fa-solid fa-caret-right"></i></button>
         </div>
+        {% if message %}
+            <div class="message" style="color: red;">
+                {{ message }}
+            </div>
+        {% endif %}
     </form>
 
 {% endblock %}
