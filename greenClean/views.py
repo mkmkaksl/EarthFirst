@@ -162,10 +162,13 @@ def map(request):
         geo=dict(
             showframe = False,
             showcoastlines = False,
-            projection_type = 'equirectangular'
+            projection_type = 'equirectangular',
+            bgcolor = "rgba(0, 0, 0, 0)",
         ),
-        geo_bgcolor="#FFF",
-        autosize=False
+        autosize=True,
+        width=None,
+        height=None,
+        margin=dict(l=0, r=0, t=50, b=0),
     )
 
     #Creating the visualization timelapse, we use px
@@ -290,6 +293,8 @@ def contact(request):
                 email.attach_alternative(html_message, "text/html")
                 email.send()
 
-                email = EmailMessage(subject, f"By {name},\n" + body, sender, [settings.EMAIL_HOST_USER], connection=connection).send()
+                email = EmailMessage(subject, f"By {name} ({sender}),\n" + body, sender, [settings.EMAIL_HOST_USER], connection=connection).send()
 
-    return render(request, "greenClean/contact.html")
+    return render(request, "greenClean/contact.html", {
+        "contacted": True
+    })

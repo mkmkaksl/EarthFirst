@@ -9,7 +9,9 @@
     <div class="mapContainer">
         {% if map %}
             <div class="map">
-                {{ map | safe }}
+                <div id="map-only-container">
+                    {{ map | safe }}
+                </div>
                 <div class="details">
                     <p class="col">{{ col }}</p>
                     <p class="year">{{ year }}</p>

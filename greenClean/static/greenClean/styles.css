@@ -230,17 +230,24 @@ header {
 .mapContainer {
    background-color: transparent;
    margin: 3em 0.5em;
-   padding: 1em;
+   /* padding: 1em; */
    border-radius: 20px;
+}
+#map-only-container {
+   border: 1px solid green;
+   width: 100%;
+   display: grid;
+   grid-template-columns: 1fr;
+   place-items: center;
 }
 .map svg:nth-child(1) {
    background-color: transparent !important;
-   border: 2px solid lightblue;
+   /* border: 2px solid lightblue; */
    border-radius: 20px 20px 0 0;
 }
-.map .geolayer g.layer.bg rect {
+/* .map .geolayer g.layer.bg rect {
    fill-opacity: 0 !important;
-}
+} */
 
 .map .details {
    display: flex;
@@ -346,6 +353,44 @@ form .carbon-footprint {
 .mail-body {
    width: 100%;
    height: 6em;
+}
+
+/* FAQ */
+.faq-container {
+   border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 80dvw;
+   margin: 3em;
+   box-shadow: 0 0 2px black;
+}
+.faq {
+   position: relative;
+}
+.faq-question {
+   font-size: 1.2rem;
+   background-color: rgb(203, 255, 203);
+   padding: 0.5em;
+   border: 2px solid black;
+}
+.faq-answer {
+   /* border: 3px solid blue; */
+   margin: 0 0 0 0;
+   /* padding: 1em; */
+   height: 0;
+   overflow: hidden;
+   transition: height 300ms;
+   background-color: lightgreen;
+}
+.faq-answer .answer-container {
+   display: flex;
+   text-align: left;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   overflow: auto;
 }
 
 /*custom nav tab style */
