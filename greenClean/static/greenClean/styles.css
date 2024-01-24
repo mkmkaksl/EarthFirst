@@ -148,6 +148,8 @@ header {
    width:100%;
    height: 75dvh;
    margin-bottom: 20dvh;
+   position: relative;
+   border: 2px solid black;
 }
 #type-ani-txt {
    font-family: 'Arial', sans-serif;
@@ -187,6 +189,7 @@ header {
    align-items: flex-start;
    font-size: 4rem;
    width: 100%;
+   border: 2px solid black;
 }
 #cont-1{
    color:#05c072;
@@ -199,18 +202,24 @@ header {
    justify-content: flex-start;
    width:60%;
    height: 1.4rem;
+
 }
 #type-ani-txt{
    font-family: monospace;
    font-size: 1.2rem;
 }
+.learn-more-btn {
+   border: 2px solid black;
+   width: 100%;
+   display: grid;
+   place-items: center;
+}
 .home-btn {
    display:flex;
    align-items: center;
-   width: 15%;
    margin-right: 45%;
    margin-top: 3%;
-   height: 12%;
+   padding: 0.5em;
    justify-content: center;
    border-style: solid;
    border-color:black;
@@ -219,6 +228,7 @@ header {
    border-radius: 5px;
    border-width: 1px;
    font-family:Verdana, Geneva, Tahoma, sans-serif;
+   text-wrap: nowrap;
 }
 .home-btn:hover{
    background-color:#2cb0dc;
@@ -292,10 +302,9 @@ header {
    font-size:2rem;
    border-style:solid;
    padding:5px;
-   border-width: 3px;
-   border-color: black;
-   border-style: hidden;
+   border: 3px hidden black;
    border-bottom-style: solid;
+   margin-bottom: 0.7em;
 }
 .impact-text{
    height: 80%;
@@ -314,11 +323,11 @@ header {
    border-radius: 20px;
 }
 #map-only-container {
-   border: 1px solid green;
    width: 100%;
    display: grid;
    grid-template-columns: 1fr;
    place-items: center;
+   /* border: 2px solid black; */
 }
 .map svg:nth-child(1) {
    background-color: transparent !important;
@@ -334,7 +343,6 @@ header {
    justify-content: space-between;
    align-items: center;
    width: 100%;
-   border: 2px solid lightblue;
    margin: -2px 0 0.5em 0;
    padding: 0.5em;
    border-radius: 0 0 20px 20px;
@@ -387,11 +395,15 @@ form .active-header {
 
 form .carbon-footprint {
    text-align: center;
-   background: rgba(97, 255, 97, 0.6);
+   background:  #07CC7C;
    box-shadow: 0 0 5px black;
    border-radius: 5px;
    padding: 0.5em;
    margin: 0.5em;
+}
+
+form :is(input, select) {
+   border-radius: 5px;
 }
 
 /* Production Section -- Carbon Footprint */
@@ -413,6 +425,14 @@ form .carbon-footprint {
 }
 
 /* Contact Page */
+.contact-container {
+   width: 100%;
+   /* border: 2px solid black; */
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   gap: 1em;
+}
 .mail-form .form-section .form-field-container {
    display: flex;
    flex-direction: column;
@@ -425,6 +445,8 @@ form .carbon-footprint {
 }
 .mail-form :is(input, textarea) {
    background-color: rgba(255, 255, 255, 0.8);
+   border-radius: 5px;
+   padding: 0.3em;
 }
 .mail-flex {
    display: flex;
@@ -445,28 +467,38 @@ form .carbon-footprint {
    width: 80dvw;
    margin: 3em;
    box-shadow: 0 0 2px black;
+   border-radius: 10px;
 }
 .faq {
    position: relative;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .faq-question {
-   font-size: 1.2rem;
    /* background-color: rgb(203, 255, 203); */
-   padding: 0.5em;
-   border: 2px solid black;
+   padding: 0.8em;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-weight: bold;
+}
+.faq-question h3 {
+   font-size: 1.4rem;
+}
+.faq-question:last-child {
+   border-radius: 0 0 10px 10px;
 }
 .faq:nth-of-type(2n + 1) .faq-question {
-   background: #05c072;
+   background: #0bcc7c;
 }
 .faq:nth-of-type(2n) .faq-question {
-   background: #40b4da;
+   /* background: rgb(131, 189, 243); */
+   /* background: #7CB7F8; */
+   background: #36cdff;
 }
 
 .faq:nth-of-type(2n + 1) .faq-answer {
-   background: #17ff9e;
+   background: #8ce0c0;
 }
 .faq:nth-of-type(2n) .faq-answer {
-   background: #67d9ff;
+   background: #69daff;
 }
 
 .faq-answer {
@@ -477,6 +509,7 @@ form .carbon-footprint {
    overflow: hidden;
    transition: height 300ms;
    background-color: lightgreen;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .faq-answer .answer-container {
    display: flex;
@@ -485,6 +518,8 @@ form .carbon-footprint {
    align-items: center;
    height: 100%;
    overflow: auto;
+   margin: 0 1em;
+   padding: 1em;
 }
 
 /*custom nav tab style */
@@ -514,11 +549,12 @@ form .carbon-footprint {
    min-height: 5em;
    display: grid;
    place-items: center;
+   background: rgb(45,51,56);
    /* background-color: rgb(23, 0, 76); */
 }
 
 #footer > a {
-   color: #198754;
+   color: white;
    display: inline-block;
    margin: 0 auto;
    text-align: center;

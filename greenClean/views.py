@@ -157,7 +157,8 @@ def map(request):
             z=year_countries[col],
             colorscale = 'Greens',
             marker_line_color = 'black',
-            marker_line_width = 1
+            marker_line_width = 1,
+            showscale=False
         )
     )
 
@@ -177,7 +178,7 @@ def map(request):
         autosize=True,
         width=None,
         height=None,
-        margin=dict(l=0, r=0, t=50, b=0),
+        margin=dict(l=0, r=0, t=100, b=0),
     )
 
     #Creating the visualization timelapse, we use px
