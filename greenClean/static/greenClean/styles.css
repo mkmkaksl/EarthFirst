@@ -11,6 +11,7 @@
 /*Body (1 Important Tag)*/
 body{
    background-color: var(--body-bg) !important;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
    color: black;
    margin: 0;
    max-width: 100dvw;
@@ -65,7 +66,6 @@ header {
    color: black;
    background-color: transparent;
    border-radius: 2px;
-   font-family:monospace;
    font-size: 0.85rem;
    transition: 100ms ease-in-out;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -226,19 +226,22 @@ header {
    background-color:#2cb0dc;
 }
 
-/* Map Page (1 important) */
+/* Map Page (2 important) */
 .mapContainer {
-   background-color: var(--body-bg);
+   background-color: transparent;
    margin: 3em 0.5em;
    padding: 1em;
    border-radius: 20px;
 }
-
 .map svg:nth-child(1) {
-   background-color: rgba(235, 235, 235, 0.2) !important;
+   background-color: transparent !important;
    border: 2px solid lightblue;
    border-radius: 20px 20px 0 0;
 }
+.map .geolayer g.layer.bg rect {
+   fill-opacity: 0 !important;
+}
+
 .map .details {
    display: flex;
    justify-content: space-between;
@@ -248,7 +251,6 @@ header {
    margin: -2px 0 0.5em 0;
    padding: 0.5em;
    border-radius: 0 0 20px 20px;
-
 }
 
 .map .details .col {
@@ -322,6 +324,30 @@ form .carbon-footprint {
    text-wrap: wrap;
    font-weight: bold;
 }
+
+/* Contact Page */
+.mail-form .form-section .form-field-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 1em;
+}
+.mail-form .form-header {
+   font-size: 2rem;
+   text-align: left;
+}
+.mail-form :is(input, textarea) {
+   background-color: rgba(255, 255, 255, 0.8);
+}
+.mail-flex {
+   display: flex;
+   gap: 1em;
+}
+.mail-body {
+   width: 100%;
+   height: 6em;
+}
+
 /*custom nav tab style */
 .nav-pills > .nav-link {
    border-radius: 60px !important;
@@ -342,12 +368,14 @@ form .carbon-footprint {
 }
 
 #footer {
+   position: relative;
    width: 100dvw;
    text-align: center;
    margin-top: auto;
    min-height: 5em;
    display: grid;
    place-items: center;
+   /* background-color: rgb(23, 0, 76); */
 }
 
 #footer > a {
