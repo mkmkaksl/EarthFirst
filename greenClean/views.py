@@ -162,7 +162,7 @@ def map(request):
     fig.update_layout(
         title_text = title_text,
         title_x = 0.5,
-        title_y = 0.9,
+        title_y = 0.98,
         title_font=dict(family="Gills", color="blue", size=30),
         
         geo=dict(
