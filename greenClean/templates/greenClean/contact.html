@@ -7,42 +7,6 @@
 
 {% block body %}
 
-    {% comment %} FAQ {% endcomment %}
-
-    <div class="faq-container">
-        <h2 class="flex-center">FAQ (Frequently Asked Questions)</h2>
-        <div class="faq">
-            <div class="faq-question">
-                <h3>What's in it for me? What do i gain? <i class="fa-solid fa-caret-down"></i></h3>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-container">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
-                </div>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="faq-question">
-                <h3>2. Question 2 about Clean Energy home <i class="fa-solid fa-caret-down"></i></h3>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-container">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
-                </div>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="faq-question">
-                <h3>3. Question 3 about Clean Energy home <i class="fa-solid fa-caret-down"></i></h3>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-container">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     {% comment %} Contact {% endcomment %}
 
     <!-- {% if contacted %}
@@ -56,7 +20,6 @@
     {% endif %} -->
     <form action="/contact" method="POST" class="mail-form">
         {% csrf_token %}
-
         <div class="form-section">
             <h3 class="form-header">Contact Form:</h3>
             <div class="form-field-container">
@@ -109,6 +72,63 @@
             </div>
         {% endif %}
     </form>
+
+
+    {% comment %} FAQ {% endcomment %}
+
+    <div class="faq-container">
+        <h2 class="flex-center">FAQ (Frequently Asked Questions)</h2>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>Why is this relevant to me? <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>Can my home efficiency increase with more sustainable living? <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>What are some companies to reach out to in order to go green? <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>Does making environmentally-friendly upgrades enhance the resale value of a home? <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>Can eco-friendly choices be integrated into traditional or cultural architecture styles? <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="{% static 'greenClean/faq.js' %}"></script>
 
