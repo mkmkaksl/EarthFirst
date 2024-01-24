@@ -308,3 +308,5 @@ def contact(request):
 
 def moreinfo(request):
     return render(request, "greenClean/moreinfo.html")
+def documentation(request):
+    return render(request, "greenClean/documentation.html")
