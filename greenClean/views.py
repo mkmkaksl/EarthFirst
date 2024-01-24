@@ -122,6 +122,9 @@ class CarForm(forms.Form):
 def index(request):
     return render(request, "greenClean/index.html")
 
+def solutions(request):
+    return render(request, "greenClean/solutions.html")
+
 def map(request):
     if request.method == "POST":
         form = MapForm(request.POST)
