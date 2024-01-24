@@ -1,5 +1,5 @@
 {% extends 'greenClean/layout.html' %}
-
+{% load static %}
 
 {% block title %}Contact Page{% endblock %}
 {% block metaDescription %}Contact Info And FAQ(Frequently Asked Questions) {% endblock %}
@@ -9,7 +9,51 @@
 
     {% comment %} FAQ {% endcomment %}
 
+    <div class="faq-container">
+        <h2 class="flex-center">FAQ (Frequently Asked Questions)</h2>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>What's in it for me? What do i gain? <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>2. Question 2 about Clean Energy home <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">
+                <h3>3. Question 3 about Clean Energy home <i class="fa-solid fa-caret-down"></i></h3>
+            </div>
+            <div class="faq-answer">
+                <div class="answer-container">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed provident voluptatem soluta dolore obcaecati fuga ipsam, blanditiis odio maiores nemo quas fugiat quasi veniam culpa quam accusantium assumenda consectetur?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% comment %} Contact {% endcomment %}
+
+    <!-- {% if contacted %}
+        <div class="popup-message">
+            <div class="message">
+                Thank you for filling out the form! We will evaluate & respond to your concerns within 2-3 business days! (We sent you an email confirmation about this form submission as well!)
+            </div>
+            <div class="close"><button>Close</button></div>
+        </div>
+        
+    {% endif %} -->
     <form action="/contact" method="POST" class="mail-form">
         {% csrf_token %}
 
@@ -65,5 +109,7 @@
             </div>
         {% endif %}
     </form>
+
+    <script src="{% static 'greenClean/faq.js' %}"></script>
 
 {% endblock %}

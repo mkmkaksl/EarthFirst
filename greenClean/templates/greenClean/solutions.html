@@ -1,0 +1,90 @@
+{% extends "greenClean/layout.html" %}
+{% load static %}
+
+{% block title %}Solutions{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="impacts-page" style="background: none;">
+            <div class="impact-title"><b>Solutions</b></div>
+                <div class="impact-card">
+                    <div class="impact-img">
+                        <img class="img-i" src="{% static 'greenClean/images/EV.png' %}" height="350" width="350">
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-topic-head"><b>Electric Vehicle (EV) Charging Stations</b></div>
+                        <li>Some stations can be integrated with solar panels for cleaner charging</li>
+                        <li>Installation costs depend on the type and capacity of the charging station</li>
+                        <li>Some governments offer incentives for EV charging infrastructure</li>
+                        <li>Encourages the adoption of electric vehicles, reducing carbon emissions</li>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-topic-head"><b>Community Solar Programs</b></div>
+                        <div class="impact-text">
+                            <li>Community solar programs allow homeowners to invest in or subscribe to a shared solar energy system</li>
+                            <li>Participants receive credits on their energy bills based on their share of the system's output</li>
+                            <li>Ongoing benefits include reduced energy bills</li>
+                            <li>Enables access to solar energy without the need for rooftop installations</li></div>
+                    </div>
+                    <div class="impact-img">
+                        <img class="img-i" src="{% static 'greenClean/images/community-solar.png' %}" height="350" width="350">
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-img">
+                        <img class="img-i" src="{% static 'greenClean/images/led.png' %}" height="350" width="350">
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-topic-head"><b>Energy-Efficient Lighting</b></div>
+                        <div class="impact-text">
+                            <li>LED and CFL bulbs are more energy-efficient than traditional incandescent bulbs</li>
+                            <li>While initial costs may be higher, the long lifespan and energy savings make them cost-effective</li>
+                            <li>Reduces electricity consumption and the need for frequent bulb replacements</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-topic-head"><b>Solar Ventilation</b></div>
+                        <div class="impact-text">
+                            <li>Solar-powered ventilation systems use sunlight to power fans or vents that improve air circulation</li>
+                            <li>Improves indoor air quality using renewable energy and reduce the need for traditional electrical ventilation</li>
+                            <li>Potential long-term energy savings from solar panels</li>
+                        </div>
+                    </div>
+                    <div class="impact-img">
+                        <img class="img-i" src="{% static 'greenClean/images/solar-ventilation.png' %}" height="350" width="350">
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-img">
+                        <img class="img-i" src="{% static 'greenClean/images/maintain.png' %}" height="350" width="350">
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-topic-head"><b>Home Energy Monitoring Systems</b></div>
+                        <div class="impact-text">
+                            <li>Smart home energy monitoring systems track energy usage in real-time</li>
+                            <li>They provide insights to help homeowners make informed decisions about energy consumption</li>
+                            <li>Savings through better energy management</li>
+                            <li>Promotes energy awareness and efficiency</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-topic-head"><b>Green Roof Systems</b></div>
+                        <div class="impact-text">
+                            <li>Provide insulation, reduce stormwater runoff, and improve air quality</li>
+                            <li>Enhances building insulation, reducing energy needs for heating and cooling</li>
+                        </div>
+                    </div>
+                    <div class="impact-img">
+                        <img class="img-i" src="{% static 'greenClean/images/save.png' %}" height="350" width="350">
+                    </div>
+                </div>
+        </div>
+    </section>
+    
+{% endblock %}
