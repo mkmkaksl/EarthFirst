@@ -64,6 +64,7 @@ header {
    justify-content: space-evenly;
    align-items: center;
    overflow:visible;
+   z-index: 2;
 }
 .nav-btn{
    color: black;
@@ -112,6 +113,7 @@ header {
    border-style:solid;
    border-color:black;
    border-width: 1px;
+   z-index: 2;
 }
 #nav-r.closed {
    display: none;
@@ -124,6 +126,7 @@ header {
    width:500px;
    display:flex;
    justify-content: center;
+   z-index: 2;
 }
 .nav-m-container{
    width: 100%;
@@ -132,6 +135,7 @@ header {
    height: 80%;
    align-items: center;
    overflow:visible;
+   z-index: 2;
 }
 #nav-logo{
    font-family:monospace;
