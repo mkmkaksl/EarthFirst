@@ -6,5 +6,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("map", views.map, name="map"),
     path("tips", views.tips, name="tips"),
-    path("footprint", views.footprintCalculator, name="footprintCalculator")
+    path("footprint", views.footprintCalculator, name="footprintCalculator"),
+    path("contact", views.contact, name="contact")
 ]

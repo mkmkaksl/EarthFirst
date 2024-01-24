@@ -121,6 +121,43 @@ class CarForm(forms.Form):
     car_type = forms.CharField(widget=forms.Select(choices=carOptions), label="Car Type: ")
     car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ")
 
+class allFootprintForms(forms.Form):
+    # Energy
+    countries = elec_intensity["country"]
+    locations = [(country, country) for country in countries]
+
+    location = forms.CharField(widget=forms.Select(choices=locations))
+    energy = forms.FloatField(label="Average Weekly Energy Used(Kilowatt hours): ", min_value=0)
+
+    #Transit
+    transport_types = [
+        ("Taxi", "Taxi"),
+        ("Bus", "Bus"),
+        ("Coach", "Coach"),
+        ("Subway", "Subway"),
+        ("Light Rail", "Light Rail"),
+        ("National Train", "National Train")
+    ]
+    transport_type = forms.CharField(widget=forms.Select(choices=transport_types), label="Transportation Type: ")
+    distance = forms.FloatField(label="Average Weekly Distance Traveled(Kilometers): ")
+
+    #Flight
+    flight_types = [
+        ("Domestic Flight", "Domestic Flight"),
+        ("Short Economy Class Flight", "Short Economy Class Flight"),
+        ("Short Business Class Flight", "Short Business Class Flight"),
+        ("Long Economy Class Flight", "Long Economy Class Flight"),
+        ("Long Business Class Flight", "Long Business Class Flight"),
+    ]
+    flight_type = forms.CharField(widget=forms.Select(choices=flight_types), label="Flight Type: ")
+    flight_dist = forms.FloatField(label="Average Yearly Distance Traveled(Kilometers): ")
+
+    #Car
+    cars = "Diesel Car,Petrol Car,Hybrid Car,Petrol Van,Diesel Van".split(",")
+    carOptions = [(car, car) for car in cars]
+
+    car_type = forms.CharField(widget=forms.Select(choices=carOptions), label="Car Type: ")
+    car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ")
 
 
 # Create your views here.
@@ -199,18 +236,56 @@ def map(request):
 
 def footprintCalculator(request):
 
-    energyForm = EnergyForm()
-    transportForm = TransportationForm()
-    flightForm = FlightForm()
-    carForm = CarForm()
+    if request.method == "POST":
+        data = request.POST
+        print(data)
+        energyData = {
+            "location": data["location"],
+            "energy": data["energy"]
+        }
+        energyForm = EnergyForm(energyData)
+
+        transitData = {
+            "transport_type": data["transport_type"],
+            "distance": data["distance"]
+        }
+        transportForm = TransportationForm(transitData)
+
+        flightData = {
+            "flight_type": data["flight_type"],
+            "flight_dist": data["flight_dist"]
+        }
+        flightForm = FlightForm(flightData)
+
+        carData = {
+            "car_type": data["car_type"],
+            "car_dist": data["car_dist"]
+        }
+        carForm = CarForm(carData)
+
+        print("Energy Data:")
+        print(data["energy_co2"])
+        total_prod = int(data["energy_co2"])
+        total_prod += int(data["transport_co2"]) + int(data["flight_co2"]) + int(data["car_co2"])
+
+    else:
+        energyForm = EnergyForm()
+        transportForm = TransportationForm()
+        flightForm = FlightForm()
+        carForm = CarForm()
+        total_prod = 0
 
     return render(request, "greenClean/carbonFootprint.html", {
         "energyForm": energyForm,
         "transportForm": transportForm,
         "flightForm": flightForm,
         "carForm": carForm,
-        "elec_intensities": elec_intensities_str
+        "elec_intensities": elec_intensities_str,
+        "total_prod": (total_prod / 1000)
     })
 
 def tips(request):
     return render(request, "greenClean/tips.html")
+
+def contact(request):
+    return render(request, "greenClean/contact.html")

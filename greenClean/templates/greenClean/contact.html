@@ -1,0 +1,22 @@
+{% extends 'greenClean/layout.html' %}
+
+
+{% block title %}Contact Page{% endblock %}
+{% block metaDescription %}Contact Info And FAQ(Frequently Asked Questions) {% endblock %}
+{% block metaKeywords %}{% endblock %}
+
+{% block body %}
+
+    {% comment %} FAQ {% endcomment %}
+
+
+    {% comment %} Contact {% endcomment %}
+    <form action="">
+        {% csrf_token %}
+        {{ contact_form }}
+        <div class="submit-btn">
+            <button class="btn btn-success" type="submit">Send <i class="fa-solid fa-caret-right"></i></button>
+        </div>
+    </form>
+
+{% endblock %}
