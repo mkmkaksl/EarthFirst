@@ -49,7 +49,7 @@ header {
 
 /* Nav Bar -- Avinav */
 /* the nav styles affect the mobile version of the navbar so i commented it out */
-
+#toggle-btn { display: none; }
 .whole-navbar {
    width: 100%;
    display: flex;
@@ -98,6 +98,9 @@ header {
    justify-content: space-evenly;
    align-items: center;
 }
+#nav-m#closed {
+   display: none;
+}
 .nav-contact{
    font-family:monospace;
    padding:10px;
@@ -109,6 +112,9 @@ header {
    border-style:solid;
    border-color:black;
    border-width: 1px;
+}
+#nav-r.closed {
+   display: none;
 }
 .nav-contact:hover{
    background-color:#0fb16e;
@@ -123,7 +129,6 @@ header {
    width: 100%;
    display:flex;
    justify-content: space-evenly;
-   height:30px;
    height: 80%;
    align-items: center;
    overflow:visible;
@@ -148,7 +153,6 @@ header {
    flex-direction: row;
    justify-content: flex-start;
    align-items: center;
-   border: 3px solid red;
    width: 100%;
    height: 75dvh;
    margin-bottom: 20dvh;
@@ -165,9 +169,14 @@ header {
 }
 .home-img{
    display:flex;
+   justify-content: center;
+   align-items: center;
    animation: rotate 180s linear infinite;
    z-index: -1;
    margin-right: 2em;
+}
+.home-img img {
+   width: 100%;
 }
 @keyframes rotate {
    from {
@@ -184,7 +193,6 @@ header {
    align-items: center;
    width: 100%;
    height: 350px;
-   border: 2px solid black;
 }
 .title{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -193,7 +201,6 @@ header {
    align-items: flex-start;
    font-size: 4rem;
    width: 100%;
-   border: 1px solid green;
 }
 #cont-1{
    color:#05c072;
@@ -207,7 +214,6 @@ header {
    /* align-items: flex-start; */
    width: 100%;
    height: 1.4rem;
-   border: 1px solid yellow;
 
 }
 .learn-more-btn {
@@ -265,6 +271,7 @@ header {
    display:flex;
    flex-direction: column;
    align-items: center;
+   z-index: 1;
 }
 .impact-title{
    font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -279,8 +286,21 @@ header {
    flex-direction: row;
    justify-content: space-evenly;
    align-items: center;
+
+   display: grid;
+   place-items: center;
+   grid-template-columns: 1fr 1fr;
    width: 80%;
    margin: 2.5%;
+}
+.impact-img {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.impact-img img {
+   width: 100%;
+   aspect-ratio: 1;
 }
 .img-i{
    /* border-radius: 15px;
@@ -291,7 +311,7 @@ header {
    aspect-ratio: 1;
 }
 .impact-content{
-   width: 45%;
+   width: 100%;
    display:flex;
    flex-direction: column;
    align-items: flex-start;
@@ -367,6 +387,7 @@ header {
    grid-template-columns: 1fr 4fr 0.8fr;
    gap: 1em;
    place-items: end;
+   padding: 0 2em;
 }
 
 /* Calculator Page */
@@ -437,12 +458,18 @@ form button[type="submit"] {
 
 /* Contact Page */
 .contact-container {
-   width: 100%;
+   width: 80%;
    /* border: 2px solid black; */
    display: flex;
    justify-content: space-evenly;
    align-items: center;
    gap: 1em;
+}
+.contact-container .img {
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .contact-container img {
    width: 80%;
@@ -597,6 +624,7 @@ form button[type="submit"] {
    position: fixed;
    bottom: 30px;
    right: 30px;
+   z-index: 2;
 }
 #upBtn button {
    width: 100%;
