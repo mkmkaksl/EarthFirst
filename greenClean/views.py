@@ -169,7 +169,7 @@ def map(request):
         title_text = title_text,
         title_x = 0.5,
         title_y = 0.98,
-        title_font=dict(family="Gills", color="blue", size=30),
+        title_font=dict(family="Gills", color="black", size=30),
         geo=dict(
             showframe = False,
             showcoastlines = False,
@@ -311,4 +311,4 @@ def contact(request):
     })
 
 def moreinfo(request):
-    return render(request, "greenClean/moreinfo.html")
+    return render(request, "greenClean/moreInfo.html")

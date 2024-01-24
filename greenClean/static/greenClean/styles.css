@@ -66,6 +66,9 @@ header {
    overflow:visible;
    z-index: 2;
 }
+#nav-m a {
+    margin: 0.5em;
+}
 .nav-btn{
    color: black;
    background-color: transparent;
@@ -177,6 +180,7 @@ header {
    align-items: center;
    animation: rotate 180s linear infinite;
    z-index: -1;
+   width: 100%;
    margin-right: 2em;
 }
 .home-img img {
