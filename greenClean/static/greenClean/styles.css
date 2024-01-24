@@ -8,6 +8,9 @@
     --nav-height: 6em;
     --body-bg: rgb(255, 253, 234);
 }
+label {
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 /*Body (1 Important Tag)*/
 body{
    background-color: var(--body-bg) !important;
@@ -145,25 +148,26 @@ header {
    flex-direction: row;
    justify-content: flex-start;
    align-items: center;
-   width:100%;
+   border: 3px solid red;
+   width: 100%;
    height: 75dvh;
    margin-bottom: 20dvh;
    position: relative;
-   border: 2px solid black;
 }
 #type-ani-txt {
-   font-family: 'Arial', sans-serif;
-   font-size: 20px;
-   border-right: 2px solid #000;
    overflow: visible;
    white-space: nowrap;
+   font-family: monospace;
+   font-size: 1.2rem;
 }
 #type-ani-txt b {
    font-size: 1.1rem;
 }
 .home-img{
    display:flex;
-   animation: rotate 180s linear infinite
+   animation: rotate 180s linear infinite;
+   z-index: -1;
+   margin-right: 2em;
 }
 @keyframes rotate {
    from {
@@ -180,16 +184,16 @@ header {
    align-items: center;
    width: 100%;
    height: 350px;
+   border: 2px solid black;
 }
 .title{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    display:flex;
-   justify-content: center;
-   flex-direction: row;
+   justify-content: flex-start;
    align-items: flex-start;
    font-size: 4rem;
    width: 100%;
-   border: 2px solid black;
+   border: 1px solid green;
 }
 #cont-1{
    color:#05c072;
@@ -199,27 +203,25 @@ header {
 }
 .sub-title{
    display:flex;
-   justify-content: flex-start;
-   width:60%;
+    /* justify-content: center; */
+   /* align-items: flex-start; */
+   width: 100%;
    height: 1.4rem;
+   border: 1px solid yellow;
 
 }
-#type-ani-txt{
-   font-family: monospace;
-   font-size: 1.2rem;
-}
 .learn-more-btn {
-   border: 2px solid black;
    width: 100%;
-   display: grid;
-   place-items: center;
+   display: flex;
+   justify-content: flex-start;
 }
 .home-btn {
    display:flex;
    align-items: center;
-   margin-right: 45%;
-   margin-top: 3%;
+   /* margin-right: 100%;
+   margin-top: 3%; */
    padding: 0.5em;
+   margin: 1em 0 0 0;
    justify-content: center;
    border-style: solid;
    border-color:black;
@@ -295,7 +297,6 @@ header {
    align-items: flex-start;
    height:95%;
    justify-content: space-between;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
    overflow:hidden;
 }
 .impact-topic-head{
@@ -304,6 +305,7 @@ header {
    padding:5px;
    border: 3px hidden black;
    border-bottom-style: solid;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
    margin-bottom: 0.7em;
 }
 .impact-text{
@@ -329,6 +331,7 @@ header {
    place-items: center;
    /* border: 2px solid black; */
 }
+
 .map svg:nth-child(1) {
    background-color: transparent !important;
    /* border: 2px solid lightblue; */
@@ -379,6 +382,7 @@ form {
    font-size: 1.2rem;
    border-bottom: 3px solid gray;
    font-weight: bold;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
    padding: 0.3em;
    text-align: center;
    position: relative;
@@ -395,6 +399,7 @@ form .active-header {
 
 form .carbon-footprint {
    text-align: center;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    background:  #07CC7C;
    box-shadow: 0 0 5px black;
    border-radius: 5px;
@@ -404,6 +409,10 @@ form .carbon-footprint {
 
 form :is(input, select) {
    border-radius: 5px;
+}
+
+form button[type="submit"] {
+   margin-bottom: 1em;
 }
 
 /* Production Section -- Carbon Footprint */
@@ -417,11 +426,13 @@ form :is(input, select) {
 .production .prod_intro {
    font-size: 2rem;
    font-variant: small-caps;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .production .prod_main {
-   font-size: 3rem;
+   font-size: 2.5rem;
    text-wrap: wrap;
    font-weight: bold;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Contact Page */
@@ -432,6 +443,9 @@ form :is(input, select) {
    justify-content: space-evenly;
    align-items: center;
    gap: 1em;
+}
+.contact-container img {
+   width: 80%;
 }
 .mail-form .form-section .form-field-container {
    display: flex;
@@ -472,6 +486,7 @@ form :is(input, select) {
 .faq {
    position: relative;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   min-width: 100%;
 }
 .faq-question {
    /* background-color: rgb(203, 255, 203); */
@@ -506,6 +521,7 @@ form :is(input, select) {
    margin: 0 0 0 0;
    /* padding: 1em; */
    height: 0;
+   min-width: 100%;
    overflow: hidden;
    transition: height 300ms;
    background-color: lightgreen;
@@ -514,12 +530,12 @@ form :is(input, select) {
 .faq-answer .answer-container {
    display: flex;
    text-align: left;
-   justify-content: center;
    align-items: center;
    height: 100%;
    overflow: auto;
    margin: 0 1em;
    padding: 1em;
+   min-width: 100%;
 }
 
 /*custom nav tab style */
@@ -547,8 +563,9 @@ form :is(input, select) {
    text-align: center;
    margin-top: auto;
    min-height: 5em;
-   display: grid;
-   place-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    background: rgb(45,51,56);
    /* background-color: rgb(23, 0, 76); */
 }
@@ -559,6 +576,19 @@ form :is(input, select) {
    margin: 0 auto;
    text-align: center;
 }
+
+
+#footer .tsaLogo img {
+   height: 70%;
+   position: absolute;
+   left: 5%;
+   top: 15%;
+   bottom: 15%;
+}
+/* #footer .tsaLogo img {
+   height: 90%;
+   margin: auto 0;
+} */
 
 /* Up Button */
 #upBtn {

@@ -152,7 +152,7 @@ def map(request):
             colorscale = 'Greens',
             marker_line_color = 'black',
             marker_line_width = 1,
-            showscale=False
+            showscale=False,
         )
     )
 
@@ -162,6 +162,8 @@ def map(request):
     fig.update_layout(
         title_text = title_text,
         title_x = 0.5,
+        title_y = 0.9,
+        title_font=dict(family="Gills", color="blue", size=30),
         
         geo=dict(
             showframe = False,
@@ -172,7 +174,7 @@ def map(request):
         autosize=True,
         width=None,
         height=None,
-        margin=dict(l=0, r=0, t=100, b=0),
+        margin=dict(l=0, r=0, t=30, b=0),
     )
 
     #Creating the visualization timelapse, we use px
@@ -302,3 +304,6 @@ def contact(request):
     return render(request, "greenClean/contact.html", {
         "contacted": True
     })
+
+def moreinfo(request):
+    return render(request, "greenClean/moreinfo.html")

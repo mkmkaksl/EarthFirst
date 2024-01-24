@@ -91,20 +91,17 @@
             <button class="btn btn-success" type="submit">Calculate Total <i class="fa-solid fa-caret-right"></i></button>
         </div>
 
-
-        <div class="production">
-            <div class="prod_intro">
-                You produce on average:
-            </div>
-            <div class="prod_main">
-                {% if total_prod != 0 %}
+        {% if total_prod != 0 %}
+            <div class="production">
+                <div class="prod_intro">
+                    You produce on average:
+                </div>
+                <div class="prod_main">
                     {{ total_prod }}
-                {% else %}
-                    ------ 
-                {% endif %}    
-                kgCO<sub>2</sub> Per Year
+                    kgCO<sub>2</sub> Per Year
+                </div>
             </div>
-        </div>
+        {% endif %}
     </form>
     <!-- {% if total_prod != 0 %}
         <div class="production">
