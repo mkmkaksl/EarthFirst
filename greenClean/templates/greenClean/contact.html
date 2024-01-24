@@ -13,7 +13,7 @@
         <h2 class="flex-center">FAQ (Frequently Asked Questions)</h2>
         <div class="faq">
             <div class="faq-question">
-                <h3>1. Question 1 about Clean Energy home <i class="fa-solid fa-caret-down"></i></h3>
+                <h3>What's in it for me? What do i gain? <i class="fa-solid fa-caret-down"></i></h3>
             </div>
             <div class="faq-answer">
                 <div class="answer-container">
@@ -45,7 +45,7 @@
 
     {% comment %} Contact {% endcomment %}
 
-    {% if contacted %}
+    <!-- {% if contacted %}
         <div class="popup-message">
             <div class="message">
                 Thank you for filling out the form! We will evaluate & respond to your concerns within 2-3 business days! (We sent you an email confirmation about this form submission as well!)
@@ -53,7 +53,7 @@
             <div class="close"><button>Close</button></div>
         </div>
         
-    {% endif %}
+    {% endif %} -->
     <form action="/contact" method="POST" class="mail-form">
         {% csrf_token %}
 

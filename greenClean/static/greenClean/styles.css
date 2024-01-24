@@ -131,9 +131,6 @@ header {
    color:black;
 }
 
-
-
-
 /* Home -- Avinav */
 .home{
    height: 100%;
@@ -149,8 +146,18 @@ header {
    justify-content: flex-start;
    align-items: center;
    width:100%;
+   height: 95dvh;
 }
-
+#type-ani-txt {
+   font-family: 'Arial', sans-serif;
+   font-size: 20px;
+   border-right: 2px solid #000;
+   overflow: visible;
+   white-space: nowrap;
+}
+#type-ani-txt b {
+   font-size: 1.1rem;
+}
 .home-img{
    display:flex;
    animation: rotate 180s linear infinite
@@ -186,26 +193,17 @@ header {
 #cont-2{
    color:#40b4da;
 }
-
 .sub-title{
-   display: flex;
+   display:flex;
    justify-content: flex-start;
-   width: 60%;
-   height: 1.3rem;
+   width:60%;
+   height: 1.4rem;
 }
 #type-ani-txt{
    font-family: monospace;
    font-size: 1.2rem;
-   border-right: 2px solid #000;
-   vertical-align: center;
-   margin: auto 0;
-   white-space: nowrap;
 }
-#type-ani-txt b {
-   font-size: 1.1rem;
-}
-
-.home-btn{
+.home-btn {
    display:flex;
    align-items: center;
    width: 15%;
@@ -222,9 +220,90 @@ header {
    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .home-btn:hover{
-   color:white;
    background-color:#2cb0dc;
 }
+.home-btn:hover #homeA {
+   color: white;
+}
+
+#homeA {
+   width: 100%;
+   height: 100%;
+   color: black;
+   display: grid;
+   place-items: center;
+}
+
+.home-wave {
+   position: absolute;
+   bottom: 100%;
+   width: 100%;
+   right: 0;
+   left: 0;
+   z-index: -1;
+}
+
+.impacts-page{
+   position: relative;
+   /* height: 270dvh; */
+   width: 100dvw;
+   padding: 2em 0;
+   background: linear-gradient(to bottom, #05c072 50%,#40b4da 50%);
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+}
+.impact-title{
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 3rem;
+   align-self: center;
+   padding: 60;
+   border-color:transparent;
+   color: #2d3339;
+}
+.impact-card{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   width: 80%;
+   margin: 2.5%;
+}
+.img-i{
+   /* border-radius: 15px;
+   border-width:2.5px;
+   border-style:solid; */
+   max-width: 512px;
+   min-width: 32px;
+   aspect-ratio: 1;
+}
+.impact-content{
+   width: 45%;
+   display:flex;
+   flex-direction: column;
+   align-items: flex-start;
+   height:95%;
+   justify-content: space-between;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   overflow:hidden;
+}
+.impact-topic-head{
+   font-size:2rem;
+   border-style:solid;
+   padding:5px;
+   border-width: 3px;
+   border-color: black;
+   border-style:hidden;
+   border-bottom-style:solid;
+}
+.impact-text{
+   height: 80%;
+   width: 100%;
+   font-size: 1.1rem;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   color: #2d3339;
+}
+
 
 /* Map Page (2 important) */
 .mapContainer {
@@ -498,3 +577,4 @@ form .carbon-footprint {
 .my-tooltip .tooltip-parent:is(:hover, :focus) + .tooltip-child {
   display: inline-flex !important;
 }
+

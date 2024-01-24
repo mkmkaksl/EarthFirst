@@ -21,40 +21,6 @@
     <title>Green Clean: {% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% comment %} <nav id="top" class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}">
-                <img src="{% static 'greenClean/images/logo-nobg.png' %}" alt="Green Clean logo" width="64" height="64">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Incentives & Costs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/footprint">Your Carbon Footprint</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/map">World Energy Usage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tips">Become Eco-Smart</a>
-                    </li>
-                </ul>
-            </div>
-            <button class="btn btn-success">Contact</button>
-        </div>
-    </nav>
-
-    <div class="container" id="body-container">
-        {% block body %}
-        {% endblock %}
-    </div>
-    
-    {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
     <div class="body">
@@ -66,7 +32,7 @@
             </div>
             <div id="nav-m">
                 <div class="nav-m-container">
-                    <a href=""><button class="g nav-btn">Solutions</button></a>
+                    <a href="/solutions"><button class="g nav-btn">Solutions</button></a>
                     <a href="/footprint"><button class="g nav-btn">Your Carbon Footprint</button></a>
                     <a href="/map"><button class="b nav-btn">World Energy Usage</button></a>
                     <a href=""><button class="b nav-btn">More Resources</button></a>
