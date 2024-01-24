@@ -19,9 +19,12 @@
             </div>
 
         {% endif %}
-
-
         <form action="/map" method="POST" class="mapForm">
+            {% if map %}
+                <div id="sm-map">
+                    {{ map | safe }}
+                </div>
+            {% endif %}
             {% csrf_token %}
             <!-- This just adds a class to the label item nothing else -->
             {% for field in form %}

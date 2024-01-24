@@ -163,7 +163,7 @@ def map(request):
         title_text = title_text,
         title_x = 0.5,
         title_y = 0.98,
-        title_font=dict(family="Gills", color="blue", size=30),
+        title_font=dict(family="Gills", color="black", size=30),
         
         geo=dict(
             showframe = False,
@@ -175,6 +175,7 @@ def map(request):
         width=None,
         height=None,
         margin=dict(l=0, r=0, t=30, b=0),
+        dragmode=False
     )
 
     #Creating the visualization timelapse, we use px

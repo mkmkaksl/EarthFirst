@@ -241,10 +241,22 @@
     .mapContainer {
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 4em;
-        flex: none;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        place-items: start;
+        /* padding: 4em; */
+        /* flex: none; */
+    }
+    .mapContainer #map-only-container {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        right: 0;
+    }
+
+
+    .faq-answer {
+        font-size: 0.6rem;
     }
 }
 
