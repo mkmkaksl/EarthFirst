@@ -237,6 +237,7 @@ header {
    border-width: 1px;
    font-family:Verdana, Geneva, Tahoma, sans-serif;
    text-wrap: nowrap;
+   z-index: 2;
 }
 .home-btn:hover{
    background-color:#2cb0dc;
