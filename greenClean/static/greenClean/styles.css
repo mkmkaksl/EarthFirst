@@ -146,7 +146,8 @@ header {
    justify-content: flex-start;
    align-items: center;
    width:100%;
-   height: 95dvh;
+   height: 75dvh;
+   margin-bottom: 20dvh;
 }
 #type-ani-txt {
    font-family: 'Arial', sans-serif;
@@ -293,8 +294,8 @@ header {
    padding:5px;
    border-width: 3px;
    border-color: black;
-   border-style:hidden;
-   border-bottom-style:solid;
+   border-style: hidden;
+   border-bottom-style: solid;
 }
 .impact-text{
    height: 80%;
@@ -450,10 +451,24 @@ form .carbon-footprint {
 }
 .faq-question {
    font-size: 1.2rem;
-   background-color: rgb(203, 255, 203);
+   /* background-color: rgb(203, 255, 203); */
    padding: 0.5em;
    border: 2px solid black;
 }
+.faq:nth-of-type(2n + 1) .faq-question {
+   background: #05c072;
+}
+.faq:nth-of-type(2n) .faq-question {
+   background: #40b4da;
+}
+
+.faq:nth-of-type(2n + 1) .faq-answer {
+   background: #17ff9e;
+}
+.faq:nth-of-type(2n) .faq-answer {
+   background: #67d9ff;
+}
+
 .faq-answer {
    /* border: 3px solid blue; */
    margin: 0 0 0 0;
