@@ -1,0 +1,28 @@
+{% extends "greenClean/layout.html" %}
+{% load static %}
+
+{% block title %}Documentation{% endblock %}
+
+{% block body %}
+
+    <div class="documents">
+        <h1>Documents: </h1>
+        <div class="tsa-docs">
+            <div class="plan-work-log"><a href="{% static 'greenClean/plan-of-work-log.pdf' %}" target="_blank">Plan of Work Log</a></div>
+            <div class="copyright-checklist"><a href="{% static 'greenClean/copyright-checklist.pdf' %}" target="_blank">Copyright Checklist</a></div>
+            <div class="design-brief"><a href="{% static 'greenClean/design-brief.pdf' %}" target="_blank">Design Brief</a></div>
+            <div class="site-map"><a href="{% static 'greenClean/site-map.pdf' %}" target="_blank">Site Map</a></div>
+        </div>
+    </div>
+
+    <div class="citations">
+        <h1>Citations: </h1>
+        <div class="all-citations">
+            <p>Home Page Challenges Icons, Solutions page icons, & Contact page earth icon all by <a href="https://www.flaticon.com/authors/manuel-viveros?type=sticker">Manuel Viveros</a> from Flaticon</p>
+            <p>Haikei.app used for creation of svg wave pattern</p>
+            <p>Home Page Earth Icon also from Flaticon</p>
+
+        </div>
+    </div>
+
+{% endblock %}

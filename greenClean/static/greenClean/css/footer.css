@@ -1,0 +1,79 @@
+
+
+/*footer*/
+#body-container {
+   height: 100vh;
+}
+
+#footer {
+   position: relative;
+   width: 100vw;
+   text-align: center;
+   margin-top: auto;
+   /* min-height: 6em; */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 2em;
+   padding: 2em;
+   background: rgb(45,51,56);
+}
+
+#footer .links {
+   display: flex;
+   justify-content: space-evenly;
+   gap: 2em;
+
+}
+#footer .links a {
+   color: white;
+   display: inline-block;
+   margin: 0 auto;
+   text-align: center;
+   transition: color linear 200ms;
+}
+#footer .links a:hover {
+   color: rgb(183, 183, 183);
+}
+#footer .tsaLogo img {
+   height: 70%;
+   width: 100%;
+   max-width: 100px;
+   /* position: absolute;
+   left: 5%;
+   top: 15%;
+   bottom: 15%; */
+}
+/* #footer .tsaLogo img {
+   height: 90%;
+   margin: auto 0;
+} */
+
+/* Up Button */
+#upBtn {
+   aspect-ratio: 1;
+   width: 50px;
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+   z-index: 2;
+}
+#upBtn button {
+   width: 100%;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   border: none;
+   background-color: rgba(0, 0, 0, 0.3);
+   color: white;
+   transition: background-color ease-in-out 300ms;
+}
+#upBtn button:is(:hover, :focus, :focus-visible) {
+   background-color: rgba(0, 0, 0, 0.6);
+}
+#upBtn:is(:focus, :focus-visible) button{
+   background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+

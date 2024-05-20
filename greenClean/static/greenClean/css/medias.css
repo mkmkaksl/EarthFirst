@@ -1,3 +1,4 @@
+
 @media (max-width: 1115px) {
     .home-title-box .title {
         font-size: 3rem;
@@ -11,6 +12,10 @@
 }
 
 @media (max-width: 980px) {
+    :root {
+        --impact-title-fs: 2.75rem;
+    }
+
     .home-content {
         flex-direction: column;
         align-items: flex-end;
@@ -70,26 +75,34 @@
     .impact-card {
         gap: 1em;
     } */
+    :root {
+        --impact-title-fs: 2rem;
+    }
+
     .impact-card {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         gap: 1.2em;
-        /* border-bottom: 2px solid black;
-        border-right: 1px solid black; */
+
         box-shadow: 0 0 5px black;
         padding: 0.5em;
         border-radius: 10px;
     }
     .impact-title {
         text-align: center;
+        font-size: 2rem;
     }
     .impact-card:nth-of-type(2n+1) .impact-img {
         order: 1;
     }
     .impact-card:nth-of-type(2n+1) .impact-content {
         order: 2;
+    }
+    .impact-card .impact-topic-head {
+        text-align: center;
+        width: 100%;
     }
 
     .impact-img img {
@@ -125,18 +138,19 @@
 
 /* New Nav Bar */
 @media (max-width: 700px) {
-    #nav-m-toggle-container {
-        position: relative;
-        background: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
+    :root {
+        --link-gap: 0;
     }
+
     #toggle-btn {
         display: block;
         border-radius: 10px 10px 0 0;
         font-size: 2rem;
+        width: var(--nav-sm-wid);
+    }
+    #nav-r {
+        width: var(--nav-sm-wid);
+        height: var(--nav-sm-hei);
     }
     #nav-r.opened {
         display: none;
@@ -152,14 +166,18 @@
         overflow: hidden;
         transition: height 300ms;
         z-index: 1;
-
+        position: absolute;
+        top: 100%;
     }
     .nav-m-container a, #nav-r.closed{
-        width: 200px;
+        width: var(--nav-sm-wid);
         text-align: center;
-        height: 50px;
+        display: grid;
+        place-items: center;
+        height: var(--nav-sm-hei);
         border: 1px solid black;
         transition: background-color 250ms;
+        background-color: var(--body-bg);
     }
     #nav-r.closed :is(a, button) {
         border: none;
@@ -171,23 +189,21 @@
         display: grid;
         place-items: center;
     }
-    .nav-m-container a:hover {
+    .nav-m-container a:is(:hover, :focus, :focus-visible),
+    .nav-m-container a:has(button:is(:hover, :focus, :focus-visible)) {
         background-color: rgb(255, 249, 196);
-        color:black;
-        border-style:none;
-        border-color: black;
-        border: 1px solid black;
     }
-    .nav-m-container #nav-r.closed:hover {
+    .nav-m-container #nav-r.closed:has(a:is(:hover, :focus, :focus-visible)) {
         background-color: rgb(255, 249, 196);
-        border-style:none;
-        border-color: black;
-        border: 1px solid black;
         border-radius: 0 0 10px 10px;
     }
     .nav-m-container :is(.g, .b):hover {
         border-bottom-color: transparent;
     }
+    /* Alternate method of nav toggle on focus instead */
+    /* #n0av-m:has(:focus, :focus-visible) .nav-m-container {
+        height: calc(var(--nav-sm-hei) * 5);
+    } */
 
 }
 
@@ -241,14 +257,30 @@
     .mapContainer {
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 4em;
-        flex: none;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        place-items: start;
+        /* padding: 4em; */
+        /* flex: none; */
+    }
+    .mapContainer #map-only-container {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        right: 0;
+    }
+
+
+    .faq-answer {
+        font-size: 0.6rem;
     }
 }
 
 @media (max-width: 406px) {
+    :root {
+        --nav-sm-wid: 150px;
+    }
+
     .mail-flex {
         flex-direction: column;
     }
@@ -267,4 +299,10 @@
         padding: 0;
         margin: 0;
     }
+
+    #footer {
+        flex-direction: column;
+        gap: 0.5em;
+    }
 }
+

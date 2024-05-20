@@ -1,0 +1,56 @@
+
+/* Map Page (2 important) */
+#sm-map {
+    display: none;
+}
+.mapContainer {
+    background-color: transparent;
+    margin: 3em 0.5em;
+    /* padding: 1em; */
+    border-radius: 20px;
+}
+#map-only-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    /* border: 2px solid black; */
+}
+
+.map svg:nth-child(1) {
+    background-color: transparent !important;
+    /* border: 2px solid lightblue; */
+    border-radius: 20px 20px 0 0;
+}
+/* .map .geolayer g.layer.bg rect {
+    fill-opacity: 0 !important;
+} */
+
+.map .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: -2px 0 0.5em 0;
+    padding: 0.5em;
+    border-radius: 0 0 20px 20px;
+}
+
+.map .details .col {
+    font-size: 1.2rem;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin: auto 0;
+}
+.map .details .year {
+    font-size: 0.7rem;
+    margin: auto 0;
+}
+
+.mapContainer form {
+    display: grid;
+    grid-template-columns: 1fr 4fr 0.8fr;
+    gap: 1em;
+    place-items: end;
+    padding: 0 2em;
+}

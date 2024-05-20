@@ -170,6 +170,10 @@ def map(request):
         title_x = 0.5,
         title_y = 0.98,
         title_font=dict(family="Gills", color="black", size=30),
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 1fded25054dcded0c4ca023b39eb536ae4147a71
         geo=dict(
             showframe = False,
             showcoastlines = False,
@@ -180,6 +184,7 @@ def map(request):
         width=None,
         height=None,
         margin=dict(l=0, r=0, t=30, b=0),
+        dragmode=False
     )
 
     #Creating the visualization timelapse, we use px
@@ -311,4 +316,10 @@ def contact(request):
     })
 
 def moreinfo(request):
+<<<<<<< HEAD
     return render(request, "greenClean/moreInfo.html")
+=======
+    return render(request, "greenClean/moreinfo.html")
+def documentation(request):
+    return render(request, "greenClean/documentation.html")
+>>>>>>> 1fded25054dcded0c4ca023b39eb536ae4147a71
