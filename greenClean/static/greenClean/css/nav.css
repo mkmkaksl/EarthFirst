@@ -1,0 +1,112 @@
+
+:root {
+   --link-gap: 2em;
+}
+
+/* Nav Bar -- Avinav */
+/* the nav styles affect the mobile version of the navbar so i commented it out */
+#toggle-btn { display: none; }
+
+.whole-navbar {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 5px;
+   margin-top:10px;
+}
+#nav-m{
+   width: 1100px;
+   display:flex;
+   justify-content: space-evenly;
+   align-items: center;
+   overflow: visible;
+}
+.nav-btn{
+   color: black;
+   background-color: transparent;
+   border-radius: 2px;
+   font-size: 0.85rem;
+   transition: 100ms ease-in-out;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   border-color: transparent;
+   overflow:visible;
+   border-width: 2px;
+   padding:5px;
+}
+.nav-btn a {
+   color: black;
+}
+
+:is(.b, .g):hover {
+   color: black;
+   border: 2px solid transparent;
+}
+.b:hover {
+   border-bottom-color: #40b4da;
+}
+.g:hover {
+   border-bottom-color: #0bcc7c;
+}
+#nav-r{
+   width:500px;
+   display:flex;
+   justify-content: space-evenly;
+   align-items: center;
+   z-index: 2;
+}
+/* #nav-m#closed {
+   display: none;
+} */
+
+.nav-contact{
+   font-family:monospace;
+   padding:10px;
+   padding-right: 20px;
+   padding-left: 20px;
+   background-color:#0bcc7c;
+   border-radius: 5px;
+   color:black;
+   border-style:solid;
+   border-color:black;
+   border-width: 1px;
+   z-index: 2;
+}
+#nav-r.closed {
+   display: none;
+}
+.nav-contact:hover{
+   background-color:#0fb16e;
+   color:white;
+}
+#nav-l{
+   width:500px;
+   display:flex;
+   justify-content: center;
+   z-index: 2; 
+}
+.nav-m-container{
+   width: 100%;
+   display:flex;
+   justify-content: space-evenly;
+   gap: var(--link-gap);
+   height: 80%;
+   align-items: center;
+   overflow:visible;
+   z-index: 2;
+}
+#nav-m-toggle-container {
+   position: relative;
+   background: none;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-content: center;
+}
+
+#nav-logo{
+   font-family:monospace;
+   font-size:1.5rem;
+   color:black;
+}
+

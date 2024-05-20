@@ -1,8 +1,12 @@
 {% extends "greenClean/layout.html" %}
+{% load static %}
 
 {% block title %}Energy Usage Around The World{% endblock %}
 {% block metaDescription %}Energy Usage Around the World{% endblock %}
 {% block metaKeywords %}{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'greenClean/css/map.css' %}">
+{% endblock %}
 
 {% block body %}
 

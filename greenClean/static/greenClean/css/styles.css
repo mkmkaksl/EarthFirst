@@ -1,0 +1,119 @@
+
+
+*, *::before, *::after {
+      box-sizing: border-box;
+      background: none;
+}
+
+:root {
+   --nav-height: 6em;
+   --nav-sm-wid: 200px;
+   --nav-sm-hei: 50px;
+
+   --body-bg: rgb(255, 253, 234);
+}
+label {
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/*Body (1 Important Tag)*/
+body{
+   background-color: var(--body-bg) !important;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: black;
+   margin: 0;
+   max-width: 100dvw;
+   min-height: 100dvh;
+   display: flex;
+   flex-direction: column;
+   overflow-x: hidden;
+   padding: 0.5em;
+   padding-bottom: 0;
+}
+
+.body{
+   color: black;
+   margin:0px;
+   display:flex;
+   justify-content: flex-start;
+   flex-direction:column;
+   align-items: center;
+   height: 100dvh;
+}
+
+
+/* Reseting Properties Globally */
+a {
+      text-decoration: none !important;
+}
+
+/* Header */
+header {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0;
+      padding: 1em;
+}
+
+/*custom nav tab style */
+/* .nav-pills > .nav-link {
+   border-radius: 60px !important;
+   width: 120px !important; 
+   height: 120px !important; 
+   padding: 6px 0px !important; 
+}
+.nav-pills > .nav-link.active {
+   background-color: #198754 !important;
+}
+.nav-pills > .nav-link:not(.active) {
+   color: #212529 !important;
+} */
+
+/* General Classes (1 Important) */
+.flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.bold {
+   font-weight: bold;
+}
+
+.my-tooltip {
+   /* padding: 1em 0.3em; */
+   margin: 0;
+   padding: 0;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+.my-tooltip .tooltip-parent {
+   border-radius: 50%;
+   padding: 0.3em 0.8em;
+   margin: 0;
+   text-align: center;
+   color: gray;
+   font-size: 0.5rem;
+   border: 1px solid gray;
+}
+.my-tooltip .tooltip-child {
+   position: absolute;
+   /* right: 50%;
+   bottom: 100%; */
+   right: 110%;
+   max-width: 100dvw;
+   font-size: 0.6rem;
+   background: rgba(0, 0, 0, 0.5);
+   color: white;
+   border-radius: 20px;
+   padding: 1em;
+   text-align: center;
+   display: none;
+   justify-content: center;
+   align-items: center;
+}
+.my-tooltip .tooltip-parent:is(:hover, :focus) + .tooltip-child {
+   display: inline-flex !important;
+}
+
+
