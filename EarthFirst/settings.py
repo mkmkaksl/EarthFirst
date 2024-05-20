@@ -110,8 +110,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = False
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'earthfirsttsa@gmail.com' #Email
-EMAIL_HOST_PASSWORD = 'lckj djtg pdjs mlgn' # Password
+EMAIL_HOST_USER = 'earthfirstwebmasters@gmail.com' #Email
+EMAIL_HOST_PASSWORD = 'efje exdx oycv kkke' # Password
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

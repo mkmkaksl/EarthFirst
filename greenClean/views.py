@@ -11,12 +11,13 @@ from django.core.mail import EmailMessage, get_connection, EmailMultiAlternative
 # for map visualization
 import numpy as np
 import pandas as pd
-import plotly as py
-import os
-import requests
+# import os
+# import requests
 from io import StringIO
-import plotly.express as px
-import plotly.graph_objs as go
+
+# import plotly as py
+# import plotly.express as px
+# import plotly.graph_objs as go
 # from plotly.subplots import make_subplots
 # from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 
@@ -144,39 +145,39 @@ def map(request):
     col_countries = country_sorted.dropna(subset=[col])
     col_countries = col_countries[col_countries.iso_code != 0].sort_values(by="year")
 
-    fig = go.Figure(
-        data=go.Choropleth(
-            locations=year_countries["country"], 
-            locationmode="country names",
-            z=year_countries[col],
-            colorscale = 'Greens',
-            marker_line_color = 'black',
-            marker_line_width = 1,
-            showscale=False,
-        )
-    )
+    # fig = go.Figure(
+    #     data=go.Choropleth(
+    #         locations=year_countries["country"], 
+    #         locationmode="country names",
+    #         z=year_countries[col],
+    #         colorscale = 'Greens',
+    #         marker_line_color = 'black',
+    #         marker_line_width = 1,
+    #         showscale=False,
+    #     )
+    # )
 
-    new_col = " ".join((col.split("_"))).title()
-    title_text = new_col + " From " + str(year)
+    # new_col = " ".join((col.split("_"))).title()
+    # title_text = new_col + " From " + str(year)
 
-    fig.update_layout(
-        title_text = title_text,
-        title_x = 0.5,
-        title_y = 0.98,
-        title_font=dict(family="Gills", color="black", size=30),
+    # fig.update_layout(
+    #     title_text = title_text,
+    #     title_x = 0.5,
+    #     title_y = 0.98,
+    #     title_font=dict(family="Gills", color="black", size=30),
         
-        geo=dict(
-            showframe = False,
-            showcoastlines = False,
-            projection_type = 'equirectangular',
-            bgcolor = "rgba(0, 0, 0, 0)",
-        ),
-        autosize=True,
-        width=None,
-        height=None,
-        margin=dict(l=0, r=0, t=30, b=0),
-        dragmode=False
-    )
+    #     geo=dict(
+    #         showframe = False,
+    #         showcoastlines = False,
+    #         projection_type = 'equirectangular',
+    #         bgcolor = "rgba(0, 0, 0, 0)",
+    #     ),
+    #     autosize=True,
+    #     width=None,
+    #     height=None,
+    #     margin=dict(l=0, r=0, t=30, b=0),
+    #     dragmode=False
+    # )
 
     #Creating the visualization timelapse, we use px
     # fig = px.choropleth(col_countries,
@@ -197,12 +198,7 @@ def map(request):
     # )
 
 
-    return render(request, "greenClean/map.html", {
-        "map": fig.to_html(full_html=False),
-        "form": form,
-        "col": new_col,
-        "year": year,
-    })
+    return render(request, "greenClean/index.html")
 
 def footprintCalculator(request):
 
