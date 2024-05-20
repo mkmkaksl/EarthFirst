@@ -1,4 +1,10 @@
 from django.shortcuts import render
+
+# from django.http import HttpResponseRedirect
+# from django.urls import reverse
+# from django.contrib.staticfiles import finders
+# from django.conf import settings
+
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.staticfiles import finders
@@ -9,7 +15,7 @@ from django.utils.html import strip_tags
 from django.core.mail import EmailMessage, get_connection, EmailMultiAlternatives
 
 # for map visualization
-import numpy as np
+# import numpy as np
 import pandas as pd
 # import os
 # import requests
@@ -21,19 +27,19 @@ from io import StringIO
 # from plotly.subplots import make_subplots
 # from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 
-
-
 worldData = default_storage.path("energyData.csv")
-# world_csv = pd.read_csv(StringIO(worldData))
 world_csv = pd.read_csv(worldData)
+
 #data cleaning
 world_csv = world_csv.drop('gdp', axis=1) #remove gdp column
 world_csv = world_csv.drop('population', axis=1) #remove population column
 
 country_sorted = world_csv.groupby(['country', 'year']).sum().reset_index().sort_values('year', ascending=False)
 
-maxYear = max(country_sorted["year"])
-minYear = min(country_sorted["year"])
+# maxYear = max(country_sorted["year"])
+# minYear = min(country_sorted["year"])
+maxYear = 2022
+minYear = 1986
 
 mask = world_csv["year"].astype(int) == 2022 # world_csv is not sorted by year so i'm using that rather than country_sorted
 latestCountries = (world_csv.loc[mask])
@@ -144,7 +150,6 @@ def map(request):
 
     col_countries = country_sorted.dropna(subset=[col])
     col_countries = col_countries[col_countries.iso_code != 0].sort_values(by="year")
-
     # fig = go.Figure(
     #     data=go.Choropleth(
     #         locations=year_countries["country"], 
@@ -166,6 +171,18 @@ def map(request):
     #     title_y = 0.98,
     #     title_font=dict(family="Gills", color="black", size=30),
         
+    #     geo=dict(
+    #         showframe = False,
+    #         showcoastlines = False,
+    #         projection_type = 'equirectangular',
+    #         bgcolor = "rgba(0, 0, 0, 0)",
+    #     ),
+    #     autosize=True,
+    #     width=None,
+    #     height=None,
+    #     margin=dict(l=0, r=0, t=30, b=0),
+    #     dragmode=False
+    # )
     #     geo=dict(
     #         showframe = False,
     #         showcoastlines = False,
@@ -233,13 +250,13 @@ def footprintCalculator(request):
         print(data["energy_co2"])
         total_prod = int(data["energy_co2"])
         total_prod += int(data["transport_co2"]) + int(data["flight_co2"]) + int(data["car_co2"])
-    
+
     else:
         energyForm = EnergyForm()
         transportForm = TransportationForm()
         flightForm = FlightForm()
         carForm = CarForm()
-        total_prod = 0 
+        total_prod = 0
 
     return render(request, "greenClean/carbonFootprint.html", {
         "energyForm": energyForm,
@@ -267,7 +284,7 @@ def contact(request):
                 return render(request, "greenClean/contact.html", {
                                     "message": "Please make sure to fill out all the fields!"
                                 })
-            
+
             if not "@" in sender:
                 return render(request, "greenClean/contact.html", {
                                     "message": "Input a valid email!"
@@ -275,10 +292,10 @@ def contact(request):
 
             name = fName.title() + " " + lName.title()
 
-            with get_connection(host=settings.EMAIL_HOST, port=settings.EMAIL_PORT,  
-                username=settings.EMAIL_HOST_USER, 
-                password=settings.EMAIL_HOST_PASSWORD, 
-                use_tls=settings.EMAIL_USE_TLS  
+            with get_connection(host=settings.EMAIL_HOST, port=settings.EMAIL_PORT,
+                username=settings.EMAIL_HOST_USER,
+                password=settings.EMAIL_HOST_PASSWORD,
+                use_tls=settings.EMAIL_USE_TLS
             ) as connection:
                 html_message = f"""
 <html>

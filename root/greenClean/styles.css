@@ -1,0 +1,197 @@
+
+*, *::before, *::after {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    background: none;
+}
+
+:root {
+    --nav-height: 6em;
+    --body-bg: rgb(255, 255, 255);
+}
+/*Body (1 Important Tag)*/
+body{
+    background-color: var(--body-bg) !important;
+    color: black;
+    margin: 0;
+    max-width: 100dvw;
+    overflow-x: hidden;
+ }
+
+/* Reseting Properties Globally */
+a {
+    text-decoration: none !important;
+}
+
+/* Header */
+header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 1em;
+}
+
+/* Nav Bar */
+/* the nav styles affect the mobile version of the navbar so i commented it out */
+/*
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    place-items: center;
+    border-radius: 5px;
+    max-height: var(--nav-height);
+}
+
+ #nav-m, #nav-r, #nav-l {
+    max-height: var(--nav-height);
+    width: 100%;
+ }
+ #nav-m{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .nav-btn, .btn {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 3px;
+    font-family:monospace;
+    font-size: 0.9rem;
+
+    transition: 100ms ease-in-out;
+ }
+ .nav-btn:hover{
+    color:#50a144;
+ }
+ #nav-r{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+ }
+ .nav-contact{
+    font-family:monospace;
+    padding:10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color:#84cb77;
+    border-radius: 5px;
+ }
+ .nav-contact:hover{
+    background-color:#50a144;
+    color:black;
+ }
+ #nav-l{
+    display:flex;
+    justify-content: center;
+ }
+#nav-l img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.nav-m-container{
+   width: 75%;
+   display:flex;
+   justify-content: space-evenly;
+   height:30px;
+}
+*/
+
+#body-container {
+   height: 100vh;
+}
+
+#footer {
+   width: 100%;
+   /* position: fixed;
+   bottom: 0px; */
+}
+
+#upBtn {
+   color: #198754;
+   margin-left: 50%;
+}
+
+
+/* Map Page (1 important) */
+.mapContainer {
+   background-color: var(--body-bg);
+   margin: 3em 0.5em;
+   padding: 1em;
+   border-radius: 20px;
+}
+
+.map svg:nth-child(1) {
+   background-color: rgba(235, 235, 235, 0.2) !important;
+   border: 2px solid lightblue;
+   border-radius: 20px 20px 0 0;
+}
+.map .details {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   border: 2px solid lightblue;
+   margin: -2px 0 0.5em 0;
+   padding: 0.5em;
+   border-radius: 0 0 20px 20px;
+
+}
+
+.map .details .col {
+   font-size: 1.2rem;
+   font-variant: small-caps;
+   font-weight: bold;
+   margin: auto 0;
+}
+.map .details .year {
+   font-size: 0.7rem;
+   margin: auto 0;
+}
+
+.mapContainer form {
+   display: grid;
+   grid-template-columns: 1fr 4fr 0.8fr;
+   gap: 1em;
+   place-items: end;
+}
+
+ 
+/* General Classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*custom nav tab style */
+.nav-pills > .nav-link {
+   border-radius: 60px !important;
+   width: 120px !important; 
+   height: 120px !important; 
+   padding: 6px 0px !important; 
+}
+.nav-pills > .nav-link.active {
+   background-color: #198754 !important;
+}
+.nav-pills > .nav-link:not(.active) {
+   color: #212529 !important;
+}
+
+/*footer*/
+#body-container {
+   height: 100vh;
+}
+
+#footer {
+   height: 20vh;
+   width: 100vw;
+   text-align: center;
+}
+
+#footer > a {
+   color: #198754;
+   display: inline-block;
+   margin: 0 auto;
+   text-align: center;
+}
