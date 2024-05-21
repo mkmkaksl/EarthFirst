@@ -1,2 +1,2 @@
 # EarthFirst
-[Website link](https://manojk.pythonanywhere.com/)
+[Website link](https://earthfirst.pythonanywhere.com/)

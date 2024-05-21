@@ -3,6 +3,7 @@
 *, *::before, *::after {
       box-sizing: border-box;
       background: none;
+      transition: opacity linear 200ms;
 }
 
 :root {
@@ -114,6 +115,13 @@ header {
 }
 .my-tooltip .tooltip-parent:is(:hover, :focus) + .tooltip-child {
    display: inline-flex !important;
+}
+
+.fade-in {
+   opacity: 1;
+}
+.fade-out {
+   opacity: 0;
 }
 
 

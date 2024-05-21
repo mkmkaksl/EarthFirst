@@ -30,10 +30,6 @@ from io import StringIO
 worldData = default_storage.path("energyData.csv")
 world_csv = pd.read_csv(worldData)
 
-#data cleaning
-world_csv = world_csv.drop('gdp', axis=1) #remove gdp column
-world_csv = world_csv.drop('population', axis=1) #remove population column
-
 country_sorted = world_csv.groupby(['country', 'year']).sum().reset_index().sort_values('year', ascending=False)
 
 # maxYear = max(country_sorted["year"])
@@ -132,90 +128,54 @@ def index(request):
 def solutions(request):
     return render(request, "greenClean/solutions.html")
 
-def map(request):
-    if request.method == "POST":
-        form = MapForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            col = data["category"]
-            year = data["year"]
-    else:
-        form = MapForm()
-        col = "biofuel_consumption"
-        year = 2022
+def statistics(request):
 
+    year = 2022
     mask = country_sorted["year"].astype(int) == year
     year_countries = (country_sorted.loc[mask]) # get all rows with year equal to inputted year
-    year_countries = year_countries.dropna(subset=[col]) # Drop all country rows where the value is null, so they will be gray in the visualization
+    # year_countries = year_countries.dropna(subset=[col]) # Drop all country rows where the value is null, so they will be gray in the visualization
 
-    col_countries = country_sorted.dropna(subset=[col])
-    col_countries = col_countries[col_countries.iso_code != 0].sort_values(by="year")
-    # fig = go.Figure(
-    #     data=go.Choropleth(
-    #         locations=year_countries["country"], 
-    #         locationmode="country names",
-    #         z=year_countries[col],
-    #         colorscale = 'Greens',
-    #         marker_line_color = 'black',
-    #         marker_line_width = 1,
-    #         showscale=False,
-    #     )
-    # )
+    # col_countries = country_sorted.dropna(subset=[col])
+    # col_countries = col_countries[col_countries.iso_code != 0].sort_values(by="year")
 
-    # new_col = " ".join((col.split("_"))).title()
-    # title_text = new_col + " From " + str(year)
+    countries = ["United States", "Canada", \
+     "Mexico", "Brazil", "Argentina", "Germany", \
+        "United Kingdom", "Italy", "Russia", "China", "India", \
+            "Egypt", "Iran", "Iraq", "Australia"]
+    countries.sort()
+    
+    country_data = {}
+    for country in countries:
+        items = ["population", "biofuel_consumption", "coal_consumption", \
+                 "electricity_generation", "energy_per_capita"]
+        data = {}
+        # for item in items:
+        #     print(item)
+        #     data[item] = year_countries[country][item]
+        for item in items:
+            val = (int(year_countries.loc[year_countries.country == country, item].values[0]))
+            data[item] = f"{val:,d}"
 
-    # fig.update_layout(
-    #     title_text = title_text,
-    #     title_x = 0.5,
-    #     title_y = 0.98,
-    #     title_font=dict(family="Gills", color="black", size=30),
-        
-    #     geo=dict(
-    #         showframe = False,
-    #         showcoastlines = False,
-    #         projection_type = 'equirectangular',
-    #         bgcolor = "rgba(0, 0, 0, 0)",
-    #     ),
-    #     autosize=True,
-    #     width=None,
-    #     height=None,
-    #     margin=dict(l=0, r=0, t=30, b=0),
-    #     dragmode=False
-    # )
-    #     geo=dict(
-    #         showframe = False,
-    #         showcoastlines = False,
-    #         projection_type = 'equirectangular',
-    #         bgcolor = "rgba(0, 0, 0, 0)",
-    #     ),
-    #     autosize=True,
-    #     width=None,
-    #     height=None,
-    #     margin=dict(l=0, r=0, t=30, b=0),
-    #     dragmode=False
-    # )
+        country_data[country] = data
 
-    #Creating the visualization timelapse, we use px
-    # fig = px.choropleth(col_countries,
-    #     locations="country",
-    #     locationmode = "country names",
-    #     color=col,
-    #     hover_name="country",
-    #     animation_frame="year"
-    # )
-
-    # fig.update_layout(
-    #     title_text = col.title() + " Change",
-    #     title_x = 0.5,
-    #     geo=dict(
-    #         showframe = False,
-    #         showcoastlines = False,
-    #     )
-    # )
-
-
-    return render(request, "greenClean/index.html")
+    return render(request, "greenClean/statistics.html", {
+        "country_data": country_data,
+        "us": country_data["United States"],
+        "canada": country_data["Canada"],
+        "mexico": country_data["Mexico"],
+        "brazil": country_data["Brazil"],
+        "argentina": country_data["Argentina"],
+        "germany": country_data["Germany"],
+        "uk": country_data["United Kingdom"],
+        "italy": country_data["Italy"],
+        "russia": country_data["Russia"],
+        "china": country_data["China"],
+        "india": country_data["India"],
+        "egypt": country_data["Egypt"],
+        "iran": country_data["Iran"],
+        "iraq": country_data["Iraq"],
+        "australia": country_data["Australia"]
+    })
 
 def footprintCalculator(request):
 
@@ -320,6 +280,6 @@ def contact(request):
     })
 
 def moreinfo(request):
-    return render(request, "greenClean/moreinfo.html")
+    return render(request, "greenClean/moreInfo.html")
 def documentation(request):
     return render(request, "greenClean/documentation.html")

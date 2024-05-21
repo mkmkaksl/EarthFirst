@@ -1,0 +1,147 @@
+
+
+/* Map */
+.mapContainer {
+    padding: 3em;
+    width: 80%;
+    position: relative;
+    border: 2px solid black;
+    counter-reset: span;
+}
+.map {
+    position: relative;
+}
+.map img {
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 0 0 5px black;
+    z-index: -1;
+}
+
+.map .pointers span {
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    color: white;
+    display: grid;
+    font-size: 0.5rem;
+    place-items: center;
+    counter-increment: span;
+}
+.map .pointers span::after {
+    content: counter(span);
+}
+
+/* hover txt */
+.hover-txt {
+    position: absolute;
+    color: white;
+    left: 100%;
+    top: 50%;
+    background: rgba(255, 0, 0, 0.5);
+    max-width: 500px;
+    min-width: 300px;
+    border-radius: 4px;
+    text-shadow: 0 0 5px black;
+    padding: 0.5em;
+    font-size: 0.6rem;
+    opacity: 0;
+    z-index: 1;
+    scale: 0 0;
+    transform-origin: top left;
+    transition: opacity linear 200ms, scale linear 200ms;
+}
+.hover-txt p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 0;
+    width: 100%;
+    padding: 0.2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center start;
+    gap: 1em;
+}
+.hover-txt p strong {
+    width: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pointers span:is(:hover, :focus, :focus-visible) .hover-txt {
+    opacity: 1;
+    scale: 1 1;
+}
+
+/* North America */
+.pointers span.usa {
+    top: 27%;
+    left: 22%;
+}
+.pointers span.canada {
+    top: 18%;
+    left: 20%;
+}
+.pointers span.mexico {
+    top: 38%;
+    left: 22%;
+}
+
+/* South America */
+.pointers span.brazil {
+    top: 55%;
+    left: 35%;
+}
+.pointers span.argentina {
+    top: 68%;
+    left: 31%;
+}
+
+/* Europe */
+.pointers span.germany {
+    top: 21%;
+    left: 51%;
+}
+.pointers span.england {
+    top: 20%;
+    left: 47%;
+}
+.pointers span.italy {
+    top: 26%;
+    left: 52%;
+}
+
+/* Asia */
+.pointers span.russia {
+    top: 15%;
+    left: 74%;
+}
+.pointers span.china {
+    top: 29%;
+    left: 74%;
+}
+.pointers span.india {
+    top: 36%;
+    left: 69%;
+}
+
+/* Middle East */
+.pointers span.egypt {
+    top: 34%;
+    left: 56%;
+}
+.pointers span.iran {
+    top: 31%;
+    left: 63%;
+}
+.pointers span.iraq {
+    top: 31%;
+    left: 59%;
+}
+
+/* Australia */
+.pointers span.australia {
+    top: 61%;
+    left: 84%;
+}

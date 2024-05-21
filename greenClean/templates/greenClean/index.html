@@ -10,7 +10,7 @@
 
 {% block body %}
 
-    <div class="home">
+    <div class="home fade-out">
         <div class="home-content">
             <div class="home-img">
                 <img src="https://www.svgrepo.com//show/227814/planet-earth-global.svg" height="350px" width="350px">
@@ -46,7 +46,7 @@
             </svg> {% endcomment %}
             <img src="{% static 'greenClean/images/wave-2.svg' %}" class="home-wave">
             <div class="impact-title"><b>CURRENT CHALLENGES</b></div>
-                <div class="impact-card">
+                <div class="impact-card fade-out">
                     <div class="impact-img">
                         <img class="img-i" src="{% static 'greenClean/images/pollution.png' %}" height="350" width="350">
                     </div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="impact-card">
+                <div class="impact-card fade-out">
                     <div class="impact-content">
                         <div class="impact-topic-head"><b>Fossil Fuels</b></div>
                         <div class="impact-text">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="impact-card">
+                <div class="impact-card fade-out">
                     <div class="impact-img">
                         <img class="img-i" src="{% static 'greenClean/images/deforestation.png' %}" height="350" width="350">
                     </div>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="impact-card">
+                <div class="impact-card fade-out">
                     <div class="impact-content">
                         <div class="impact-topic-head"><b>Mining</b></div>
                         <div class="impact-text">
@@ -138,5 +138,4 @@
             b.style["min-height"] = height;
         } )
     </script>
-
 {% endblock %}

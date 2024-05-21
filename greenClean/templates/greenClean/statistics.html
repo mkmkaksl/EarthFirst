@@ -1,0 +1,179 @@
+{% extends "greenClean/layout.html" %}
+{% load static %}
+
+{% block title %}Statistics{% endblock %}
+{% block metaDescription %}World Energy Statistics{% endblock %}
+{% block metaKeywords %}{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'greenClean/css/statistics.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="mapContainer">
+        <div class="map">
+            <img src="{% static 'greenClean/images/world-map.png' %}" alt="">
+
+            <div class="pointers">
+                <span class="usa">
+                    <div class="hover-txt">
+                        <h3>USA</h3>
+                        <p><strong>Population:</strong> {{ us.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ us.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ us.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ us.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ us.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="canada">
+                    <div class="hover-txt">
+                        <h3>Canada</h3>
+                        <p><strong>Population:</strong> {{ canada.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ canada.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ canada.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ canada.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ canada.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="mexico">
+                    <div class="hover-txt">
+                        <h3>Mexico</h3>
+                        <p><strong>Population:</strong> {{ mexico.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ mexico.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ mexico.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ mexico.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ mexico.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+
+                <span class="brazil">
+                    <div class="hover-txt">
+                        <h3>Brazil</h3>
+                        <p><strong>Population:</strong> {{ brazil.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ brazil.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ brazil.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ brazil.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ brazil.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="argentina">
+                    <div class="hover-txt">
+                        <h3>Argentina</h3>
+                        <p><strong>Population:</strong> {{ argentina.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ argentina.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ argentina.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ argentina.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ argentina.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+
+                <span class="germany">
+                    <div class="hover-txt">
+                        <h3>Germany</h3>
+                        <p><strong>Population:</strong> {{ germany.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ germany.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ germany.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ germany.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ germany.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="england">
+                    <div class="hover-txt">
+                        <h3>England</h3>
+                        <p><strong>Population:</strong> {{ uk.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ uk.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ uk.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ uk.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ uk.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="italy">
+                    <div class="hover-txt">
+                        <h3>Italy</h3>
+                        <p><strong>Population:</strong> {{ italy.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ italy.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ italy.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ italy.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ italy.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+
+                <span class="russia">
+                    <div class="hover-txt">
+                        <h3>Russia</h3>
+                        <p><strong>Population:</strong> {{ russia.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ russia.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ russia.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ russia.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ russia.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="china">
+                    <div class="hover-txt">
+                        <h3>China</h3>
+                        <p><strong>Population:</strong> {{ china.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ china.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ china.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ china.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ china.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="india">
+                    <div class="hover-txt">
+                        <h3>India</h3>
+                        <p><strong>Population:</strong> {{ india.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ india.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ india.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ india.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ india.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                
+                <span class="egypt">
+                    <div class="hover-txt">
+                        <h3>Egypt</h3>
+                        <p><strong>Population:</strong> {{ egypt.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ egypt.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ egypt.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ egypt.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ egypt.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="iran">
+                    <div class="hover-txt">
+                        <h3>Iran</h3>
+                        <p><strong>Population:</strong> {{ iran.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ iran.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ iran.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ iran.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ iran.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+                <span class="iraq">
+                    <div class="hover-txt">
+                        <h3>Iraq</h3>
+                        <p><strong>Population:</strong> {{ iraq.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ iraq.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ iraq.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ iraq.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ iraq.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+
+                <span class="australia">
+                    <div class="hover-txt">
+                        <h3>Australia</h3>
+                        <p><strong>Population:</strong> {{ australia.population }} people</p>
+                        <p><strong>Biofuel Consumption:</strong> {{ australia.biofuel_consumption }} tw-hours*</p>
+                        <p><strong>Coal Consumption:</strong> {{ australia.coal_consumption }} tw-hours*</p>
+                        <p><strong>Electricity Generation:</strong> {{ australia.electricity_generation }} tw-hours*</p>
+                        <p><strong>Energy Per Capita:</strong> {{ australia.energy_per_capita }} kw-hours per person**</p>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'greenClean/js/statistics.js' %}"></script>
+
+{% endblock %}
