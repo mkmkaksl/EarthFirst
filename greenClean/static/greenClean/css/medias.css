@@ -239,6 +239,11 @@
 
 
 @media (max-width: 580px) {
+
+    body {
+        padding: 0;
+        overflow-x: hidden;
+    }
     .home-content {
         gap: 0;
 

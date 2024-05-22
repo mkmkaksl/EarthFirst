@@ -23,7 +23,7 @@ body{
    background-color: var(--body-bg) !important;
    color: black;
    margin: 0;
-   max-width: 100dvw;
+   max-width: 100vw;
    min-height: 100vh;
    display: flex;
    flex-direction: column;
@@ -80,43 +80,6 @@ header {
    font-weight: bold;
 }
 
-.my-tooltip {
-   /* padding: 1em 0.3em; */
-   margin: 0;
-   padding: 0;
-   display: inline-flex;
-   justify-content: center;
-   align-items: center;
-   position: relative;
-}
-.my-tooltip .tooltip-parent {
-   border-radius: 50%;
-   padding: 0.3em 0.8em;
-   margin: 0;
-   text-align: center;
-   color: gray;
-   font-size: 0.5rem;
-   border: 1px solid gray;
-}
-.my-tooltip .tooltip-child {
-   position: absolute;
-   /* right: 50%;
-   bottom: 100%; */
-   right: 110%;
-   max-width: 100dvw;
-   font-size: 0.6rem;
-   background: rgba(0, 0, 0, 0.5);
-   color: white;
-   border-radius: 20px;
-   padding: 1em;
-   text-align: center;
-   display: none;
-   justify-content: center;
-   align-items: center;
-}
-.my-tooltip .tooltip-parent:is(:hover, :focus) + .tooltip-child {
-   display: inline-flex !important;
-}
 
 .fade-in {
    opacity: 1;
