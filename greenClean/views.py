@@ -85,7 +85,7 @@ class EnergyForm(forms.Form):
     locations = [(country, country) for country in countries]
 
     location = forms.CharField(widget=forms.Select(choices=locations))
-    energy = forms.FloatField(label="Average Weekly Energy Used(Kilowatt hours): ", min_value=0)
+    energy = forms.FloatField(label="Average Weekly Energy Used in kWh(kilowatt-hours): ", min_value=0)
 
 class TransportationForm(forms.Form):
     #Public Transportation
@@ -208,8 +208,11 @@ def footprintCalculator(request):
 
         print("Energy Data:")
         print(data["energy_co2"])
-        total_prod = int(data["energy_co2"])
-        total_prod += int(data["transport_co2"]) + int(data["flight_co2"]) + int(data["car_co2"])
+        total_prod = int((data["energy_co2"].replace(",", "")))
+        total_prod += int(data["transport_co2"].replace(",", "")) + \
+        int(data["flight_co2"].replace(",", "")) + \
+        int(data["car_co2"].replace(",", ""))
+        total_prod = round(total_prod, 3)
 
     else:
         energyForm = EnergyForm()

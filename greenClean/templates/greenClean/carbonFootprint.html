@@ -13,6 +13,34 @@
     <form action="/footprint" method="POST">
         {% csrf_token %}
 
+        {% if total_prod != 0 %}
+            <div class="form-section active">
+                <div class="production">
+                    <div class="prod_intro">
+                        You produce on average:
+                    </div>
+                    <div class="prod_main">
+                        {{ total_prod }}
+                        kgCo<sub>2</sub> Per Year
+                    </div>
+                    <div class="details">
+                        The average person produced 13099.75 kgCo<sub>2</sub> in 2022!
+                        {% if total_prod < 13099.75 %}
+                            <div class="good">You are doing better than the average person!</div>
+                        {% elif total_prod > 13099.75 %}
+                            <div class="bad">You are doing worse than the average person!</div>
+                            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+                        {% else %}
+                            <div class="neutral">You are doing the same as the average person!</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-btn-container">
+                        <button class="retry"><a href="/footprint">Calculate Again <i class="fa-solid fa-caret-right"></i></a></button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
         <!-- {% for field in form %}
                 <div class="form-field">
                     <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
@@ -21,90 +49,166 @@
         {% endfor %} -->
 
         <div class="active-header"></div>
-        
+
+        {% if total_prod != 0 %}
         <div class="form-section">
-            <!-- Tool Tip-->
-            <h3 class="form-header flex-center">
-                <div class="my-tooltip">
-                    <button type="button" class="tooltip-parent"><i class="fa-solid fa-exclamation"></i></button>
-                    <p class="tooltip-child flex-center">This calculation is based on data collected from 2022
-                    </p>
+        {% else %}
+        <div class="form-section active">
+        {% endif %}
+            <div class="form-heading">
+                <h3>Energy:</h3>
+            </div>
+
+            {% for field in energyForm %}
+                <div class="form-field-container">
+                    <div class="form-field">
+                        {% if field.html_name != 'location' %}
+                            <label for="{{ field.auto_id }}" class="form-label">{{ field.label }}</label>
+                        {% endif %}
+
+                        {{ field }}
+
+                        {% if field.html_name != 'location' %}
+                            <cite>*The average person in the USA uses about 205.5 kWh of energy per week</cite>
+                            <cite>**kw-hours = Kilowatt-hours = Unit of energy representing 1,000 watt-hours or 3.6*10<sup>6</sup> Joules</cite>
+                        {% endif %}
+                    </div>
                 </div>
-                Energy:
-            </h3>
-            
+            {% endfor %}
+
             <div class="form-field-container">
-                {% for field in energyForm %}
-                        <div class="form-field">
-                            <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
-                            {{ field }}
-                        </div>
-                {% endfor %}
                 <div class="carbon-footprint" id="energy_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
                 <input type="hidden" name="energy_co2" id="co2_energy" value="">
-                  
+            </div>
+
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+
+            <div class="form-btns">
+                <div class="form-btn-container next">
+                    <button type="button" role="button">Next<i class="fa-solid fa-caret-right"></i></button>
+                </div>
             </div>
         </div>
 
         <div class="form-section">
-            <h3 class="form-header">Public Transportation:</h3>
+            <div class="form-heading">
+                <h3>Public Transportation:</h3>
+            </div>
+
+            {% for field in transportForm %}
+                <div class="form-field-container">
+                    <div class="form-field">
+                        {% if field.html_name != 'transport_type' %}
+                            <label for="{{ field.auto_id }}" class="form-label">{{ field.label }}</label>
+                        {% endif %}
+
+                        {{ field }}
+
+                        {% if field.html_name != 'transport_type' %}
+                            <cite>*The average person in the USA travels ~5.5 km per week in public transport</cite>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
             <div class="form-field-container">
-                {% for field in transportForm %}
-                        <div class="form-field">
-                            <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
-                            {{ field }}
-                        </div>
-                {% endfor %}
                 <div class="carbon-footprint" id="transport_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
                 <input type="hidden" name="transport_co2" id="co2_transport" value="">
             </div>
+
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+
+            <div class="form-btns">
+                <div class="form-btn-container back">
+                    <button type="button" role="button"><i class="fa-solid fa-caret-left"></i>Back</button>
+                </div>
+                <div class="form-btn-container next">
+                    <button type="button" role="button">Next<i class="fa-solid fa-caret-right"></i></button>
+                </div>
+            </div>
         </div>
 
 
         <div class="form-section">
-            <h3 class="form-header">Flight:</h3>
+            <div class="form-heading">
+                <h3>Flight:</h3>
+            </div>
+
+            {% for field in flightForm %}
+                <div class="form-field-container">
+                    <div class="form-field">
+                        {% if field.html_name != 'flight_type' %}
+                            <label for="{{ field.auto_id }}" class="form-label">{{ field.label }}</label>
+                        {% endif %}
+
+                        {{ field }}
+
+                        {% if field.html_name != 'flight_type' %}
+                            <cite>*The average person in the USA travels ~4659.3 km per year in planes</cite>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
             <div class="form-field-container">
-                {% for field in flightForm %}
-                        <div class="form-field">
-                            <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
-                            {{ field }}
-                        </div>
-                {% endfor %}
                 <div class="carbon-footprint" id="flight_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
                 <input type="hidden" name="flight_co2" id="co2_flight" value="">
+            </div>
+
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+
+            <div class="form-btns">
+                <div class="form-btn-container back">
+                    <button type="button" role="button"><i class="fa-solid fa-caret-left"></i>Back</button>
+                </div>
+                <div class="form-btn-container next">
+                    <button type="button" role="button">Next<i class="fa-solid fa-caret-right"></i></button>
+                </div>
             </div>
         </div>
 
         
         <div class="form-section">
-            <h3 class="form-header">Car Travel:</h3>
+            <div class="form-heading">
+                <h3>Car Travel:</h3>
+            </div>
+
+            {% for field in carForm %}
+                <div class="form-field-container">
+                    <div class="form-field">
+                        {% if field.html_name != 'car_type' %}
+                            <label for="{{ field.auto_id }}" class="form-label">{{ field.label }}</label>
+                        {% endif %}
+
+                        {{ field }}
+
+                        {% if field.html_name != 'car_type' %}
+                            <cite>*The average person in the USA travels ~417.07 km per week in car</cite>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
             <div class="form-field-container">
-                {% for field in carForm %}
-                        <div class="form-field">
-                            <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
-                            {{ field }}
-                        </div>
-                {% endfor %}
                 <div class="carbon-footprint" id="car_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
                 <input type="hidden" name="car_co2" id="co2_car" value="">
             </div>
-        </div>
 
-        <div class="submit-btn">
-            <button class="btn btn-success" type="submit">Calculate Total <i class="fa-solid fa-caret-right"></i></button>
-        </div>
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
 
-        {% if total_prod != 0 %}
-            <div class="production">
-                <div class="prod_intro">
-                    You produce on average:
+            <div class="form-btns">
+                <div class="form-btn-container back">
+                    <button type="button" role="button"><i class="fa-solid fa-caret-left"></i>Back</button>
                 </div>
-                <div class="prod_main">
-                    {{ total_prod }}
-                    kgCO<sub>2</sub> Per Year
+                <div class="form-btn-container submit-btn">
+                    <button>Calculate<i class="fa-solid fa-caret-right"></i></button>
                 </div>
             </div>
-        {% endif %}
+        </div>
+
+        <!-- <div class="submit-btn">
+            <button class="btn btn-success" type="submit">Calculate Total <i class="fa-solid fa-caret-right"></i></button>
+        </div> -->
     </form>
     <!-- {% if total_prod != 0 %}
         <div class="production">

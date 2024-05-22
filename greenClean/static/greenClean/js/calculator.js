@@ -1,9 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     let allFormSections = document.querySelectorAll(".form-section");
-    let allFormHeaders = document.querySelectorAll(".form-header")
-    let activeHeader = document.querySelector(".active-header")
+    let allSecondQuestions = document.querySelectorAll(".form-section > .form-field-container:nth-child(3) input");
+    let allFormHeaders = document.querySelectorAll(".form-heading")
+    let allNextBtns = document.querySelectorAll(".form-btn-container.next button")
+    let allBackBtns = document.querySelectorAll(".form-btn-container.back button")
 
+    calculations();
+    for (let i = 0; i < allNextBtns.length; i++) {
+        allNextBtns[i].addEventListener("click", (event) => {
+            if (allSecondQuestions[i].value != "") {
+                allFormSections[i].classList.remove("active");
+                allFormSections[i].classList.add("last")
+                allFormSections[i+1].classList.add("active");
+            }
+        })
+    }
+
+    for (let i = 0; i < allBackBtns.length; i++) {
+        allBackBtns[i].addEventListener("click", () => {
+            let curIdx = i+1;
+            allFormSections[curIdx].classList.remove("active");
+            allFormSections[curIdx-1].classList.remove("last")
+            allFormSections[curIdx-1].classList.add("active");
+        })
+    }
+    
+
+})
+
+function calculations() {
     // Electricity Carbon Footprint
     const elec_country = document.querySelector("#id_location")
     const elec_usage = document.querySelector("#id_energy")
@@ -17,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elec_country.addEventListener('change', () => {
         emissionFactor = carbonIntensitiesObject[elec_country.value];
         if (elec_usage.value != 0) {
-            const co2 = Math.round(emissionFactor * elec_usage.value * 52)
+            const co2 = Math.round(emissionFactor * elec_usage.value * 52).toLocaleString("en-US");
             elec_carbon_footprint.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             elec_co2_input.value = co2;
         }
@@ -27,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             elec_usage.value = 0;
         } else {
             emissionFactor = carbonIntensitiesObject[elec_country.value];
-            const co2 = Math.round(emissionFactor * elec_usage.value * 52);
+            const co2 = Math.round(emissionFactor * elec_usage.value * 52).toLocaleString("en-US");
             elec_carbon_footprint.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             elec_co2_input.value = co2;
         }
@@ -52,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emissionFactor = publicEmissionFactors[transit_type.value];
 
         if (transit_dist.value != 0) {
-            const co2 = Math.round(emissionFactor * transit_dist.value * 52) // x52 due to data being weekly
+            const co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US"); // x52 due to data being weekly
             transit_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             transit_co2_input.value = co2;
         }
@@ -62,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             transit_dist.value = 0;
         } else {
             emissionFactor = publicEmissionFactors[transit_type.value]
-            const co2 = Math.round(emissionFactor * transit_dist.value * 52);
+            const co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US");
             transit_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             transit_co2_input.value = co2;
         }
@@ -86,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emissionFactor = flightEmissionFactors[flight_type.value];
 
         if (flight_dist.value != 0) {
-            const co2 = Math.round(emissionFactor * flight_dist.value)
+            const co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
             flight_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             flight_co2_input.value = co2;
         }
@@ -96,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             flight_dist.value = 0;
         } else {
             emissionFactor = flightEmissionFactors[flight_type.value]
-            const co2 = Math.round(emissionFactor * flight_dist.value);
+            const co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
             flight_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             flight_co2_input.value = co2;
         }
@@ -120,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emissionFactor = carEmissionFactors[car_type.value];
 
         if (car_dist.value != 0) {
-            const co2 = Math.round(emissionFactor * car_dist.value * 52)
+            const co2 = Math.round(emissionFactor * car_dist.value * 52).toLocaleString("en-US");
             car_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             car_co2_input.value = co2;
         }
@@ -130,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
             car_dist.value = 0;
         } else {
             emissionFactor = carEmissionFactors[car_type.value]
-            const co2 = Math.round(emissionFactor * car_dist.value * 52);
+            const co2 = Math.round(emissionFactor * car_dist.value * 52).toLocaleString("en-US");
             car_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
             car_co2_input.value = co2;
         }
@@ -138,36 +164,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     emissionFactor = carbonIntensitiesObject[elec_country.value];
-    let co2 = Math.round(emissionFactor * elec_usage.value * 52);
+    let co2 = Math.round(emissionFactor * elec_usage.value * 52).toLocaleString("en-US");
     elec_carbon_footprint.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
     elec_co2_input.value = co2;
 
     emissionFactor = publicEmissionFactors[transit_type.value]
-    co2 = Math.round(emissionFactor * transit_dist.value * 52);
+    co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US");
     transit_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
     transit_co2_input.value = co2;
 
     emissionFactor = flightEmissionFactors[flight_type.value]
-    co2 = Math.round(emissionFactor * flight_dist.value);
+    co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
     flight_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
     flight_co2_input.value = co2;
     
     emissionFactor = carEmissionFactors[car_type.value]
-    co2 = Math.round(emissionFactor * car_dist.value * 52);
+    co2 = Math.round(emissionFactor * car_dist.value * 52).toLocaleString("en-US");
     car_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
     car_co2_input.value = co2;
-    
-
-    allFormSections.forEach((x, idx) => {
-        x.addEventListener("focusin", () => {
-            activeHeader.style.height = allFormHeaders[idx].offsetHeight + "px";
-            activeHeader.style.top = allFormHeaders[idx].offsetTop + "px";
-        })
-        x.addEventListener("focusout", () => {
-            activeHeader.style.height = 0;
-        })
-
-
-    })
-
-})
+}

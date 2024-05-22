@@ -1,147 +1,116 @@
 
+:root {
+    --stat-separator: radial-gradient(circle at center, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.0));
+}
+/* statistics section */
+.statsContainer {
 
-/* Map */
-.mapContainer {
+    margin: 2em;
     padding: 3em;
-    width: 80%;
-    position: relative;
-    border: 2px solid black;
-    counter-reset: span;
-}
-.map {
-    position: relative;
-}
-.map img {
-    width: 100%;
-    border-radius: 20px;
-    border: 2px solid black;
-    box-shadow: 0 0 5px black;
-    z-index: -1;
 }
 
-.map .pointers span {
-    position: absolute;
-    width: 20px;
-    aspect-ratio: 1;
-    background-color: rgba(255, 0, 0, 0.5);
-    border-radius: 50%;
-    color: white;
-    display: grid;
-    font-size: 0.5rem;
-    place-items: center;
-    counter-increment: span;
-}
-.map .pointers span::after {
-    content: counter(span);
-}
-
-/* hover txt */
-.hover-txt {
-    position: absolute;
-    color: white;
-    left: 100%;
-    top: 50%;
-    background: rgba(255, 0, 0, 0.5);
-    max-width: 500px;
-    min-width: 300px;
-    border-radius: 4px;
-    text-shadow: 0 0 5px black;
+.statsContainer h2 {
+    text-align: center;
     padding: 0.5em;
-    font-size: 0.6rem;
-    opacity: 0;
-    z-index: 1;
-    scale: 0 0;
-    transform-origin: top left;
-    transition: opacity linear 200ms, scale linear 200ms;
 }
-.hover-txt p {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    margin: 0;
-    width: 100%;
-    padding: 0.2em;
+
+.stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    place-items: center start;
+    place-items: center;
+    /* gap: 3em; */
+}
+
+.stats .stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     gap: 1em;
+    position: relative;
+    /* width: 80%; */
+    height: 100%;
+    padding: 2em;
+    /* border-radius: 20px; */
 }
-.hover-txt p strong {
-    width: 100%;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
+.stat:is(.top-bd, .right-bd)::before {
+    content: '';
+    position: absolute;
+    background: var(--stat-separator);
 }
-
-.pointers span:is(:hover, :focus, :focus-visible) .hover-txt {
-    opacity: 1;
-    scale: 1 1;
+.stat.bottom-bd::after {
+    content: '';
+    position: absolute;
+    background: var(--stat-separator);
 }
-
-/* North America */
-.pointers span.usa {
-    top: 27%;
-    left: 22%;
+.stat.top-bd::before {
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 1px;
 }
-.pointers span.canada {
-    top: 18%;
-    left: 20%;
+.stat.bottom-bd::after {
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 1px;
 }
-.pointers span.mexico {
-    top: 38%;
-    left: 22%;
-}
-
-/* South America */
-.pointers span.brazil {
-    top: 55%;
-    left: 35%;
-}
-.pointers span.argentina {
-    top: 68%;
-    left: 31%;
-}
-
-/* Europe */
-.pointers span.germany {
-    top: 21%;
-    left: 51%;
-}
-.pointers span.england {
-    top: 20%;
-    left: 47%;
-}
-.pointers span.italy {
-    top: 26%;
-    left: 52%;
+.stat.right-bd::before {
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 1px;
 }
 
-/* Asia */
-.pointers span.russia {
-    top: 15%;
-    left: 74%;
+.stat img {
+    width: 40%;
 }
-.pointers span.china {
-    top: 29%;
-    left: 74%;
-}
-.pointers span.india {
-    top: 36%;
-    left: 69%;
+.stat h3 {
+    font-size: 2rem;
+    border-bottom: 2px solid gray;
 }
 
-/* Middle East */
-.pointers span.egypt {
-    top: 34%;
-    left: 56%;
+.stat.usa {
+    grid-column: span 2;
 }
-.pointers span.iran {
-    top: 31%;
-    left: 63%;
+.stat .us_plot {
+    width: 90%;
+    height: 20px;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5rem;
+    padding: 20px;
 }
-.pointers span.iraq {
-    top: 31%;
-    left: 59%;
+.us_plot .air_conditioning {
+    width: 47%;
+    height: 20px;
+    display: grid; place-items: center;
+    background-color: rgba(255, 0, 0, 0.9);
 }
-
-/* Australia */
-.pointers span.australia {
-    top: 61%;
-    left: 84%;
+.us_plot .water_heating {
+    width: 14%;
+    height: 20px;
+    display: grid; place-items: center;
+    background-color: rgba(255, 0, 0, 0.6);
+}
+.us_plot .appliances {
+    width: 24%;
+    height: 20px;
+    display: grid; place-items: center;
+    background-color: rgba(255, 0, 0, 0.4);
+}
+.us_plot .lighting {
+    width: 12%;
+    height: 20px;
+    display: grid; place-items: center;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.us_plot .media {
+    width: 3%;
+    height: 20px;
+    display: grid; place-items: center;
+    background-color: rgba(255, 0, 0, 0.1);
 }

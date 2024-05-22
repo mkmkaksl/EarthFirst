@@ -4,6 +4,7 @@
       box-sizing: border-box;
       background: none;
       transition: opacity linear 200ms;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 :root {
@@ -12,6 +13,7 @@
    --nav-sm-hei: 50px;
 
    --body-bg: rgb(255, 253, 234);
+   /* --body-bg: white; */
 }
 label {
    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -19,7 +21,6 @@ label {
 /*Body (1 Important Tag)*/
 body{
    background-color: var(--body-bg) !important;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
    color: black;
    margin: 0;
    max-width: 100dvw;

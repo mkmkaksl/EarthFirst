@@ -1,0 +1,94 @@
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* div#allLinks {
+    width: 80dvw;
+    height: 80dvh;
+    background-color: rgb(255,253,234);
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1em;
+    margin: 2em;
+    float: left;
+    width: 29%;
+    color: white;
+}
+div#allLinksB {
+    width: 80dvw;
+    height: 80dvh;
+    background-color: rgb(255,253,234);
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1em;
+    margin: 2em;
+    float: left;
+    width: 29%;
+}
+div#allLinksC {
+    width: 80dvw;
+    height: 80dvh;
+    background-color: rgb(255,253,234);
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1em;
+    margin: 2em;
+    float: left;
+    width: 29%;
+} */
+h1 { 
+    animation: fade-down 0.5s;
+}
+.container {
+    display: flex;
+}
+
+.blocks-container {
+    width: 80%;
+    margin: 1em;
+    margin-bottom: 3em;
+}
+
+.blocks-container .block {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.blocks-container .link-container {
+    padding: 1em;
+    border-right: 1px solid black;
+}
+
+.blocks-container a {
+    width: 100%;
+    aspect-ratio: 1;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid black;
+
+    display: grid;
+    place-items: center;
+    background: green;
+    color: white;
+    transition: background-color linear 200ms;
+    animation: fade-down linear 500ms;
+}
+
+.blocks-container a:hover {
+    background: rgb(72, 255, 72);
+}

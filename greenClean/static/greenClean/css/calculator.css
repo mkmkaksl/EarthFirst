@@ -1,66 +1,189 @@
 
-/* Calculator Page */
+/* Calculator */
 
 form {
-   position: relative;
-}
+   width: 80%;
+   margin: 2em 0;
+   /* display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center; */
 
+   padding: 0;
+
+   /* gap: 2em; */
+
+   position: relative;
+   inset: 0;
+   left: 0;
+
+}
 .form-section {
-   margin: 0.3em 0 2em 0;
-}
-.form-header {
-   font-size: 1.2rem;
-   border-bottom: 3px solid gray;
-   font-weight: bold;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-   padding: 0.3em;
-   text-align: center;
-   position: relative;
-}
-
-form .active-header {
-   background-color: rgba(97, 255, 97, 0.8);
-   border-radius: 10px 10px 0 0;
    width: 100%;
    position: absolute;
-   z-index: -1;
-   transition: top linear 50ms;
+   inset: 0;
+
+   background-color: rgba(137, 221, 123, 0.7);
+   border-radius: 20px;
+   padding: 2em 1.5em;
+   color: white;
+   flex-direction: column;
+   justify-content: space-evenly;
+   gap: 1em;
+
+   scale: 0 1;
+   opacity: 0;
+   transform-origin: top;
+   transition: scale linear 200ms, opacity linear 250ms;
+}
+.form-section.active {
+   display: flex;
+   scale: 1 1;
+   position: relative;
+   opacity: 1;
+}
+.form-section.last {
+   position: absolute;
+   scale: 1 1;
+   opacity: 0;
 }
 
-form .carbon-footprint {
-   text-align: center;
-   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   background:  #07CC7C;
-   box-shadow: 0 0 5px black;
-   border-radius: 5px;
-   padding: 0.5em;
-   margin: 0.5em;
+.form-section a {
+   align-self: center;
+   color: white;
+   text-shadow: 0 0 5px black;
+   border-bottom: 1px solid white;
+   transition: color linear 200ms;
+}
+.form-section a:hover {
+   text-shadow: none;
+   color: black;
+   border-bottom-color: black;
 }
 
-form :is(input, select) {
-   border-radius: 5px;
+.form-heading h3 {
+   text-shadow: 2px 2px 5px black;
+   margin: 0;
+   font-size: 3rem;
 }
 
-form button[type="submit"] {
-   margin-bottom: 1em;
-}
-
-/* Production Section -- Carbon Footprint */
-.production {
-   background: rgba(187, 255, 187, 0.641);
+.form-field-container {
+   background-color: #6FB463;
+   padding: 1em;
+   width: 100%;
    border-radius: 10px;
-   padding: 1.2em;
-   box-shadow: 0 0 5px black;
-   margin: 1em;
+   text-align: center;
+   font-size: 1.25rem;
 }
-.production .prod_intro {
+.form-field-container cite {
+   font-size: 0.7rem;
+}
+
+.form-section.active > .form-field-container:nth-child(2) select {
+   background-color: rgba(137, 221, 123, 1);
+   border-radius: 10px;
+   border: none;
+   padding: 0.5em;
+   text-align: center;
+}
+
+
+.form-section.active > .form-field-container:nth-child(3) .form-field {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   flex: 1; 
+   gap: 0.5em;
+}
+.form-section.active > .form-field-container:nth-child(3) input {
+   background-color: rgba(137, 221, 123, 1);
+   border-radius: 10px;
+   border: none;
+   padding: 0.5em;
+   text-align: center; width: 100%;
+}
+
+.form-section.active > .form-field-container:nth-child(4) {
    font-size: 2rem;
-   font-variant: small-caps;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   padding: 0.2em 0;
 }
+
+.form-btns {
+   align-self: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 1em;
+}
+
+.form-btn-container :is(button, a) {
+   background: white;
+   text-shadow: none;
+   /* border: 1px solid black; */
+   border: none;
+   border-radius: 10px;
+   padding: 0.5em 1em;
+   transition: background-color linear 200ms;
+}
+.form-btn-container :is(button, a):hover {
+   background-color: #EEE;
+}
+
+
+.production {
+   font-size: 2rem;
+   padding: 1em;
+   padding-bottom: 0;
+   display: grid;
+   place-items: center;
+   text-shadow: 0 2px 5px black;
+}
+
 .production .prod_main {
-   font-size: 2.5rem;
-   text-wrap: wrap;
-   font-weight: bold;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 3rem;
+}
+
+.production .form-btn-container {
+   padding: 0.5em;
+}
+
+.production button {
+   font-size: 1.5rem;
+   margin: 1em;
+   padding: 0;
+   margin-bottom: 0;
+   border-radius: 10px;
+   border: none;
+}
+.production button a {
+   color: black;
+   width: 100%;
+   height: 100%;
+   border: none;
+   
+}
+
+.production .details {
+   font-size: 1.2rem;
+   color: black;
+   text-shadow: none;
+   text-align: center;
+}
+.details .good {
+   background-color: rgb(0, 255, 0);
+   padding: 0.2em;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+.details .bad {
+   background-color: red;
+   padding: 0.2em;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+.details .neutral {
+   background-color: yellow;
+   padding: 0.2em;
+   border: 1px solid black;
+   border-radius: 5px;
 }
