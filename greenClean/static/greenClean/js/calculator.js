@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 allFormSections[i].classList.remove("active");
                 allFormSections[i].classList.add("last")
                 allFormSections[i+1].classList.add("active");
+            } else {
+                alert("Please input a valid value for each input!")
             }
         })
     }

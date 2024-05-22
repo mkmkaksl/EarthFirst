@@ -1,6 +1,7 @@
 
 :root {
     --stat-separator: radial-gradient(circle at center, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.0));
+    --stat-heading-fs: 2rem;
 }
 /* statistics section */
 .statsContainer {
@@ -66,7 +67,7 @@
     width: 40%;
 }
 .stat h3 {
-    font-size: 2rem;
+    font-size: var(--stat-heading-fs);
     border-bottom: 2px solid gray;
     margin: 0;
 }
