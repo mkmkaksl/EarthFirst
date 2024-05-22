@@ -118,9 +118,27 @@
 
 .home-wave {
    position: absolute;
-   bottom: 100%;
+   bottom: 99%;
    width: 100%;
    right: 0;
    left: 0;
    z-index: -1;
+}
+svg.bottom-wave {
+   position: absolute;
+   width: 100%;
+   top: 99%;
+   right: 0;
+   left: 0;
+   z-index: -1;
+   scale: -1;
+}
+
+.bottom-spacer {
+   width: 100vw;
+}
+
+.extra {
+   width: 80%;
+   margin: 0 auto;
 }

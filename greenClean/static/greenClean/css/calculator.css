@@ -118,6 +118,7 @@ form {
 
 .form-btn-container :is(button, a) {
    background: white;
+   /* color: black; */
    text-shadow: none;
    /* border: 1px solid black; */
    border: none;
@@ -146,21 +147,15 @@ form {
 .production .form-btn-container {
    padding: 0.5em;
 }
-
-.production button {
+.production .form-btn-container a {
    font-size: 1.5rem;
    margin: 1em;
-   padding: 0;
    margin-bottom: 0;
-   border-radius: 10px;
-   border: none;
-}
-.production button a {
    color: black;
    width: 100%;
    height: 100%;
    border: none;
-   
+   border-radius: 10px;
 }
 
 .production .details {

@@ -24,7 +24,7 @@
 .stats .stat {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     gap: 1em;
     position: relative;
@@ -68,6 +68,10 @@
 .stat h3 {
     font-size: 2rem;
     border-bottom: 2px solid gray;
+    margin: 0;
+}
+.stat p {
+    flex-grow: 1;
 }
 
 .stat.usa {

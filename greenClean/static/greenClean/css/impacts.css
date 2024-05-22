@@ -1,18 +1,37 @@
 
 :root {
-   --impact-title-fs: 3rem;
+   --impact-title-fs: 3.5rem;
 }
 .impacts-page{
    position: relative;
-   /* height: 270dvh; */
-   width: 100dvw;
+   width: 100vw;
    padding: 2em 0;
-   background: linear-gradient(to bottom, #05c072 50%,#40b4da 50%);
+   /* background: linear-gradient(to bottom, #05c072 50%,#40b4da 50%); */
+   background: #05c072;
+
    display:flex;
    flex-direction: column;
    align-items: center;
-   /* z-index: 1; */
 }
+.impacts-container {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+
+   position: relative;
+   right: 0px;
+   left: 0px;
+   inset: 0;
+   transition: inset linear 300ms, scale linear 300ms;
+}
+.impact-cards {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 80%;
+   overflow: hidden;
+}
+
 .impact-title{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-size: var(--impact-title-fs);
@@ -23,17 +42,18 @@
 }
 .impact-card{
 
+   width: 95%;
+   flex-shrink: 0;
    display: grid;
    place-items: center;
    grid-template-columns: 1fr 1fr;
 
    gap: 1em;
-
-   width: 80%;
    margin: 2.5%;
    box-shadow: 0 0 10px black;
    border-radius: 20px;
    padding: 1em;
+   position: relative;
 
 }
 .impact-img {
@@ -77,3 +97,23 @@
    color: #2d3339;
 }
 
+
+.positions {
+   width: 80%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 1em;
+   /* border: 2px solid black; */
+}
+.position {
+   width: 10px;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   background: rgba(100, 100, 100, 0.5);
+   transition: background-color ease-in-out 200ms, scale linear 100ms;
+}
+.position.active {
+   background: black;
+   scale: 1.2;
+}

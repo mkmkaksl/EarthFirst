@@ -1,5 +1,10 @@
 
 @media (max-width: 1115px) {
+    :root {
+        --map-info-txt-fs: 0.5rem;
+        --map-info-max-wid: 400px;
+        --map-info-min-wid: 200px;
+    }
     .home-title-box .title {
         font-size: 3rem;
     }
@@ -30,25 +35,32 @@
         font-size: 3rem;
     }
 
-
-    .impact-card:nth-of-type(2n) {
-        grid-template-columns: 0.5fr 1fr;
+    .stat h3 {
+        font-size: 1.5rem;
     }
+
+
     .impact-card:nth-of-type(2n+1) {
-        grid-template-columns: 1fr 0.5fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    .impact-card:nth-of-type(2n) {
+        grid-template-columns: 1fr 1fr;
     }
     .impact-card {
         gap: 1.5em;
     }
     .impact-img img {
         width: 100%;
+    }
+    .impact-content {
+        width: 100%;
         height: 100%;
     }
     .impact-content .impact-topic-head {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
     }
     .impact-content .impact-text {
-        font-size: 0.65rem;
+        font-size: 0.8rem;
         overflow: visible;
         z-index: 1;
     }
@@ -66,17 +78,20 @@
 }
 
 @media (max-width: 777px) {
-    /* .impact-card:nth-of-type(2n) {
-        grid-template-columns: 0.25fr 1fr;
-    }
-    .impact-card:nth-of-type(2n+1) {
-        grid-template-columns: 1fr 0.25fr;
-    }
-    .impact-card {
-        gap: 1em;
-    } */
     :root {
         --impact-title-fs: 2rem;
+
+
+        /* --map-info-txt-fs: 0.4rem;
+        --map-info-max-wid: 350px;
+        --map-info-min-wid: 150px; */
+    }
+
+    .impact-cards {
+        width: 90%;
+    }
+    .impacts-container {
+        width: 100%;
     }
 
     .impact-card {
@@ -85,6 +100,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 1.2em;
+        width: 95%;
 
         box-shadow: 0 0 5px black;
         padding: 0.5em;
@@ -94,10 +110,10 @@
         text-align: center;
         font-size: 2rem;
     }
-    .impact-card:nth-of-type(2n+1) .impact-img {
+    .impact-card .impact-img {
         order: 1;
     }
-    .impact-card:nth-of-type(2n+1) .impact-content {
+    .impact-card .impact-content {
         order: 2;
     }
     .impact-card .impact-topic-head {
@@ -106,33 +122,30 @@
     }
 
     .impact-img img {
-        width: 40%;
+        max-width: 80%;
+        aspect-ratio: 1;
     }
 
+    .stat h3 {
+        font-size: 1.3rem;
+    }
+    .stat p {
+        font-size: 0.9rem;
+    }
 
-    .mapContainer form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 0.5em;
+    .stats {
+        grid-template-columns: 1fr;
     }
-    #map-only-container {
-        /* transform: scaleX(0.75) scaleY(0.75); */
+    .stat.usa {
+        grid-column: span 1;
+    }
+
+    .stat.right-bd::before  {
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
-    }
-    .map {
-        transform: scaleX(0.75) scaleY(0.75);
-        width: 100%;
-    }
-    .map .details {
-        display: none;
-    }
-    .mapContainer select {
-        width: 50%;
-    }
-    .mapContainer form {
-        padding: 0 3em;
+        height: 1px;
     }
 }
 
@@ -140,11 +153,21 @@
 @media (max-width: 700px) {
     :root {
         --link-gap: 0;
+
+        --pointer-wid: 10px;
+        --pointer-fs: 0.4rem;
+
+        --map-info-txt-fs: 0.4rem;
+        --map-info-max-wid: 350px;
+        --map-info-min-wid: 150px;
+
     }
 
     #toggle-btn {
         display: block;
         border-radius: 10px 10px 0 0;
+        border: 2px solid black;
+        color: black;
         font-size: 2rem;
         width: var(--nav-sm-wid);
     }
@@ -205,12 +228,24 @@
         height: calc(var(--nav-sm-hei) * 5);
     } */
 
+
+    .mapContainer span.citation {
+        font-size: 0.5rem;
+    }
+
 }
 
 
 @media (max-width: 580px) {
     .home-content {
         gap: 0;
+
+        --pointer-wid: 20px;
+        --pointer-fs: 0.4rem;
+
+        --map-info-txt-fs: 0.4rem;
+        --map-info-max-wid: 300px;
+        --map-info-min-wid: 100px;
     }
     .home-img {
         width: 90%;
@@ -227,8 +262,36 @@
         font-size: 0.7rem;
     }
 
+    .stats .stat p {
+        font-size: 0.8rem;
+    }
+    .stats .stat h3 {
+        font-size: 1rem;
+    }
+    .stats .stat img {
+        width: 50%;
+    }
+
+    .stat .us_plot {
+        display: none;
+    }
+
     .impact-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    .impact-cards {
+        width: 80%;
+    }
+    .impacts-container {
+        width: 100%;
+        flex-shrink: 0;
+    }
+    .impact-card {
+        width: 95%;
+        text-wrap: wrap;
+    }
+    .impacts-page {
+        width: 100vw;
     }
 
 
@@ -237,48 +300,38 @@
         font-size: 0.8rem;
     }
 
-    .map {
-        transform: scaleX(0.5) scaleY(0.5);
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-        order: 2;
-    }
-    /* .mapContainer form select {
-        width: 50%;
-    } */
-    .mapContainer form {
-        /* padding: 0 7em; */
-        max-width: 100dvw;
-        margin: 0 auto;
-        order: 1;
-    }
-    .mapContainer {
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        place-items: start;
-        /* padding: 4em; */
-        /* flex: none; */
-    }
-    .mapContainer #map-only-container {
-        position: absolute;
-        top: 0;
-        left: 0; 
-        right: 0;
-    }
-
 
     .faq-answer {
         font-size: 0.6rem;
+    }
+
+    .production .form-btn-container a {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 406px) {
     :root {
         --nav-sm-wid: 150px;
+
+        --map-info-txt-fs: 0.3rem;
+        --map-info-max-wid: 250px;
+        --map-info-min-wid: 80px;
+    }
+
+
+    .stats .stat img {
+        width: 80%;
+    }
+    .stats .stat h3 {
+        font-size: 0.8rem;
+    }
+    .stats .stat p {
+        font-size: 0.6rem;
+    }
+
+    .statsContainer {
+        width: 100%;
     }
 
     .mail-flex {
@@ -292,17 +345,17 @@
         font-size: 1.1rem;
     }
 
-    .map {
-        transform: scaleX(0.3) scaleY(0.3);
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
     #footer {
         flex-direction: column;
         gap: 0.5em;
+    }
+
+    select {
+        width: 80%;
+    }
+
+    .production .form-btn-container a {
+        font-size: 0.7rem;
     }
 }
 

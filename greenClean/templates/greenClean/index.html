@@ -6,6 +6,36 @@
 {% block metaKeywords %}Sustainability, Green Energy, Global Warming, Initiatives, Startup{% endblock %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'greenClean/css/impacts.css' %}">
+    <link rel="stylesheet" href="{% static 'greenClean/css/statistics.css' %}">
+{% endblock %}
+
+{% block extraHead %}
+<style>
+    .stats {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .bottom-bd::after {
+        display: none;
+    }
+
+    @media (max-width: 1115px) {
+        .stats {
+            grid-template-columns: 1fr;
+        }
+        .right-bd::before {
+            display: none;
+        }
+        .bottom-bd::after {
+            display: block;
+        }
+        /* .stat:nth-of-type(2)::before {
+            background: none;
+        }
+        .stat:nth-of-type(3) {
+            grid-column: span 2;
+        } */
+    }
+</style>
 {% endblock %}
 
 {% block body %}
@@ -36,92 +66,173 @@
 
     <div class="spacer"></div>
 
-    <section>
+    <section class="first">
         <a id="impacts"></a>
         <div class="impacts-page">
-            {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="home-wave">
-                <path fill="#18bc67" fill-opacity="1" d="M0,128L34.3,128C68.6,128,137,128,206,138.7C274.3,149,343,171,411,186.7C480,203,549,213,617,218.7C685.7,224,754,224,823,208C891.4,192,960,160,1029,170.7C1097.1,181,1166,235,1234,229.3C1302.9,224,1371,160,1406,128L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="home-wave">
+                
 
+                <path fill="#06c072" fill-opacity="1" 
+                d="M0,32L30,42.7C60,53,120,75,180,90.7C240,107,300,117,
+                360,138.7C420,160,480,192,540,208C600,224,660,224,720,
+                202.7C780,181,840,139,900,149.3C960,160,1020,224,1080,
+                213.3C1140,203,1200,117,1260,96C1320,75,1380,117,1410,
+                138.7L1440,160L1440,320L1410,320C1380,320,1320,320,1260,
+                320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,
+                320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,
+                360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
                 </path>
-            </svg> {% endcomment %}
-            <img src="{% static 'greenClean/images/wave-2.svg' %}" class="home-wave">
+            </svg>
+
+            <!-- <img src="{% static 'greenClean/images/wave-2.svg' %}" class="home-wave"> -->
             <div class="impact-title"><b>CURRENT CHALLENGES</b></div>
-                <a id="challenges"></a>
-                <div class="impact-card fade-out">
-                    <div class="impact-img">
-                        <img class="img-i" src="{% static 'greenClean/images/pollution.png' %}" height="350" width="350">
+            <div class="impact-cards">
+                <div class="impacts-container">
+                    <div class="impact-card fade-out">
+                        <div class="impact-img">
+                            <img class="img-i" src="{% static 'greenClean/images/pollution.png' %}" height="350" width="350">
+                        </div>
+                        <div class="impact-content">
+                            <div class="impact-topic-head"><b>Water Pollution</b></div>
+                            <div class="impact-text">
+                                We as humans produce waste everyday, 
+                                and this waste often finds its way into 
+                                bodies of water, affecting the marine 
+                                ecosystems. The U.S alone produces 
+                                around 268 million tons of trash annually, 
+                                and around 10% of that find its way into 
+                                rivers, oceans, and other bodies of water. 
+                                <br>All this waste is extremely toxic to marine 
+                                life, killing over 1 million marine animals 
+                                each year.
+                            </div>
+                        </div>
                     </div>
-                    <div class="impact-content">
-                        <div class="impact-topic-head"><b>Water Pollution</b></div>
-                        <div class="impact-text">
-                            We as humans produce waste everyday, 
-                            and this waste often finds its way into 
-                            bodies of water, affecting the marine 
-                            ecosystems. The U.S alone produces 
-                            around 268 million tons of trash annually, 
-                            and around 10% of that find its way into 
-                            rivers, oceans, and other bodies of water. 
-                            <br>All this waste is extremely toxic to marine 
-                            life, killing over 1 million marine animals 
-                            each year.
+                    <div class="impact-card fade-out">
+                        <div class="impact-content">
+                            <div class="impact-topic-head"><b>Fossil Fuels</b></div>
+                            <div class="impact-text">
+                                The cars that we use, 
+                                the lights that we turn on, 
+                                the heater to keep us warm, 
+                                and many other things all have one thing in common, 
+                                fossil fuels. These fossil fuels can generate a lot of energy, 
+                                but at the same time, they generate a lot of pollution. 
+                                Currently, 89% of global CO2 emissions come from fossil fuels, 
+                                making it extremely damaging to the environment. 
+                                The greenhouse gases from burning fossil fuels cause global warming, 
+                                which in the end affects us humans, making the use of 
+                                fossil fuels deadly to everything and everyone.
+                            </div>
+                        </div>
+                        <div class="impact-img">
+                            <img class="img-i" src="{% static 'greenClean/images/fossil-fuels.png' %}" height="350" width="350">
+                        </div>
+                    </div>
+
+                    <div class="impact-card fade-out">
+                        <div class="impact-img">
+                            <img class="img-i" src="{% static 'greenClean/images/deforestation.png' %}" height="350" width="350">
+                        </div>
+                        <div class="impact-content">
+                            <div class="impact-topic-head"><b>Deforestation</b></div>
+                            <div class="impact-text">
+                                Wood is an essential resource to building many necessities 
+                                like houses, paper, and other things. Trees in general 
+                                are essential to the environment as they take in 
+                                carbon dioxide and produce fresh oxygen which we 
+                                humans breathe. However, due to the need for more 
+                                land to build cities and infrastructure, trees are 
+                                being cut down to make room. Around 15 billion trees are 
+                                cut down each year, and all these trees that are cut down 
+                                are less trees to produce oxygen, thus harming humans in the end.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-card fade-out">
+                        <div class="impact-content">
+                            <div class="impact-topic-head"><b>Mining</b></div>
+                            <div class="impact-text">
+                                The daily appliances that we see and 
+                                use in our daily lives is made up of 
+                                lots of minerals. For example, the lights 
+                                that we use at home are made up of copper, 
+                                aluminum, nickel, and a few other minerals. 
+                                However, all these minerals come from mining 
+                                the Earth, which is a major source of pollution 
+                                that damages the environment. Mining can cause 
+                                erosion, sinkholes, loss of biodiversity, and 
+                                can contaminate the soil, groundwater, and the 
+                                surrounding areas of the mining site. Mining is 
+                                responsible for about 7 percent of greenhouse - 
+                                gas emissions globally.
+                            </div>
+                        </div>
+                        <div class="impact-img">
+                            <img class="img-i" src="{% static 'greenClean/images/mining.png' %}" height="350" width="350">
                         </div>
                     </div>
                 </div>
-                <div class="impact-card fade-out">
-                    <div class="impact-content">
-                        <div class="impact-topic-head"><b>Fossil Fuels</b></div>
-                        <div class="impact-text">
-                            The cars that we use, the lights that we turn on, the heater to keep us warm, and many other things all have one thing in common, fossil fuels. These fossil fuels can generate a lot of energy, but at the same time, they generate a lot of pollution. Currently, 89% of global CO2 emissions come from fossil fuels, making it extremely damaging to the environment. These greenhouse gasses cause global warming, which in the end affects us humans, making the use of fossil fuels deadly to everything.
-                        </div>
-                    </div>
-                    <div class="impact-img">
-                        <img class="img-i" src="{% static 'greenClean/images/fossil-fuels.png' %}" height="350" width="350">
-                    </div>
+            </div>
+            <div class="positions"></div>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="bottom-wave">
+                <path fill="#06c072" fill-opacity="1" 
+                d="M0,32L30,42.7C60,53,120,75,180,90.7C240,107,300,117,
+                360,138.7C420,160,480,192,540,208C600,224,660,224,720,
+                202.7C780,181,840,139,900,149.3C960,160,1020,224,1080,
+                213.3C1140,203,1200,117,1260,96C1320,75,1380,117,1410,
+                138.7L1440,160L1440,320L1410,320C1380,320,1320,320,1260,
+                320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,
+                320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,
+                360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="bottom-spacer"></div>
+    </section>
+
+    <section class="second">
+        <div class="statsContainer">
+            <h2 class="fade-out">Tips to be Eco-Smart</h2>
+            <div class="stats">
+                <div class="stat fade-out right-bd bottom-bd">
+                    <img src="{% static 'greenClean/images/germ.png' %}" alt="">
+                    <h3>A Power Strip</h3>
+                    <p>Ever since COVID, more people are 
+                        starting to work from home so 
+                        it would be beneficial to install 
+                        a power strip. When you aren’t using 
+                        your tech for work, it is often left on - 
+                        wasting energy. Plugging devices into 
+                        power strip that can allow you to 
+                        turn everything off/on at once is convenient & saves energy!</p>
                 </div>
 
-                <div class="impact-card fade-out">
-                    <div class="impact-img">
-                        <img class="img-i" src="{% static 'greenClean/images/deforestation.png' %}" height="350" width="350">
-                    </div>
-                    <div class="impact-content">
-                        <div class="impact-topic-head"><b>Deforestation</b></div>
-                        <div class="impact-text">
-                            Wood is an essential resource to building many necessities like houses, paper, and other things. Trees in general are essential to the environment as they take in carbon dioxide and produce fresh oxygen which we humans breathe. However, due to the need for more land to build cities and infrastructure, trees are being cut down to make room. Around 15 billion trees are cut down each year, and all these trees that are cut down are less trees to produce oxygen, thus harming humans in the end.
-                        </div>
-                    </div>
+                <div class="stat fade-out right-bd bottom-bd">
+                    <img src="{% static 'greenClean/images/shower.png' %}" alt="">
+                    <h3>Aerating Faucets And Showerheads</h3>
+                    <p>Aerating Faucets & Showerheads are made of 
+                        screen layers that slow the flow of water, 
+                        providing more coverage with lower water usage. 
+                        This is a quick, cost-effective way to save water & money!</p>
                 </div>
-                <div class="impact-card fade-out">
-                    <div class="impact-content">
-                        <div class="impact-topic-head"><b>Mining</b></div>
-                        <div class="impact-text">
-                            The daily appliances that we see and use in our daily lives is made up of lots of minerals. For example, the lights that we use at home are made up of copper, aluminum, nickel, and a few other minerals. However, all these minerals come from mining the Earth, which is a major source of pollution that damages the environment. Mining can cause erosion, sinkholes, loss of biodiversity, and can contaminate the soil, groundwater, and the surrounding areas of the mining site. Mining is responsible for about 7 percent of greenhouse - gas emissions globally.
-                        </div>
-                    </div>
-                    <div class="impact-img">
-                        <img class="img-i" src="{% static 'greenClean/images/mining.png' %}" height="350" width="350">
-                    </div>
+
+                <div class="stat fade-out">
+                    <img src="{% static 'greenClean/images/bulb.png' %}" alt="">
+                    <h3>CFLs & LEDs</h3>
+                    <p>CFLs (Compact Fluorescent Lamps) & LEDs (Light Emmiting Diodes) are very energy efficient.
+                        They use 60-80% less energy compared to traditional incandescent bulbs while also lasting longer (saving money in the long run).
+                    These bulbs can cost as little as $5 and can save you more than $100!!</p>
                 </div>
+            </div>
+            <div class="extra">
+                Want to learn more about how you can help & why you should help? Check out some solutions you can implement & their advantages <a href="/solutions">here</a>
+            </div>
         </div>
     </section>
 
-
-    <!-- <section>
-        <a id="aboutus"></a>
-        <div class="aboutus">
-            <div class="logo">
-                <img src="{% static 'greenClean/images/logo-nobg.png' %}">
-            </div>
-            <div class="content">
-                <h3>Who are we: </h3>
-                <p class="description">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, enim omnis? Cumque impedit esse, odit temporibus vero et repudiandae quae, iusto totam laborum cupiditate doloribus, eius dolor necessitatibus natus in.
-                    Totam quas ab, veniam ratione minus fuga necessitatibus possimus, unde ducimus atque aliquam inventore eum voluptatem dignissimos culpa nam placeat maiores ullam, omnis fugiat consequuntur deleniti. Rem totam voluptate voluptatem.
-                </p>
-            </div>
-        </div>
-    </section> -->
-
-
+    
 
     <script>
         // Add your own texts here
@@ -144,8 +255,13 @@
         document.addEventListener("DOMContentLoaded", function() {
             var height = window.innerHeight;
             var b = document.querySelector("body");
-            const homeWave = document.querySelector(".home-wave")
             b.style["min-height"] = height;
+
+            const bottomSpacer = document.querySelector(".bottom-spacer")
+            const bottomWave = document.querySelector(".bottom-wave")
+            let botHeight = bottomWave.clientHeight;
+            bottomSpacer.style.height = botHeight - 130 + "px";
         } )
     </script>
+    <script src="{% static 'greenClean/js/impacts.js' %}"></script>
 {% endblock %}

@@ -1,3 +1,11 @@
+:root {
+    --map-info-txt-fs: 0.6rem;
+    --map-info-max-wid: 500px;
+    --map-info-min-wid: 300px;
+    --pointer-wid: 20px;
+    --pointer-fs: 0.5rem;
+}
+
 /* Map */
 .mapContainer {
     padding: 2em;
@@ -13,6 +21,7 @@
     display: block;
     font-style: italic;
     font-size: 0.8rem;
+    margin: 0.3em;
 }
 .mapContainer h2 {
     text-align: center;
@@ -34,13 +43,13 @@
 
 .map .pointers span {
     position: absolute;
-    width: 20px;
+    width: var(--pointer-wid);
     aspect-ratio: 1;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     color: white;
     display: grid;
-    font-size: 0.5rem;
+    font-size: var(--pointer-fs);
     place-items: center;
     counter-increment: span;
 }
@@ -53,19 +62,19 @@
 .hover-txt {
     position: absolute;
     color: white;
-    left: 100%;
+    right: 100%;
     top: 50%;
     background: rgba(0, 0, 0, 0.5);
-    max-width: 500px;
-    min-width: 300px;
+    max-width: var(--map-info-max-wid);
+    min-width: var(--map-info-min-wid);
     border-radius: 4px;
     text-shadow: 0 0 5px black;
     padding: 0.5em;
-    font-size: 0.6rem;
+    font-size: var(--map-info-txt-fs);
     opacity: 0;
     z-index: 1;
     scale: 0 0;
-    transform-origin: top left;
+    transform-origin: top right;
     transition: opacity linear 200ms, scale linear 200ms;
 }
 .hover-txt p {

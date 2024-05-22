@@ -3,15 +3,82 @@
 
 {% block title %}Documentation{% endblock %}
 
-{% block body %}
+{% block extraHead %}
+<style>
+    .flex-container {
+        display: flex;
+    }
 
+    div#a {
+        width: 40dvw;
+        height: 40dvh;
+        background-color: rgb(255,253,234);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+        gap: 1em;
+        margin: 2em;
+    }
+
+    .documents img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 500px;
+    }
+
+    .documents img:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+
+    .positionA {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        
+    }
+
+    .text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:100%;    
+        height:100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+    
     <div class="documents">
         <h1>Documents: </h1>
+        <div id = "a" class="flex-container">
+            <a href="{% static 'greenClean/docs/plan-of-work-log.pdf' %}" target="_blank">
+                <img src="paris.jpg" alt="Paris">
+                <div class="positionA"><a href="{% static 'greenClean/docs/plan-of-work-log.pdf' %}" target="_blank">Plan of Work Log</a></div>
+            </a>
+            <a href="{% static 'greenClean/docs/copyright-checklist.pdf' %}" target="_blank">
+                <img src="paris.jpg" alt="Paris">
+            </a>   
+        </div>
+        <div id = "a" class="flex-container">
+            <a href="{% static 'greenClean/docs/design-brief.pdf' %}" target="_blank">
+                <img src="paris.jpg" alt="Paris">
+            </a>
+            <a href="{% static 'greenClean/docs/site-map.pdf' %}" target="_blank">
+                <img src="paris.jpg" alt="Paris">
+            </a>   
+        </div>
         <div class="tsa-docs">
-            <div class="plan-work-log"><a href="{% static 'greenClean/plan-of-work-log.pdf' %}" target="_blank">Plan of Work Log</a></div>
-            <div class="copyright-checklist"><a href="{% static 'greenClean/copyright-checklist.pdf' %}" target="_blank">Copyright Checklist</a></div>
-            <div class="design-brief"><a href="{% static 'greenClean/design-brief.pdf' %}" target="_blank">Design Brief</a></div>
-            <div class="site-map"><a href="{% static 'greenClean/site-map.pdf' %}" target="_blank">Site Map</a></div>
+            <!--You can add the rest of the texts on the image like in the Plan of Work Log but you will have to try different postions-->
+            <div class="copyright-checklist"><a href="{% static 'greenClean/docs/copyright-checklist.pdf' %}" target="_blank">Copyright Checklist</a></div>
+            <div class="design-brief"><a href="{% static 'greenClean/docs/design-brief.pdf' %}" target="_blank">Design Brief</a></div>
+            <div class="site-map"><a href="{% static 'greenClean/docs/site-map.pdf' %}" target="_blank">Site Map</a></div>
         </div>
     </div>
 
@@ -19,10 +86,10 @@
         <h1>Citations: </h1>
         <div class="all-citations">
             <p>Home Page Challenges Icons, Solutions page icons, & Contact page earth icon all by Manuel Viveros from Flaticon</p>
-            <a href="https://www.flaticon.com/free-icons/renewable-energy" title="renewable energy icons">Renewable energy icons created by Freepik - Flaticon</a>
             <p>Haikei.app used for creation of svg wave pattern</p>
             <p>Home Page Earth Icon also from Flaticon</p>
             <p>Image by <a href="https://pixabay.com/users/grand_scient-720827/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1748403" target="_blank">Grand Scient</a> from Pixabay</p>
+            <p>SVG waves created from <a href="https://getwaves.io/">https://getwaves.io/</a></p>
         </div>
     </div>
 
