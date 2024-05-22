@@ -15,7 +15,7 @@
 }
 .impacts-container {
    display: flex;
-   justify-content: space-evenly;
+   justify-content: start;
    align-items: center;
 
    position: relative;
@@ -61,10 +61,9 @@
    justify-content: center;
    align-items: center;
 }
-/* .impact-img img {
-   width: 100%;
+.impact-img img {
    aspect-ratio: 1;
-} */
+}
 .img-i{
    max-width: 512px;
    min-width: 32px;
