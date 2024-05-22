@@ -2,8 +2,8 @@
 
 /* Home -- Avinav */
 .home{
-   height: 100%;
-   width:80%;
+   height: 100vh;
+   width: 80%;
    display:flex;
    flex-direction: row;
    justify-content: flex-start;
