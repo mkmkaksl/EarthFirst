@@ -161,6 +161,8 @@
         --map-info-max-wid: 350px;
         --map-info-min-wid: 150px;
 
+        --docs-grid-cols: 1fr;
+
     }
 
     #toggle-btn {

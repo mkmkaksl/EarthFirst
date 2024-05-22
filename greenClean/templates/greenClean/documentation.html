@@ -2,83 +2,31 @@
 {% load static %}
 
 {% block title %}Documentation{% endblock %}
-
-{% block extraHead %}
-<style>
-    .flex-container {
-        display: flex;
-    }
-
-    div#a {
-        width: 40dvw;
-        height: 40dvh;
-        background-color: rgb(255,253,234);
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        text-align: center;
-        gap: 1em;
-        margin: 2em;
-    }
-
-    .documents img {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px;
-        width: 500px;
-    }
-
-    .documents img:hover {
-        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-    }
-
-    .positionA {
-        position: absolute;
-        top: 20%;
-        left: 10%;
-        
-    }
-
-    .text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width:100%;    
-        height:100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-
-</style>
+{% block links %}
+    <link rel="stylesheet" href="{% static 'greenClean/css/documentation.css' %}">
 {% endblock %}
 
 {% block body %}
     
     <div class="documents">
         <h1>Documents: </h1>
-        <div id = "a" class="flex-container">
-            <a href="{% static 'greenClean/docs/plan-of-work-log.pdf' %}" target="_blank">
-                <img src="paris.jpg" alt="Paris">
-                <div class="positionA"><a href="{% static 'greenClean/docs/plan-of-work-log.pdf' %}" target="_blank">Plan of Work Log</a></div>
-            </a>
-            <a href="{% static 'greenClean/docs/copyright-checklist.pdf' %}" target="_blank">
-                <img src="paris.jpg" alt="Paris">
-            </a>   
-        </div>
-        <div id = "a" class="flex-container">
-            <a href="{% static 'greenClean/docs/design-brief.pdf' %}" target="_blank">
-                <img src="paris.jpg" alt="Paris">
-            </a>
-            <a href="{% static 'greenClean/docs/site-map.pdf' %}" target="_blank">
-                <img src="paris.jpg" alt="Paris">
-            </a>   
-        </div>
-        <div class="tsa-docs">
-            <!--You can add the rest of the texts on the image like in the Plan of Work Log but you will have to try different postions-->
-            <div class="copyright-checklist"><a href="{% static 'greenClean/docs/copyright-checklist.pdf' %}" target="_blank">Copyright Checklist</a></div>
-            <div class="design-brief"><a href="{% static 'greenClean/docs/design-brief.pdf' %}" target="_blank">Design Brief</a></div>
-            <div class="site-map"><a href="{% static 'greenClean/docs/site-map.pdf' %}" target="_blank">Site Map</a></div>
+        <div class="docs-container">
+            <div class="doc checklist">
+                <a href="{% static 'greenClean/docs/copyright-checklist.pdf' %}" target="_blank">Copyright Checklist</a>
+                <div class="bg"><img src="{% static 'greenClean/docs/copyright-checklist.png' %}" alt="Copyright Checklist Picture"></div>
+            </div>
+            <div class="doc design">
+                <a href="{% static 'greenClean/docs/design-brief.pdf' %}" target="_blank">Design Brief</a>
+                <div class="bg"><img src="{% static 'greenClean/docs/design-brief.png' %}" alt="Design Brief Picture"></div>
+            </div>
+            <div class="doc work-log">
+                <a href="{% static 'greenClean/docs/plan-of-work-log.pdf' %}" target="_blank">Plan Of Work Log</a>
+                <div class="bg"><img src="{% static 'greenClean/docs/work-log.png' %}" alt="Plan of Work Log Picture"></div>
+            </div>
+            <div class="doc site-map">
+                <a href="{% static 'greenClean/docs/site-map.pdf' %}" target="_blank">Site Map</a>
+                <div class="bg"><img src="{% static 'greenClean/docs/site-map.png' %}" alt="Site Map Picture"></div>
+            </div>
         </div>
     </div>
 

@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // for (let i = 0; i < allImpacts.length; i++) {
                 //     allImpacts[i].style.left = -1 * width * curPos + "px";
                 // }
-            }, 3000)
+            }, 10000)
         })
 
         allPositions.push(pos)
