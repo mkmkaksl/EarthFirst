@@ -1,4 +1,10 @@
+:root {
+    --resource-separator: radial-gradient(circle at center, rgba(100, 100, 100, 0.2), rgba(0, 0, 0, 0.0));
+    --resource-fs: 1.5rem;
+    --resource-wid: 100%;
 
+    --resource-heading-fs: 2rem;
+}
 @keyframes fade-down {
     0% {
         opacity: 0;
@@ -50,13 +56,17 @@ div#allLinksC {
 } */
 h1 { 
     animation: fade-down 0.5s;
+    font-size: var(--resource-heading-fs) !important;
 }
 .container {
-    display: flex;
+    margin: 5em;
+    width: 90%;
+    display: grid;
+    place-items: center;
 }
 
 .blocks-container {
-    width: 80%;
+    width: var(--resource-wid);
     margin: 1em;
     margin-bottom: 3em;
 }
@@ -65,30 +75,34 @@ h1 {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    border: 2px solid black;
     text-align: center;
 }
 
 .blocks-container .link-container {
     padding: 1em;
-    border-right: 1px solid black;
+    position: relative;
+}
+.blocks-container .link-container h2 {
+    font-size: var(--resource-heading-fs);
 }
 
 .blocks-container a {
     width: 100%;
+    font-size: var(--resource-fs);
     aspect-ratio: 1;
-    font-size: 1.2rem;
     border-radius: 10px;
-    border: 1px solid black;
 
     display: grid;
     place-items: center;
-    background: green;
     color: white;
     transition: background-color linear 200ms;
     animation: fade-down linear 500ms;
 }
 
 .blocks-container a:hover {
-    background: rgb(72, 255, 72);
+    background: var(--light-green-scheme);
 }
+
+.green-scheme {
+    background-color: var(--dark-green-scheme);
+ }

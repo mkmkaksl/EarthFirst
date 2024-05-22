@@ -38,6 +38,8 @@ form {
    opacity: 0;
    transform-origin: top;
    transition: scale linear 200ms, opacity linear 250ms;
+
+   text-align: center;
 }
 .form-section.active {
    display: flex;

@@ -6,10 +6,57 @@
 {% block metaKeywords %}{% endblock %}
 {% block links %}
 <link rel="stylesheet" href="{% static 'greenClean/css/map.css' %}">
+<link rel="stylesheet" href="{% static 'greenClean/css/table.css' %}">
     <link rel="stylesheet" href="{% static 'greenClean/css/statistics.css' %}">
 {% endblock %}
 
 {% block body %}
+
+    <div class="statsContainer">
+        <h2 class="fade-out">Statistics:</h2>
+        <div class="stats">
+            <div class="stat fade-out right-bd">
+                <img src="{% static 'greenClean/images/energy.png' %}" alt="">
+                <h3>Average Households</h3>
+                <p>The average household consumes <strong>~800-1,000 Kilowatt-hours(kWh)</strong> of electricity per month. This equates to <strong>~9,600-12,000 kWh</strong> annualy!</p>
+            </div>
+            <div class="stat fade-out">
+                <img src="https://www.svgrepo.com//show/227814/planet-earth-global.svg" alt="">
+                <h3>Around The World</h3>
+                <p>The world uses <strong>~180,000 terwatt-hours(tWh)</strong> of energy, with more than 75% of energy coming from fossil fuels!</p>
+            </div>
+
+            <div class="stat top-bd bottom-bd usa fade-out">
+                <h3>In the USA:</h3>
+                <p>The average annual household electricity consumption is <strong>10,632 kWh</strong></p>
+                <p>Mostly come from air conditioning & 
+                    heats (47% of energy), water heating 
+                    (14% of energy) , appliances 
+                    (fridge, washer/dryer, electric stove…)
+                    - 24%, lighting - 12%, and media 
+                    equipment - 3%</p>
+                <div class="us_plot">
+                    <div class="air_conditioning">47%</div>
+                    <div class="water_heating">14%</div>
+                    <div class="appliances"> 24%</div>
+                    <div class="lighting">12%</div>
+                    <div class="media">3%</div>
+                </div>
+            </div>
+
+            <div class="stat right-bd fade-out">
+                <img src="{% static 'greenClean/images/renewable-energy.png' %}" alt="">
+                <h3>Renewable Energy</h3>
+                <p><strong>Albania, Paraguay, Ethiopia, & Nepal </strong> produced more than 99.7% of their electricity using renewable energy sources in 2022. This is a great achievement and scientists describe it as a "irreversible tipping point"</p>
+            </div>
+
+            <div class="stat fade-out">
+                <img src="{% static 'greenClean/images/deforestation-2.png' %}" alt="">
+                <h3>Deforestation</h3>
+                <p>Around <strong>15 billion</strong> trees are cut down <strong>every</strong> year!! That's almost 2 trees cut down for every person on earth!! Find out more <a href="/#impacts">here</a></p>
+            </div>
+        </div>
+    </div>
 
     <div class="mapContainer">
         <h2>Hover/Click to see energy data:</h2>
@@ -180,51 +227,39 @@
         <span class="citation">**kw-hours = Kilowatt-hours = Unit of energy representing 1,000 watt-hours or 3.6*10<sup>6</sup> Joules</span>
     </div>
 
-    <div class="statsContainer">
-        <h2 class="fade-out">Statistics:</h2>
-        <div class="stats">
-            <div class="stat fade-out right-bd">
-                <img src="{% static 'greenClean/images/energy.png' %}" alt="">
-                <h3>Average Households</h3>
-                <p>The average household consumes <strong>~800-1,000 Kilowatt-hours(kWh)</strong> of electricity per month. This equates to <strong>~9,600-12,000 kWh</strong> annualy!</p>
-            </div>
-            <div class="stat fade-out">
-                <img src="https://www.svgrepo.com//show/227814/planet-earth-global.svg" alt="">
-                <h3>Around The World</h3>
-                <p>The world uses <strong>~180,000 terwatt-hours(tWh)</strong> of energy, with more than 75% of energy coming from fossil fuels!</p>
-            </div>
+    <div class="tableContainer">
+        <h2>Country Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="right-bd bottom-bd">Country</th>
+                    <th class="right-bd bottom-bd">Population</th>
+                    <th class="right-bd bottom-bd">Electricity Generation(tWh)</th>
+                    <th class="bottom-bd">Energy Per Capita(kWh per person)</th>
+                </tr>
+            </thead>
 
-            <div class="stat top-bd bottom-bd usa fade-out">
-                <h3>In the USA:</h3>
-                <p>The average annual household electricity consumption is <strong>10,632 kWh</strong></p>
-                <p>Mostly come from air conditioning & 
-                    heats (47% of energy), water heating 
-                    (14% of energy) , appliances 
-                    (fridge, washer/dryer, electric stove…)
-                     - 24%, lighting - 12%, and media 
-                     equipment - 3%</p>
-                <div class="us_plot">
-                    <div class="air_conditioning">47%</div>
-                    <div class="water_heating">14%</div>
-                    <div class="appliances"> 24%</div>
-                    <div class="lighting">12%</div>
-                    <div class="media">3%</div>
-                </div>
-            </div>
+            <tbody>
+                <!-- <tr>
+                    <td class="right-bd bottom-bd">USA</td>
+                    <td class="right-bd bottom-bd">{{ us.population }}</td>
+                    <td class="right-bd bottom-bd">{{ us.electricity_generation }}</td>
+                    <td class="bottom-bd">{{ us.energy_per_capita }}</td>
+                </tr> -->
 
-            <div class="stat right-bd fade-out">
-                <img src="{% static 'greenClean/images/renewable-energy.png' %}" alt="">
-                <h3>Renewable Energy</h3>
-                <p><strong>Albania, Paraguay, Ethiopia, & Nepal </strong> produced more than 99.7% of their electricity using renewable energy sources in 2022. This is a great achievement and scientists describe it as a "irreversible tipping point"</p>
-            </div>
-
-            <div class="stat fade-out">
-                <img src="{% static 'greenClean/images/deforestation-2.png' %}" alt="">
-                <h3>Deforestation</h3>
-                <p>Around <strong>15 billion</strong> trees are cut down <strong>every</strong> year!! That's almost 2 trees cut down for every person on earth!! Find out more <a href="/#impacts">here</a></p>
-            </div>
-        </div>
+                {% for country, data in country_data.items %}
+                    <tr>
+                            <td class="right-bd bottom-bd">{{ country }}</td>
+                            <td class="right-bd bottom-bd">{{ data.population }}</td>
+                            <td class="right-bd bottom-bd">{{ data.electricity_generation }}</td>
+                            <td class="bottom-bd">{{ data.energy_per_capita }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+
+    
 
     <script src="{% static 'greenClean/js/statistics.js' %}"></script>
 

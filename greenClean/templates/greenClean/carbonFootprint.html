@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}Your Carbon Footprint{% endblock %}
-{% block metaDescription %}Calculate your carbon footprint using our calculator!{% endblock %}
+{% block metaDescription %}Calculate your Carbon Footprint using our calculator!{% endblock %}
 {% block metaKeywords %}{% endblock %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'greenClean/css/calculator.css' %}">
@@ -29,7 +29,7 @@
                             <div class="good">You are doing better than the average person!</div>
                         {% elif total_prod > 13099.75 %}
                             <div class="bad">You are doing worse than the average person!</div>
-                            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+                            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your Carbon Footprint</a>
                         {% else %}
                             <div class="neutral">You are doing the same as the average person!</div>
                         {% endif %}
@@ -56,7 +56,7 @@
         <div class="form-section active">
         {% endif %}
             <div class="form-heading">
-                <h3>Energy:</h3>
+                <h3>Energy</h3>
             </div>
 
             {% for field in energyForm %}
@@ -81,7 +81,7 @@
                 <input type="hidden" name="energy_co2" id="co2_energy" value="">
             </div>
 
-            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your Carbon Footprint</a>
 
             <div class="form-btns">
                 <div class="form-btn-container next">
@@ -92,7 +92,7 @@
 
         <div class="form-section">
             <div class="form-heading">
-                <h3>Public Transportation:</h3>
+                <h3>Public Transportation</h3>
             </div>
 
             {% for field in transportForm %}
@@ -116,7 +116,7 @@
                 <input type="hidden" name="transport_co2" id="co2_transport" value="">
             </div>
 
-            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your Carbon Footprint</a>
 
             <div class="form-btns">
                 <div class="form-btn-container back">
@@ -131,7 +131,7 @@
 
         <div class="form-section">
             <div class="form-heading">
-                <h3>Flight:</h3>
+                <h3>Flight</h3>
             </div>
 
             {% for field in flightForm %}
@@ -155,7 +155,7 @@
                 <input type="hidden" name="flight_co2" id="co2_flight" value="">
             </div>
 
-            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your Carbon Footprint</a>
 
             <div class="form-btns">
                 <div class="form-btn-container back">
@@ -170,7 +170,7 @@
         
         <div class="form-section">
             <div class="form-heading">
-                <h3>Car Travel:</h3>
+                <h3>Car Travel</h3>
             </div>
 
             {% for field in carForm %}
@@ -194,7 +194,7 @@
                 <input type="hidden" name="car_co2" id="co2_car" value="">
             </div>
 
-            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your carbon footprint</a>
+            <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your Carbon Footprint</a>
 
             <div class="form-btns">
                 <div class="form-btn-container back">

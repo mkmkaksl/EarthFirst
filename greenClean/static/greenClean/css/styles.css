@@ -13,6 +13,10 @@
    --nav-sm-hei: 50px;
  
    --body-bg: rgb(255, 253, 234);
+   --green-scheme: #05c072;
+   --blue-scheme: #40b4da;
+   --light-green-scheme: #50dd8e;
+   --dark-green-scheme: #039d5e;
    /* --body-bg: white; */
 }
 label {
@@ -89,3 +93,33 @@ header {
 }
 
 
+/* Borders */
+
+:is(.top-bd, .right-bd)::before {
+   content: '';
+   position: absolute;
+   background: var(--stat-separator);
+}
+.bottom-bd::after {
+   content: '';
+   position: absolute;
+   background: var(--stat-separator);
+}
+.top-bd::before {
+   bottom: 100%;
+   left: 0;
+   right: 0;
+   height: 1px;
+}
+.bottom-bd::after {
+   top: 100%;
+   left: 0;
+   right: 0;
+   height: 1px;
+}
+.right-bd::before {
+   top: 0;
+   bottom: 0;
+   left: 100%;
+   width: 1px;
+}

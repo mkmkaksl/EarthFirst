@@ -1,0 +1,46 @@
+:root {
+    --table-wid: 80%;
+    --table-txt-fs: 1rem;
+    --table-head-fs: 0.8rem;
+}
+/* Table Container */
+.tableContainer {
+    border: 2px solid black;
+    width: var(--table-wid);
+    margin: 2em;
+    display: grid;
+    place-items: center;
+}
+
+.tableContainer table {
+    width: 100%;
+    text-align: center;
+}
+.tableContainer h2 {
+    width: 100%;
+    background-color: var(--dark-green-scheme);
+    margin: 0;
+    padding: 0.2em;
+    text-align: center;
+}
+
+table tr {
+    height: 4em;
+}
+
+table :is(td, th) {
+    position: relative;
+}
+td {
+    font-size: var(--table-txt-fs);
+}
+th {
+    font-size: var(--table-head-fs);
+}
+
+thead tr {
+    background-color: var(--green-scheme);
+}
+tbody tr td:nth-of-type(2n) {
+    background-color: #50dd8d49;
+}

@@ -34,34 +34,6 @@
     padding: 2em;
     /* border-radius: 20px; */
 }
-.stat:is(.top-bd, .right-bd)::before {
-    content: '';
-    position: absolute;
-    background: var(--stat-separator);
-}
-.stat.bottom-bd::after {
-    content: '';
-    position: absolute;
-    background: var(--stat-separator);
-}
-.stat.top-bd::before {
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    height: 1px;
-}
-.stat.bottom-bd::after {
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: 1px;
-}
-.stat.right-bd::before {
-    top: 0;
-    bottom: 0;
-    left: 100%;
-    width: 1px;
-}
 
 .stat img {
     width: 40%;

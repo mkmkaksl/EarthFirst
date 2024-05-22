@@ -41,7 +41,37 @@ document.addEventListener("DOMContentLoaded", () => {
     let width = allImpacts[0].clientWidth;
     width += width * 0.05;
 
+    let distLeft = innerImpactsContainer.getBoundingClientRect().left;
+
     carouselInterval = setInterval(() => {
+        moveRight();
+    }, 10000)
+
+
+    innerImpactsContainer.addEventListener('click', (e) => {
+        let pos = e.clientX;
+        pos -= distLeft;
+
+        let p1 = width/3;
+        let p2 = (2*width)/3;
+
+        if (pos > p2) {
+            moveRight();
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                moveRight();
+            }, 10000)
+        } else if (pos < p1) {
+            moveLeft();
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                moveRight();
+            }, 10000)
+        }
+    })
+
+
+    function moveRight() {
         allPositions[curPos].classList.remove("active")
         curPos++;
         if (curPos >= allImpacts.length) {
@@ -50,9 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
         allPositions[curPos].classList.add("active")
 
         innerImpactsContainer.style.left = -1 * width * curPos + "px";
-        // for (let i = 0; i < allImpacts.length; i++) {
-        //     allImpacts[i].style.left = -1 * width * curPos + "px";
-        // }
-    }, 3000)
+    }
+    function moveLeft() {
+        allPositions[curPos].classList.remove("active")
+        curPos--;
+        if (curPos < 0) {
+            curPos = allPositions.length-1;
+        }
+        allPositions[curPos].classList.add("active")
+
+        innerImpactsContainer.style.left = -1 * width * curPos + "px";
+    }
+
+
 })
 

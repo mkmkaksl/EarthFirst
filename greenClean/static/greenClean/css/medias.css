@@ -19,6 +19,8 @@
 @media (max-width: 980px) {
     :root {
         --impact-title-fs: 2.75rem;
+
+        --resource-fs: 1rem;
     }
 
     .home-content {
@@ -80,11 +82,6 @@
 @media (max-width: 777px) {
     :root {
         --impact-title-fs: 2rem;
-
-
-        /* --map-info-txt-fs: 0.4rem;
-        --map-info-max-wid: 350px;
-        --map-info-min-wid: 150px; */
     }
 
     .impact-cards {
@@ -153,6 +150,10 @@
         width: 100%;
         height: 100%;
     }
+
+    .mapContainer {
+        display: none;
+    }
 }
 
 /* New Nav Bar */
@@ -160,7 +161,7 @@
     :root {
         --link-gap: 0;
 
-        --pointer-wid: 10px;
+        --pointer-wid: 20px;
         --pointer-fs: 0.4rem;
 
         --map-info-txt-fs: 0.4rem;
@@ -196,7 +197,7 @@
         height: 0;
         overflow: hidden;
         transition: height 300ms;
-        z-index: 1;
+        z-index: 10;
         position: absolute;
         top: 100%;
     }
@@ -247,6 +248,14 @@
 @media (max-width: 580px) {
     :root {
         --calc-heading: 2.5rem;
+
+        --resource-fs: 0.8rem;
+        --resource-wid: 90%;
+        --resource-heading-fs: 1rem;
+
+        --table-wid: 90%;
+        --table-txt-fs: 0.85rem;
+        --table-head-fs: 0.65rem;
     }
 
     body {
@@ -333,6 +342,15 @@
         --map-info-txt-fs: 0.3rem;
         --map-info-max-wid: 250px;
         --map-info-min-wid: 80px;
+
+        
+        --resource-fs: 0.7rem;
+        --resource-wid: 100%;
+        --resource-heading-fs: 1rem;
+
+        --table-wid: 95%;
+        --table-txt-fs: 0.6rem;
+        --table-head-fs: 0.4rem;
     }
 
 
