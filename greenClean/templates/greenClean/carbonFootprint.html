@@ -24,10 +24,10 @@
                         kgCo<sub>2</sub> Per Year
                     </div>
                     <div class="details">
-                        The average person produced 13099.75 kgCo<sub>2</sub> in 2022!
-                        {% if total_prod < 13099.75 %}
+                        The average person produced 9285.037 kgCo<sub>2</sub>!
+                        {% if total_prod < 9285.037 %}
                             <div class="good">You are doing better than the average person!</div>
-                        {% elif total_prod > 13099.75 %}
+                        {% elif total_prod > 9285.037 %}
                             <div class="bad">You are doing worse than the average person!</div>
                             <a href="https://terrapass.com/product-category/individuals/" target="_blank">Offset your Carbon Footprint</a>
                         {% else %}
@@ -77,7 +77,7 @@
             {% endfor %}
 
             <div class="form-field-container">
-                <div class="carbon-footprint" id="energy_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
+                <div class="carbon-footprint" id="energy_co2">You produce 0 kgCO<sub>2</sub> per year</div>
                 <input type="hidden" name="energy_co2" id="co2_energy" value="">
             </div>
 
@@ -112,7 +112,7 @@
             {% endfor %}
 
             <div class="form-field-container">
-                <div class="carbon-footprint" id="transport_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
+                <div class="carbon-footprint" id="transport_co2">You produce <strong>0 kgCO<sub>2</sub></strong> per year</div>
                 <input type="hidden" name="transport_co2" id="co2_transport" value="">
             </div>
 
@@ -151,7 +151,7 @@
             {% endfor %}
 
             <div class="form-field-container">
-                <div class="carbon-footprint" id="flight_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
+                <div class="carbon-footprint" id="flight_co2">You produce <strong>0 kgCO<sub>2</sub></strong> per year</div>
                 <input type="hidden" name="flight_co2" id="co2_flight" value="">
             </div>
 
@@ -190,7 +190,7 @@
             {% endfor %}
 
             <div class="form-field-container">
-                <div class="carbon-footprint" id="car_co2">Grams of CO<sub>2</sub> Produced Yearly: </div>
+                <div class="carbon-footprint" id="car_co2">You produce <strong>0 kgCO<sub>2</sub></strong> per year</div>
                 <input type="hidden" name="car_co2" id="co2_car" value="">
             </div>
 

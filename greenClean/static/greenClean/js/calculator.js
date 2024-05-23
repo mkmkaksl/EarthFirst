@@ -45,18 +45,24 @@ function calculations() {
     elec_country.addEventListener('change', () => {
         emissionFactor = carbonIntensitiesObject[elec_country.value];
         if (elec_usage.value != 0) {
-            const co2 = Math.round(emissionFactor * elec_usage.value * 52).toLocaleString("en-US");
-            elec_carbon_footprint.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            const co2 = Math.round((emissionFactor * elec_usage.value * 52) / 1000).toLocaleString("en-US");
+            elec_carbon_footprint.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             elec_co2_input.value = co2;
         }
     })
     elec_usage.addEventListener("input", () => {
         if (elec_usage.value < 0) {
             elec_usage.value = 0;
-        } else {
+        } else if (elec_usage.value < 10000) {
             emissionFactor = carbonIntensitiesObject[elec_country.value];
-            const co2 = Math.round(emissionFactor * elec_usage.value * 52).toLocaleString("en-US");
-            elec_carbon_footprint.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            const co2 = Math.round((emissionFactor * elec_usage.value * 52) / 1000).toLocaleString("en-US");
+            elec_carbon_footprint.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
+            elec_co2_input.value = co2;
+        } else {
+            elec_usage.value = 10000;
+            emissionFactor = carbonIntensitiesObject[elec_country.value];
+            const co2 = Math.round((emissionFactor * elec_usage.value * 52) / 1000).toLocaleString("en-US");
+            elec_carbon_footprint.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             elec_co2_input.value = co2;
         }
     })
@@ -80,18 +86,24 @@ function calculations() {
         emissionFactor = publicEmissionFactors[transit_type.value];
 
         if (transit_dist.value != 0) {
-            const co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US"); // x52 due to data being weekly
-            transit_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            const co2 = Math.round((emissionFactor * transit_dist.value * 52) / 1000).toLocaleString("en-US"); // x52 due to data being weekly
+            transit_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             transit_co2_input.value = co2;
         }
     })
     transit_dist.addEventListener("input", () => {
         if (transit_dist.value < 0) {
             transit_dist.value = 0;
-        } else {
+        } else if (transit_dist.value < 10000) {
             emissionFactor = publicEmissionFactors[transit_type.value]
             const co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US");
-            transit_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            transit_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
+            transit_co2_input.value = co2;
+        } else {
+            transit_dist.value = 10000;
+            emissionFactor = publicEmissionFactors[transit_type.value]
+            const co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US");
+            transit_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             transit_co2_input.value = co2;
         }
     })
@@ -114,18 +126,24 @@ function calculations() {
         emissionFactor = flightEmissionFactors[flight_type.value];
 
         if (flight_dist.value != 0) {
-            const co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
-            flight_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            const co2 = Math.round((emissionFactor * flight_dist.value) / 1000).toLocaleString("en-US");
+            flight_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             flight_co2_input.value = co2;
         }
     })
     flight_dist.addEventListener("input", () => {
         if (flight_dist.value < 0) {
             flight_dist.value = 0;
-        } else {
+        } else if (flight_dist.value < 100000) {
             emissionFactor = flightEmissionFactors[flight_type.value]
             const co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
-            flight_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            flight_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
+            flight_co2_input.value = co2;
+        } else {
+            flight_dist.value = 100000;
+            emissionFactor = flightEmissionFactors[flight_type.value]
+            const co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
+            flight_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             flight_co2_input.value = co2;
         }
     })
@@ -148,40 +166,46 @@ function calculations() {
         emissionFactor = carEmissionFactors[car_type.value];
 
         if (car_dist.value != 0) {
-            const co2 = Math.round(emissionFactor * car_dist.value * 52).toLocaleString("en-US");
-            car_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            const co2 = Math.round((emissionFactor * car_dist.value * 52) / 1000).toLocaleString("en-US");
+            car_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             car_co2_input.value = co2;
         }
     })
     car_dist.addEventListener("input", () => {
         if (car_dist.value < 0) {
             car_dist.value = 0;
-        } else {
+        } else if (car_dist.value < 10000) {
             emissionFactor = carEmissionFactors[car_type.value]
-            const co2 = Math.round(emissionFactor * car_dist.value * 52).toLocaleString("en-US");
-            car_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+            const co2 = Math.round((emissionFactor * car_dist.value * 52) / 1000).toLocaleString("en-US");
+            car_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
+            car_co2_input.value = co2;
+        } else {
+            car_dist.value = 10000;
+            emissionFactor = carEmissionFactors[car_type.value]
+            const co2 = Math.round((emissionFactor * car_dist.value * 52) / 1000).toLocaleString("en-US");
+            car_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
             car_co2_input.value = co2;
         }
     })
 
 
     emissionFactor = carbonIntensitiesObject[elec_country.value];
-    let co2 = Math.round(emissionFactor * elec_usage.value * 52).toLocaleString("en-US");
-    elec_carbon_footprint.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+    let co2 = Math.round((emissionFactor * elec_usage.value * 52) / 1000).toLocaleString("en-US");
+    elec_carbon_footprint.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
     elec_co2_input.value = co2;
 
     emissionFactor = publicEmissionFactors[transit_type.value]
-    co2 = Math.round(emissionFactor * transit_dist.value * 52).toLocaleString("en-US");
-    transit_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+    co2 = Math.round((emissionFactor * transit_dist.value * 52) / 1000).toLocaleString("en-US");
+    transit_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
     transit_co2_input.value = co2;
 
     emissionFactor = flightEmissionFactors[flight_type.value]
-    co2 = Math.round(emissionFactor * flight_dist.value).toLocaleString("en-US");
-    flight_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+    co2 = Math.round((emissionFactor * flight_dist.value) / 1000).toLocaleString("en-US");
+    flight_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
     flight_co2_input.value = co2;
     
     emissionFactor = carEmissionFactors[car_type.value]
-    co2 = Math.round(emissionFactor * car_dist.value * 52).toLocaleString("en-US");
-    car_co2.innerHTML = "Grams of CO<sub>2</sub> Produced Yearly: <strong>" + (co2) + " gCO<sub>2</sub></strong>"
+    co2 = Math.round((emissionFactor * car_dist.value * 52) / 1000).toLocaleString("en-US");
+    car_co2.innerHTML = "You produce <strong>" + (co2) + " kgCO<sub>2</sub></strong> per year"
     car_co2_input.value = co2;
 }

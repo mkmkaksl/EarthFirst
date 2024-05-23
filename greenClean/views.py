@@ -85,7 +85,7 @@ class EnergyForm(forms.Form):
     locations = [(country, country) for country in countries]
 
     location = forms.CharField(widget=forms.Select(choices=locations))
-    energy = forms.FloatField(label="Average Weekly Energy Used in kWh(kilowatt-hours): ", min_value=0)
+    energy = forms.FloatField(label="Average Weekly Energy Used in kWh(kilowatt-hours): ", min_value=0, max_value=10000)
 
 class TransportationForm(forms.Form):
     #Public Transportation
@@ -98,7 +98,7 @@ class TransportationForm(forms.Form):
         ("National Train", "National Train")
     ]
     transport_type = forms.CharField(widget=forms.Select(choices=transport_types), label="Transportation Type: ")
-    distance = forms.FloatField(label="Average Weekly Distance Traveled(Kilometers): ")
+    distance = forms.FloatField(label="Average Weekly Distance Traveled(Kilometers): ", max_value=10000)
 
 class FlightForm(forms.Form):
     #Flight
@@ -110,7 +110,7 @@ class FlightForm(forms.Form):
         ("Long Business Class Flight", "Long Business Class Flight"),
     ]
     flight_type = forms.CharField(widget=forms.Select(choices=flight_types), label="Flight Type: ")
-    flight_dist = forms.FloatField(label="Average Yearly Distance Traveled(Kilometers): ")
+    flight_dist = forms.FloatField(label="Average Yearly Distance Traveled(Kilometers): ", max_value=100000)
 
 class CarForm(forms.Form):
     #Car
@@ -118,7 +118,7 @@ class CarForm(forms.Form):
     carOptions = [(car, car) for car in cars]
 
     car_type = forms.CharField(widget=forms.Select(choices=carOptions), label="Car Type: ")
-    car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ")
+    car_dist = forms.FloatField(label="Average Weekly Distance Travelled(Kilometers): ", max_value=10000)
 
 
 # Create your views here.

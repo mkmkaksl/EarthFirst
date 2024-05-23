@@ -64,6 +64,7 @@
    align-items: flex-start;
    font-size: 4rem;
    width: 100%;
+   -webkit-text-stroke: 1px black;
 }
 #cont-1{
    color: var(--green-scheme);
