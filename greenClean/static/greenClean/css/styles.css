@@ -4,7 +4,7 @@
       box-sizing: border-box;
       background: none;
       transition: opacity linear 200ms;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 :root {

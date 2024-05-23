@@ -27,11 +27,16 @@
         flex-direction: column;
         align-items: flex-end;
         gap: 0.5em;
+        border: 2px solid green;
     }
     .home-img {
-        width: 90%;
-        margin-top: 3em;
-        margin-bottom: 0;
+        width: 100%;
+        border: 2px solid red;
+        align-self: center;
+    }
+    .home-img img {
+        border: 2px solid black;
+        border-radius: 50%;
     }
     .home-title-box .title {
         font-size: 3rem;
@@ -273,9 +278,14 @@
         --map-info-min-wid: 100px;
     }
     .home-img {
-        width: 70%;
-        margin-top: 4em;
-        margin-bottom: 0;
+        width: 100%;
+        margin: 1em;
+        border-radius: 50%;
+        padding: 0;
+    }
+    .home-title-box {
+        margin: 0;
+        padding: 0;
     }
     .home-title-box .title {
         font-size: 2rem;

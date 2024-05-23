@@ -23,11 +23,13 @@
    left: 0px;
    inset: 0;
    transition: inset linear 300ms, scale linear 300ms;
+   max-height: 100%;
 }
 .impact-cards {
    display: flex;
    justify-content: space-between;
    align-items: center;
+
    width: 80%;
    overflow: hidden;
 }
@@ -43,10 +45,12 @@
 .impact-card{
 
    width: 95%;
+   height: 100%;
    flex-shrink: 0;
    display: grid;
    place-items: center;
    grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr;
 
    gap: 1em;
    margin: 2.5%;
@@ -54,6 +58,7 @@
    border-radius: 20px;
    padding: 1em 4em;
    position: relative;
+   overflow: hidden;
 }
 .impact-img {
    display: flex;
