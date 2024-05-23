@@ -28,14 +28,12 @@
         width: 100%;
         aspect-ratio: 1;
         gap: 0.5em;
-        /* border: 2px solid green; */
     }
     .home-img {
         width: 100%;
         align-self: center;
     }
     .home-img img {
-        /* border: 2px solid black; */
         width: 100%;
     }
     .home-title-box .title {
@@ -180,7 +178,6 @@
     #toggle-btn {
         display: block;
         border-radius: 10px 10px 0 0;
-        /* border: 2px solid black; */
         color: black;
         font-size: 2rem;
         width: var(--nav-sm-wid);
@@ -198,7 +195,6 @@
     #nav-m .nav-m-container {
         display: flex;
         flex-direction: column;
-        /* border: 3px solid yellow; */
         height: 0;
         overflow: hidden;
         transition: height 300ms;
