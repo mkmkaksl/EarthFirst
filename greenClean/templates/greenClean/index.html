@@ -14,9 +14,12 @@
     .stats {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    .bottom-bd::after {
+    .bottom-bd:nth-of-type(n+4)::after {
         display: none;
     }
+    /* .bottom-bd::after {
+        display: none;
+    } */
 
     @media (max-width: 1115px) {
         .stats {
@@ -172,7 +175,13 @@
                     </div>
                 </div>
             </div>
-            <div class="positions"></div>
+            <div class="positionsContainer">
+                <div class="left"><button><i class="fa-solid fa-caret-left"></i></button></div>
+                <div class="positions">
+                
+                </div>
+                <div class="right"><button><i class="fa-solid fa-caret-right"></i></button></div>
+            </div>
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="bottom-wave">
                 <path fill="#05c072" fill-opacity="1" 
@@ -216,14 +225,46 @@
                         This is a quick, cost-effective way to save water & money!</p>
                 </div>
 
-                <div class="stat fade-out">
+                <div class="stat fade-out bottom-bd">
                     <img src="{% static 'greenClean/images/bulb.png' %}" alt="">
                     <h3>CFLs & LEDs</h3>
                     <p>CFLs (Compact Fluorescent Lamps) & LEDs (Light Emmiting Diodes) are very energy efficient.
                         They use 60-80% less energy compared to traditional incandescent bulbs while also lasting longer (saving money in the long run).
                     These bulbs can cost as little as $5 and can save you more than $100!!</p>
                 </div>
+
+                <div class="stat fade-out right-bd bottom-bd">
+                    <img src="{% static 'greenClean/images/geothermal.png' %}" alt="">
+                    <h3>Geothermal Heat Pumps</h3>
+                    <p>Geothermal heat pumps transfer heat 
+                        into and out of the home using 
+                        the ground as both a heat source 
+                        and a heat sink. They are long 
+                        lasting (up to 10-15 years) and 
+                        very durable.
+                    </p>
+                </div>
+                <div class="stat fade-out right-bd bottom-bd">
+                    <img src="{% static 'greenClean/images/window.png' %}" alt="">
+                    <h3>Energy Efficient Windows</h3>
+                    <p>Energy efficient windows and 
+                        insulated siding can keep 
+                        your house comfortable no matter 
+                        the weather/season outside. They 
+                        do this by absorbing the heat from 
+                        the sun in the winter and reflecting 
+                        it in the summer.</p>
+                </div>
+                <div class="stat fade-out">
+                    <img src="{% static 'greenClean/images/solar-panel.png' %}" alt="">
+                    <h3>Solar Panels</h3>
+                    <p>Solar Panels, made up of PV (Photovoltaic) cells, convert sunlight 
+                        into electricity and can outputs anywhere from 10 - 400 watts.
+                        Even though the initial investment costs can be as high as $14,696, they can help you save more than $100 per month, which 
+                    can end up being really helpful in the long-term.</p>
+                </div>
             </div>
+            
             <div class="extra">
                 Want to learn more about how you can help & why you should help? Check out some solutions you can implement & their advantages <a href="/solutions">here</a>
             </div>

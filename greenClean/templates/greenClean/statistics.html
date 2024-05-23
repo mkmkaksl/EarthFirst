@@ -10,23 +10,40 @@
     <link rel="stylesheet" href="{% static 'greenClean/css/statistics.css' %}">
 {% endblock %}
 
+{% block extraHead %}
+<style>
+    .statsContainer {
+        padding-top: 2em;
+        margin: 0;
+    }
+    .stats {
+        gap: 1em;
+    }
+    .stats .stat {
+        background-color: rgba(0, 255, 0, 0.2);
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}
+
 {% block body %}
 
     <div class="statsContainer">
-        <h2 class="fade-out">Statistics:</h2>
+        <h2 class="fade-out common-title">Statistics:</h2>
         <div class="stats">
-            <div class="stat fade-out right-bd">
+            <div class="stat fade-out right-bd bottom-bd">
                 <img src="{% static 'greenClean/images/energy.png' %}" alt="">
                 <h3>Average Households</h3>
                 <p>The average household consumes <strong>~800-1,000 Kilowatt-hours(kWh)</strong> of electricity per month. This equates to <strong>~9,600-12,000 kWh</strong> annualy!</p>
             </div>
-            <div class="stat fade-out">
+            <div class="stat fade-out bottom-bd">
                 <img src="https://www.svgrepo.com//show/227814/planet-earth-global.svg" alt="">
                 <h3>Around The World</h3>
                 <p>The world uses <strong>~180,000 terwatt-hours(tWh)</strong> of energy, with more than 75% of energy coming from fossil fuels!</p>
             </div>
 
-            <div class="stat top-bd bottom-bd usa fade-out">
+            {% comment %} <div class="stat top-bd bottom-bd usa fade-out">
                 <h3>In the USA:</h3>
                 <p>The average annual household electricity consumption is <strong>10,632 kWh</strong></p>
                 <p>Mostly come from air conditioning & 
@@ -42,7 +59,7 @@
                     <div class="lighting">12%</div>
                     <div class="media">3%</div>
                 </div>
-            </div>
+            </div> {% endcomment %}
 
             <div class="stat right-bd fade-out">
                 <img src="{% static 'greenClean/images/renewable-energy.png' %}" alt="">

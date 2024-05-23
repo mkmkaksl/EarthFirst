@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let allPositions = []
     let carouselInterval
 
+    const leftBtn = document.querySelector(".positionsContainer .left button");
+    const rightBtn = document.querySelector(".positionsContainer .right button");
+
     for (let i = 0; i < allImpacts.length; i++) {
         let pos = document.createElement("div")
         pos.classList.add("position")
@@ -68,6 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 moveRight();
             }, 10000)
         }
+    })
+
+    leftBtn.addEventListener("click", () => {
+        moveLeft();
+        clearInterval(carouselInterval);
+        carouselInterval = setInterval(() => {
+            moveRight();
+        }, 10000)
+    })
+    rightBtn.addEventListener("click", () => {
+        moveRight();
+        clearInterval(carouselInterval);
+        carouselInterval = setInterval(() => {
+            moveRight();
+        }, 10000)
     })
 
 

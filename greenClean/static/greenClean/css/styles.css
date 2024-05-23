@@ -123,3 +123,13 @@ header {
    left: 100%;
    width: 1px;
 }
+
+
+.common-title {
+   text-align: center;
+   font-size: 3.5rem;
+   font-weight: 600;
+   color: #35875B;
+   margin: 0;
+   padding: 0 0 0.5em 0!important;
+}

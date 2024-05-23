@@ -26,7 +26,8 @@ form {
    position: absolute;
    inset: 0;
 
-   background-color: rgba(137, 221, 123, 0.7);
+   /* background-color: rgba(137, 221, 123, 0.7); */
+   background-color: var(--light-green-scheme);
    border-radius: 20px;
    padding: 2em 1.5em;
    color: white;
@@ -55,25 +56,26 @@ form {
 
 .form-section a {
    align-self: center;
-   color: white;
-   text-shadow: 0 0 5px black;
-   border-bottom: 1px solid white;
+   color: black;
+   border-bottom: 1px solid black;
    transition: color linear 200ms;
 }
 .form-section a:hover {
-   text-shadow: none;
-   color: black;
-   border-bottom-color: black;
+   color: var(--dark-green-scheme);
+   border-bottom-color: var(--dark-green-scheme);
 }
 
 .form-heading h3 {
-   text-shadow: 2px 2px 5px black;
+   /* text-shadow: 2px 2px 5px black; */
+   -webkit-text-stroke: 1px black;
+   font-weight: bolder;
    margin: 0;
    font-size: var(--calc-heading);
 }
 
 .form-field-container {
-   background-color: #6FB463;
+   /* background-color: #6FB463; */
+   background: var(--dark-green-scheme);
    padding: 1em;
    width: 100%;
    border-radius: 10px;
@@ -85,7 +87,8 @@ form {
 }
 
 .form-section.active > .form-field-container:nth-child(2) select {
-   background-color: rgba(137, 221, 123, 1);
+   /* background-color: rgba(137, 221, 123, 1); */
+   background-color: var(--green-scheme);
    border-radius: 10px;
    border: none;
    padding: 0.5em;
@@ -101,7 +104,8 @@ form {
    gap: 0.5em;
 }
 .form-section.active > .form-field-container:nth-child(3) input {
-   background-color: rgba(137, 221, 123, 1);
+   /* background-color: rgba(137, 221, 123, 1); */
+   background-color: var(--green-scheme);
    border-radius: 10px;
    border: none;
    padding: 0.5em;
@@ -141,12 +145,23 @@ form {
    padding: 1em;
    padding-bottom: 0;
    display: grid;
+
    place-items: center;
-   text-shadow: 0 2px 5px black;
 }
 
 .production .prod_main {
    font-size: 3rem;
+   border: 1px solid black;
+   -webkit-text-stroke: 1px black;
+   background-color: var(--dark-green-scheme);
+   padding: 0.5em;
+   border-radius: 10px;
+   font-weight: bolder;
+   margin: 0.8em;
+}
+.production .prod_intro {
+   -webkit-text-stroke: 1px black;
+   font-weight: bolder;
 }
 
 .production .form-btn-container {
@@ -162,12 +177,14 @@ form {
    border: none;
    border-radius: 10px;
 }
-
 .production .details {
    font-size: 1.2rem;
    color: black;
    text-shadow: none;
    text-align: center;
+}
+.details > div {
+   margin: 0.5em;
 }
 .details .good {
    background-color: rgb(0, 255, 0);

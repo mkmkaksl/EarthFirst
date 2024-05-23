@@ -56,10 +56,10 @@ div#allLinksC {
 } */
 h1 { 
     animation: fade-down 0.5s;
-    font-size: var(--resource-heading-fs) !important;
 }
 .container {
     margin: 5em;
+    margin-top: 2em;
     width: 90%;
     display: grid;
     place-items: center;
@@ -81,9 +81,11 @@ h1 {
 .blocks-container .link-container {
     padding: 1em;
     position: relative;
+    /* border: 2px solid black; */
 }
 .blocks-container .link-container h2 {
     font-size: var(--resource-heading-fs);
+    position: relative;
 }
 
 .blocks-container a {
@@ -91,16 +93,22 @@ h1 {
     font-size: var(--resource-fs);
     aspect-ratio: 1;
     border-radius: 10px;
+    position: relative;
+
 
     display: grid;
     place-items: center;
     color: white;
-    transition: background-color linear 200ms;
+    transition: background-color linear 200ms, scale ease-in-out 200ms;
     animation: fade-down linear 500ms;
 }
 
 .blocks-container a:hover {
-    background: var(--light-green-scheme);
+    /* background: var(--light-green-scheme); */
+    background-color: transparent;
+    color: black; 
+    border: 5px solid var(--green-scheme);
+    scale: 1.05;
 }
 
 .green-scheme {
