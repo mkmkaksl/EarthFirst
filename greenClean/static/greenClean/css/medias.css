@@ -285,7 +285,6 @@
         margin: 1em;
         border-radius: 50%;
         padding: 0;
-        -ms-display: none;
     }
     /* .home-img img {
         max-width: 512px;
@@ -441,7 +440,6 @@
     .home-img {
         width: 60%;
         height: 30%;
-        /* border: 5px solid yellow; */
         margin: 1em;
         border-radius: 50%;
         padding: 0;
