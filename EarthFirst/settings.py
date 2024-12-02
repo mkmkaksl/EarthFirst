@@ -111,6 +111,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = False
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
+EMAIL_HOST_USER = '[Your Email]' #Email
+EMAIL_HOST_PASSWORD = '[Gmail App Password]' # Password
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
