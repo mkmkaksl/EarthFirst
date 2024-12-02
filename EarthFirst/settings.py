@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '*',
-    'manojk.pythonanywhere.com',
+    'earthfirst.pythonanywhere.com',
     '127.0.0.1'
 ]
 
@@ -111,8 +111,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = False
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'earthfirstwebmasters@gmail.com' #Email
-EMAIL_HOST_PASSWORD = 'efje exdx oycv kkke' # Password
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
